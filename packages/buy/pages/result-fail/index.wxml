@@ -1,0 +1,13 @@
+<!--pages/donate/msg/index.wxml-->
+<g-msg title="提交失败" status="error"
+  desc="请稍后再次尝试"
+  primary-text="返回首页"
+  second-text="继续登记"
+  bind:primaryTap="handlePrimaryTap"
+  bind:secondTap="handleSecondTap"
+  footerFixed
+>
+</g-msg>
+<view class="link">
+  <view bindtap="handleNav">口罩预约说明</view>
+</view>

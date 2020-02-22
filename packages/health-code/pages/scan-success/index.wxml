@@ -1,0 +1,102 @@
+<!--packages/health-code/pages/scan-success/index.wxml-->
+<view class="header">
+	<view class="user-info">
+		<view class="user-avatar">
+			<open-data type="userAvatarUrl"></open-data>
+		</view>
+		<!--微信昵称  -->
+		<view class="user-name">
+			<open-data class="mine-profile-nickname name" type="userNickName"></open-data>
+		</view>
+	</view>
+	<view class='user-symptom'>
+		<view wx:for="{{userSymptoms}}">{{item.name}}</view>
+	</view>
+	<view>
+		<text class="last-modify-time">最近自查上报时间：{{lastModifyTime}}</text>
+	</view>
+</view>
+<view class="line">
+</view>
+<view>
+	<g-tabs activeKey="{{ activeKey }}" position="relative" animated="{{ animated }}" bind:change="handleTabChange" data-key="activeKey">
+		<g-tab-pane tab="通行登记" key="1">
+			<g-wrapper title="测得体温">
+				<view class="select-btn-area">
+					<view class="select-btn {{curSelectedBtn==item.value?'active':''}}" bindtap="handleBtnTap" wx:for="{{temperatureRanges}}" value="{{item.value}}" data-value="{{item.value}}">{{item.name}}</view>
+				</view>
+				<view class="select-btn-temperature">
+					<input class="temperature" id="num1" focus='{true}' maxlength="1" value="{{temperatureNums.num1}}" bind:change="handleTemperChange"></input>
+					<input class="temperature" id="num2" maxlength="1" value="{{temperatureNums.num2}}" bind:change="handleTemperChange"></input>
+					.
+					<input class="temperature" id="num3" maxlength="1" value="{{temperatureNums.num3}}" bind:change="handleTemperChange"></input>
+					°C
+				</view>
+				{{formData.temperature}}
+			</g-wrapper>
+			<g-wrapper title="是否有如下症状（选填）">
+				<g-checkbox-group id="healStatu" items="{{checkItems}}" value="{{formData.healStatu}}" bind:change="handleChange" />
+				<g-textarea id="remark" label="其他症状" placeholder="请详细描述症状情况" value="{{formData.remark}}" bind:change="handleChange" />
+			</g-wrapper>
+
+			<g-wrapper title="通行状态（必选）">
+				<g-radio-group id="transStatu" items="{{transStatus}}" value="{{formData.transStatu}}" bind:change="handleChange" />
+			</g-wrapper>
+
+			<g-wrapper title="备注">
+				<g-textarea id="remark" placeholder="备注说明" value="{{formData.remark}}" bind:change="handleChange" />
+			</g-wrapper>
+			<button type="primary" style="width:50%;" bindtap='handleSubmitClick'>提交登记</button>
+		</g-tab-pane>
+
+		<g-tab-pane tab="历史记录" key="2">
+			<g-preview wx:for="{{historyRecords}}" bindtap="handleToggleTap" data-item="{{item}}">
+				<g-preview-item class="expend-item">
+					<text> {{item.dateTime}} | </text>
+					<text class="{{item.temperature>='37.3°C'?'font-color-red':''}}">体温:{{item.temperature>='37.3°C'?item.temperature:'正常'}}</text>
+					<g-icon type="arrow-down" size="32" class="history-icon" style="right:0px;position:absolute;" />
+				</g-preview-item>
+				<g-preview-item class="expend-item">
+					<g-icon class="history-icon" type="eye" size="32" />
+					<text>{{item.addr}}({{item.statu}})</text>
+				</g-preview-item>
+
+				<view class="{{expandItems[item.id]?'':'hidden'}}">
+					<g-preview-item>
+						症状列表: {{item.userSymptoms}}
+					</g-preview-item>
+					<g-preview-item wx:if="{{item.otherSymptom}}">
+						其他症状: {{item.otherSymptom}}
+					</g-preview-item>
+					<g-preview-item>
+						备注: {{item.remark}}
+					</g-preview-item>
+				</view>
+			</g-preview>
+		</g-tab-pane>
+	</g-tabs>
+</view>
+
+<!-- <view  class='history-list'>
+      <view wx:for="{{historyRecords}}" bindtap="handleToggleTap" data-item="{{item}}">
+        <view class="expend-item">
+          <text> {{item.dateTime}}    |  体温:{{item.temperature}}</text>
+          <g-icon type="arrow-down" size="32" class="history-icon" style="right:0px;position:absolute;" /></view>
+        <view class="expend-item">
+          <g-icon class="history-icon" type="eye" size="32" />
+          <text>{{item.addr}}({{item.statu}})</text>
+        </view>
+
+        <view class="{{expandItems[item.id]?'':'hidden'}}">
+          <view class="expend-item">
+            症状列表: {{item.userSymptoms}}
+          </view>
+          <view class="expend-item" wx:if="{{item.otherSymptom}}">
+            其他症状: {{item.otherSymptom}}
+          </view>
+          <view class='expend-item'>
+            备注: {{item.remark}}
+          </view>
+        </view>
+      </view>
+    </view> -->

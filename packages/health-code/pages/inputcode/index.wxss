@@ -1,0 +1,139 @@
+/* pages/test/index.wxss */
+
+.title {
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  color: #000;
+  margin-left: 32rpx;
+  letter-spacing: 0;
+  line-height: 68rpx;
+}
+
+.tl {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
+
+.image {
+  margin-top: 16rpx;
+  height: 268rpx;
+  width: 462rpx;
+}
+
+.sryzm {
+  margin-left: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
+
+.qk {
+  margin-left: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #4293f4;
+  text-align: center;
+}
+
+.btn {
+  margin: 32rpx;
+}
+
+.th {
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #4293f4;
+  text-align: center;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.select-btn-temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80rpx;
+  color: #000;
+}
+
+.select-btn-temperature>text {
+  font-size: 40rpx;
+  margin-left: 10rpx;
+}
+
+.select-btn-temperature>input {
+  height: 80rpx;
+}
+
+.temperature {
+  width: 80rpx;
+  margin-left: 10rpx;
+  border: 2px solid #e0e0e0;
+  text-align: center;
+  background: #fafafa;
+}
+
+.trip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.check {
+  width: 212rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 7.5rpx;
+  border: 2px solid #ebebeb;
+}
+
+.active {
+  border: 2px solid #4293f4;
+}
+
+.input {
+  letter-spacing: 10px;
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  color: #000;
+}
+
+.borderBottom {
+  padding-bottom: 16rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: 16rpx;
+  margin-bottom: 40rpx;
+  border-bottom-style: solid;
+  border-bottom-width: 1rpx;
+  border-bottom-color: #eee;
+}

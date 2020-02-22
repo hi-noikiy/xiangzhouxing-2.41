@@ -1,0 +1,61 @@
+<view>
+  <view>
+    <view class="rap-title">
+      <view class="rap-label">
+        <view class="rap-label-name">全部码</view>
+        <view>扫一扫，共享健康码</view>
+      </view>
+    </view>
+
+       <view class="item txt">
+         <view class="sk-list-row">
+            <view class="sd-name">
+              <text class="sd-text"> {{currentUserName}}</text>
+            </view>
+        </view>
+       </view>
+     
+    <view class="item" wx:for="{{list}}" wx:key="index" hover-class="hoverWhite" hover-stay-time="150">
+      <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt"  data-item="{{item}}">
+        <view class="sk-list-row">
+            <view class="sd-name">
+              <text class="sd-text"> {{item.qrcChild.username}}</text>
+            </view>
+        </view>
+  
+      </view>
+      <view data-index="{{index}}" bindtap="delItem" class="inner del">解绑</view>
+
+    </view>
+
+    <view class="rap-btn">
+      <button bind:tap='handlePoplayer' data-visible='{{true}}' type="primary">添加</button>
+      <button bind:tap='handleScanCode'>扫一扫共享二维码</button>
+    </view>
+  </view>
+  <view class="tips">快速共享健康码，提高出行效率</view>
+
+  <!-- 浮层--弹出添加健康码 -->
+  <g-poplayer visible="{{ visible }}" bind:close="handlePoplayer" data-visible='{{false}}'>
+    <view>
+    
+    <view >
+        <view class="dialogTitle">
+          <view >添加健康码</view>
+          <view class="add-code" bind:tap='handleNavigateTo' data-url="/pages/report/index/index?type=2">
+            上报新成员
+          </view>
+        </view>
+        <view class="rap-label-tips">选择他人的健康上报，生成健康码</view>
+      </view>
+
+      <scroll-view scroll-y class="scroll">
+        <view class='rap-flow-box'  wx:for="{{canSaveUserList}}" wx:key="index" hover-class="hoverWhite" hover-stay-time="150" >
+          <view class="itemBtn"  bind:tap='saveCodeUser' data-item="{{item}}"> {{item.username}}{{item.isSave?'(已添加)':''}}</view>
+
+        </view>
+      </scroll-view>
+    </view>
+  </g-poplayer>
+
+</view>

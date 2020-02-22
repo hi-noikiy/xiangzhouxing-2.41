@@ -1,0 +1,145 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.collapse-pane {
+  background: #FFF;
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+
+.collapse-pane__header {
+  position: relative;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collapse-pane__header:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8rpx;
+  height: calc(100% - 32rpx);
+  margin: 16rpx 0;
+  background: #4293f4;
+}
+
+.collapse-pane__title {
+  flex: 1;
+  font-size: 36rpx;
+  line-height: 48rpx;
+  line-height: 68rpx;
+  font-weight: bold;
+}
+
+.collapse-pane__content {
+  transition: all 0.3s;
+  height: auto;
+  opacity: 1;
+}
+
+.collapse-pane__content--hide {
+  height: 0;
+  opacity: 0;
+}

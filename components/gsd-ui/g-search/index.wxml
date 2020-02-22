@@ -1,0 +1,21 @@
+<!--pages/g-search/index.wxml-->
+<view class="search">
+  <view class="search__container {{_focus ? 'search--focus' : ''}} ">
+    <g-icon class="search__icon" type="search" size="32"/>
+    <input class="search__input"
+      type="text"
+      disabled="{{disabled}}"
+      value="{{value}}"
+      confirm-type="search"
+      placeholder-class="search__input--placeholder"
+      placeholder="{{placeholder}}"
+      focus="{{_focus}}"
+      bindfocus="handleInputFocus"
+      bindinput="handleInput"
+      bindconfirm="handleConfirm"
+      bindblur="handleBlur"
+    />
+    <g-icon wx:if="{{_isSearch && value}}" catch:tap="handleClear" class="clear__icon" type="close-circle" size="36"/>
+  </view>
+  <view wx:if="{{ _isSearch }}" class="search__cancel" catch:tap="handleCancel">取消</view>
+</view>

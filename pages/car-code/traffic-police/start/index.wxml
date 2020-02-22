@@ -1,0 +1,36 @@
+<!--index.wxml 交警端入口页-->
+<view class="traffic-gate">
+  <view>
+    <view class="back-image__wrapper">
+      <image src="https://imgcache.gzonline.gov.cn/cos/banner@2x_b7789a30.png" alt="" class="back-image"></image>
+    </view>
+    <view class='index__container'>
+      <view class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess" data-type="scan">
+        <view class="img">
+          <image src="https://imgcache.gzonline.gov.cn/cos/icon_scan_check@2x_f019eefb.png"></image>
+        </view>
+        <view class="right-content">
+          <view class="title">扫码检查</view>
+          <view class="desc">如发现肺炎事件情况，详细事件经过</view>
+        </view>
+      </view>
+      <block>
+        <view class="index__info">
+          <g-icon class="inline" type="info-o" size="26"/>
+          如行人暂未提交通行码, 
+          <view class="link" bindtap="handleTagShow">点击此处</view> 引导添加
+        </view>
+        <view class="qr-code {{showQR ? '' : 'is-hidden'}}" bindtap="handleHide">
+          <view class="code-main">
+            <view class="code-main__text">扫描下方小程序码</view>
+            <view class="code-main__text">重新登记信息</view>
+            <image class="code-image" src="https://imgcache.gzonline.gov.cn/cos/photo_wechat@2x_47367896.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+	<g-footer></g-footer>
+</view>
+
+

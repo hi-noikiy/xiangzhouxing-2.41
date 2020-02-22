@@ -1,0 +1,14 @@
+<!-- pages/g-address-item/index.wxml -->
+<view class="container component-class">
+  <view class="wrapper">
+    <view class="title title-class">
+      {{item.name}}
+      <view class="distance">{{item.distance}}</view>
+    </view>
+    <view class="address">
+      {{item.address}}
+      <text class="tag" wx:if="{{item.tag}}">（{{item.tag}}）</text>
+    </view>
+    <view class="desc {{ item.status ? 'desc--' + item.status : ''}} ">{{item.desc}}</view>
+  </view>
+</view>

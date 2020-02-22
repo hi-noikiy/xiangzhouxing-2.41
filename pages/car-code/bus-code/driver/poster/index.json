@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "车贴信息",
+    "usingComponents": {
+        "poster": "/miniprogram_dist/poster/index"
+    }
+}

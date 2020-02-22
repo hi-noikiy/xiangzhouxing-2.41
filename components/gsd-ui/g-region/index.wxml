@@ -1,0 +1,4 @@
+<!--pages/g-region/index.wxml-->
+<picker bindchange="handleChange" value="{{valueIndex}}" range="{{range}}" mode="multiSelector" bind:columnchange="handleColumnChange" range-key='name'>
+  <slot/>
+</picker>

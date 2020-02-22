@@ -1,0 +1,8 @@
+<!--pages/g-poplayer/index.wxml-->
+<view class="poplayer__mask {{ _visible? 'poplayer__mask--show':'' }}" catch:tap="handleCloseSelf" catchtouchmove></view>
+<view 
+ class="poplayer__content direction--{{direction}} my-class {{ _visible? 'poplayer__content--show':'' }}"
+ style="max-width: {{__levelDirection ? maxWidth : ''}}"
+>
+  <slot></slot>
+</view>

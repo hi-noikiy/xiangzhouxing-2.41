@@ -1,0 +1,23 @@
+<!--pages/donate/msg/index.wxml-->
+<g-msg title="{{buyType === 'lot'?'提交完成':'已在排队中'}}" status="success"
+  primary-text="返回首页"
+  bind:primaryTap="handlePrimaryTap"
+  bind:secondTap="handleSecondTap"
+  footerFixed
+>
+<view class="desc">
+  <block wx:if="{{buyType === 'lot'}}">
+    <view>
+      {{buyFlowInfo.rgisterSuccessText}}
+    </view>
+  </block>
+  <block wx:else>
+    <view>最终预约结果稍后公布，请在：</view>
+    <view><em>“个人中心——我的预约”</em>中查看。</view>
+    <view >成功预约用户需补填邮寄信息。</view>
+  </block>
+</view>
+</g-msg>
+<view class="link">
+  <view bindtap="handleNav">口罩预约说明</view>
+</view>

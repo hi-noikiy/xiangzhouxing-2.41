@@ -1,0 +1,118 @@
+/* components/plate-number-keyboard/plate-number-keyboard.wxss */
+@import "./iconfont/iconfont.wxss";
+
+button {
+  padding: 0rpx;
+}
+
+.plate-number-keyboard-box {
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  bottom: 0rpx;
+  right: 0rpx;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0);
+  z-index: 9999;
+}
+
+.pnk-main {
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  /* height: 466rpx; */
+  width: 100%;
+  background: rgb(205,208,215);
+}
+.province{
+  /* height: 558rpx; */
+}
+.pnk-main .pnk-main-title {
+  font-size: 24rpx;
+  height: 84rpx;
+  line-height: 50rpx;
+  color: #333;
+  border-bottom: 1rpx solid #ddd;
+  padding: 0rpx 10rpx;
+  overflow: hidden;
+  background: #D6D9DE;
+  box-shadow: 0 1px 0 0 #BBC2CA;
+}
+
+.pnk-main-title .txt {
+  float: right;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  line-height: 84rpx;
+  color: #030303;
+  letter-spacing: 0;
+  text-align: center;
+  margin-right: 22rpx;
+}
+.pnk-main-title .tip {
+  float: left;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  line-height: 84rpx;
+  color: #030303;
+  letter-spacing: 0;
+  text-align: center;
+  margin-left: 22rpx;
+}
+
+
+.pnk-content {
+  padding: 10rpx;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 14rpx;
+}
+
+.line:last-of-type {
+  margin-bottom: 0rpx;
+}
+
+.line .number-item {
+  width: 63rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 0 0 rgba(0,0,0,0.35);
+  border-radius: 10rpx;
+  border-radius: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #030303;
+  letter-spacing: 0;
+  text-align: center;
+}
+.line .number-item-big{
+  width: 246rpx;
+}
+
+.line .number-item:active {
+  background: #eee;
+}
+
+.line .handle-btn {
+  width: 105rpx;
+  background: #acb3bb;
+  font-size: 28rpx;
+  background: rgb(153,160,170);
+  box-shadow: 0 2rpx 0 0 rgba(0,0,0,0.35);
+  border-radius: 10rpx;
+  border-radius: 10rpx;
+}
+.line .handle-btn-big{
+  width: 171rpx;
+}
+
+.line .iconfont {
+  font-size: 40rpx;
+}

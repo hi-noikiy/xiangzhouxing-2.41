@@ -1,0 +1,107 @@
+/* packages/health-code/pages/scan-success/index.wxss */
+
+.header {
+  padding: 30rpx;
+}
+
+.user-info {
+  display: flex;
+}
+
+.user-avatar {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  z-index: 999;
+  margin-left: 10rpx;
+  margin-right: 30rpx;
+  overflow: hidden;
+}
+
+.user-name {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.user-symptom {
+  display: flex;
+  justify-content: space-between;
+  margin: 50rpx 0;
+}
+
+.last-modify-time {
+  font-size: 20rpx;
+  color: gray;
+}
+
+.line {
+  height: 20rpx;
+  width: 100%;
+  background-color: rgb(230, 230, 230);
+}
+
+.select-btn-area {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.select-btn {
+  border: 1px solid rgb(163, 163, 163);
+  text-align: center;
+  padding: 10rpx 0;
+  font-size: 24rpx;
+  width: 300rpx;
+  border-radius: 14rpx;
+  margin-left: 50rpx;
+  margin-top: 50rpx;
+}
+
+.active {
+  background-color: rgb(177, 209, 250);
+}
+
+.select-btn-temperature {
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+
+.temperature {
+  width: 60rpx;
+  margin-left: 10rpx;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-size: 48rpx;
+}
+
+.history-icon {
+  display: inline-block;
+
+}
+
+.expend-item {
+  display: flex;
+  padding: 20rpx 0;
+}
+
+.hidden {
+  /* visibility: hidden; */
+  display: none;
+}
+
+.history-list {
+  padding: 20rpx 0;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  position: relative;
+
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #909399;
+  margin-bottom: 10rpx;
+}
+
+.font-color-red {
+  color: red;
+}

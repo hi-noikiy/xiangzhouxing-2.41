@@ -1,0 +1,18 @@
+<g-form-item disabled='{{disabled}}'>
+  <view class='number-container'>
+    <view class='number-container__label inline-sytle'>
+      <text class="form-item__label--required" wx:if="{{required}}">*</text> 
+      {{label}}
+    </view>
+    <view class='number-container__numb-box inline-sytle'>
+      <view class="sign-sytle inline-sytle {{ _value - step >= min ? '' : 'exrange-sytle' }}" bindtap='subValue'>
+        -
+      </view>
+      <view class='count-sytle inline-sytle'>{{_value}}</view>
+      <view class="sign-sytle inline-sytle {{ _value - 0 + step > max ? 'exrange-sytle' : '' }}" bindtap='plusValue'>
+        +
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{desc && desc.length > 0}}' class='number-descBox'>{{desc}}</view>
+</g-form-item>

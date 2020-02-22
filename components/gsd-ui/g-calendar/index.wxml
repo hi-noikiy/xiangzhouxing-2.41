@@ -1,0 +1,49 @@
+<!-- pages/g-calendar/index.wxml -->
+<view class="calendar">
+  <!-- 月份 -->
+  <view class="calendar__month calendar__month--{{_mode}}">
+    {{_mode === 'multiple' ? _month[_current].month : ''}}
+  </view>
+  <!-- 日历框 -->
+  <view class="calendar__container">
+    <view class="calendar__week">
+      <view wx:for="{{_weekName}}" wx:key="{{item}}">{{item}}</view>
+    </view>
+    <view class="swiper-container">
+      <!-- 周 swiper -->
+      <swiper duration="300"
+        current="{{_current}}" 
+        class="calendar--{{_mode}}" 
+        bind:change="handleMonthSwiper"
+      >
+        <block wx:if="{{_mode === 'single'}}">
+          <swiper-item wx:for="{{_week}}" wx:key="{{item.date}}">
+            <view class="calendar__grids">
+              <view wx:for="{{item}}" wx:for-item="option" wx:key="{{option.date}}" class="calendar__date" data-option="{{option}}" catch:tap="handleTapDate">
+                <view class="calendar__date__warpper {{option.date === value ? 'calendar__date--active' : 'calendar__date--inactive'}} {{option.disabled ? 'calendar__date--disabled' : ''}}">
+                  {{option.day}}
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+        <!-- 月 swiper -->
+        <block wx:if="{{_mode === 'multiple'}}">
+          <swiper-item wx:for="{{_month}}" wx:key="{{item.month}}">
+            <view class="calendar__grids">
+              <view wx:for="{{item.date}}" wx:for-item="option" wx:key="{{option.date}}" data-option="{{option}}" class="calendar__date" catch:tap="handleTapDate">
+                <view class="calendar__date__warpper {{option.date === value ? 'calendar__date--active' : 'calendar__date--inactive'}} {{option.disabled ? 'calendar__date--disabled' : ''}}">
+                  {{option.day}}
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!-- 下拉框 -->
+  <view class="calendar__arrow calendar__arrow--{{_mode}}">
+    <image src="https://imgcache.gzonline.gov.cn/cos/up-arrow_ace5374d.png" class="calendar__arrow-image" catch:tap="handleToggleMode"/>
+  </view>
+</view>

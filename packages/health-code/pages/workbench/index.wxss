@@ -1,0 +1,109 @@
+/* packages/health-code/pages/workbench/index.wxss */
+
+page {
+  background: #f2f2f2;
+}
+.hoverGreen{
+  background: #638D1B !important
+}
+.hoverWhite{
+  background: #EEEEEE !important
+}
+.greenBox {
+  align-items: center;
+  height: 200rpx;
+  background: #78ae20;
+  border-radius: 8rpx;
+  margin: 16rpx;
+}
+.heightFill{
+  height: 100%
+}
+.center{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.whiteBox {
+  background: white;
+  margin: 16rpx;
+  border-radius: 8rpx;
+}
+
+.marginTop16 {
+  margin-top: 16rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.backgroundGreen {
+  background-color: green;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.myServer {
+  line-height: 100rpx;
+  margin-left: 24rpx;
+  width: 100%;
+  color: #aaa;
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border-style: solid;
+  border-width: 1rpx;
+  border-color: #d7d7d7;
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+.item {
+  margin: 5rpx;
+  width: calc(calc(100% / 3) - 3rpx);
+  height: 240rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 1rpx;
+  border-color: #d7d7d7;
+  border-bottom-width: 0;
+  border-left-width: 0;
+}
+ 
+
+.image {
+  width: 68rpx;
+  height: 68rpx;
+}
+
+.div16{
+  height: 16rpx
+}

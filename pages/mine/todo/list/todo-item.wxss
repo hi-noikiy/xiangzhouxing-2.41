@@ -1,0 +1,77 @@
+.todo-item-slot {
+  position: relative;
+  height: 78rpx;
+  font-size: 24rpx;
+}
+
+.todo-item-slot .title, .todo-item-slot .date {
+  position: absolute;
+  line-height: 100%;
+}
+
+.todo-item-slot .title {
+  top: 4rpx;
+  font-size: 32rpx;
+  color: #000;
+  width:450rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-item-slot .date {
+  bottom: 4rpx;
+  color: #989A9C;
+}
+
+.todo-item-slot .tips,
+.todo-item-slot .reapply {
+  float: right;
+  max-width: 180rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-item-slot .tips {
+  color: #9B9B9B;
+}
+
+.todo-item-slot .reapply {
+  color: #3949AB;
+  font-size: 28rpx;
+}
+
+.todo-item-slot .dot {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  border-radius: 40rpx;
+  margin-right: 10rpx;
+  background: #999;
+  transform: scale3d(0.25, 0.25, 1);
+}
+.doing-title{
+  display: inline-block;
+  font-size: 32rpx;
+  width:450rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*未读*/
+.todo-item-slot.unread .dot {
+  background: #f00;
+}
+
+
+/*线的颜色*/
+.weui-cell:before {
+  border-color: #eaeaea;
+}
+
+.weui-cell {
+  line-height: 78rpx;
+}

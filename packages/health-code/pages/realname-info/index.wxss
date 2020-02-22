@@ -1,0 +1,38 @@
+.title {
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 68rpx;
+  margin-top: 36rpx;
+  margin-left: 32rpx;
+  margin-right: 32prx;
+  margin-bottom: 32rpx;
+}
+
+.textL {
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #666;
+  line-height: 84rpx;
+  min-width: 140rpx;
+}
+
+.textR {
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #666;
+  line-height: 84rpx;
+   
+}
+
+.box {
+  margin: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.btn {
+  margin: 64rpx 32rpx;
+}

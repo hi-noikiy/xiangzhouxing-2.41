@@ -1,0 +1,25 @@
+<view class="circle">
+  <view class="circle__wrapper" wx:if="{{current}}">
+    <view class="circle__wrapper__left">
+      <view class="circle__left" style="transform: rotate({{leftRotateDeg}}deg);-webkit-transform: rotate({{leftRotateDeg}}deg);"></view>
+    </view>
+    <view class="circle__wrapper__right">
+      <view class="circle__right" style="transform: rotate({{rightRotateDeg}}deg);-webkit-transform: rotate({{rightRotateDeg}}deg);"></view>
+    </view>
+    <view class="circle__text">{{current}}</view>
+    <view class="circle__background"></view>
+  </view>
+
+  <block wx:if="{{status === 'success'}}">
+    <g-icon type="success-o" size="69" color="#03A596"/>
+  </block>
+  <block wx:if="{{status === 'warn'}}">
+    <g-icon type="warn-o" size="69" color="#999999"/>
+  </block>
+  <block wx:if="{{status === 'error'}}">
+    <g-icon type="warn-o" size="69" color="#f13939"/>
+  </block>
+  <block wx:if="{{status === 'wait'}}">
+    <g-icon type="wait-o" size="69" color="#C02C38"/>
+  </block>
+</view>

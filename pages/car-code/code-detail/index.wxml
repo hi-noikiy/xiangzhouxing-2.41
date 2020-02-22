@@ -1,0 +1,37 @@
+<!--pages/car-code/code-detail/index.wxml-->
+<view class="container">
+  	<view class="header">
+		<view class="header-field">
+			<!-- 
+		  bindlongpress="saveImg" -->
+			<image class="header-field__code" src="{{url}}" data-url="{{url}}" />
+			<view class="btn-wrapper">
+				<button class="start-btn" data-url="{{url}}" bindtap='saveImg'>保存到相册</button>
+			</view>
+		</view>
+		<view class="cro-left-bottom" />
+		<view class="cro-right-bottom" />
+		<view class="cro-line-bottom" />
+	</view>
+  <view class="content">
+    <view class="cro-left-top"></view>
+    <view class="cro-right-top"></view>
+    <g-wrapper class="content__title" title="交通卡口登记信息">
+      <g-preview text-align="right">
+		<g-preview-item label="编号">{{ editInfo.tripNo}}</g-preview-item>
+        <g-preview-item label="{{editInfo.carNumber?'号牌种类':'交通类型'}}:">{{editInfo.carTypeName}}</g-preview-item>
+        <g-preview-item label="{{editInfo.carNumber?'车牌号':'车次/航次'}}">{{editInfo.carNumber?editInfo.carNumber:editInfo.carBatchNo}}</g-preview-item>
+        <g-preview-item label="出发城市">{{editInfo.leaveProvinceName}}{{editInfo.leaveCityName}}</g-preview-item>
+        <g-preview-item label="到达城市">{{editInfo.arriveProvinceName}}{{editInfo.arriveCityName}}</g-preview-item>
+      </g-preview>
+    </g-wrapper>
+    	<text class="edit-text" bindtap='toEditPage'>编辑</text>
+    	<view wx:if="{{passengerList.length>0}}">
+			<g-wrapper title="同乘人信息（{{passengerList.length||1}}人）">
+				<g-preview text-align="right" wx:for="{{passengerList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item">
+					<g-preview-item label="同乘人{{idx+1}}">{{item.name}}</g-preview-item>
+				</g-preview>
+			</g-wrapper>
+		</view>
+  </view>
+</view>

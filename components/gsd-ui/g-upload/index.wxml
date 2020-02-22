@@ -1,0 +1,20 @@
+<g-form-item label="{{label}}" disabled="{{disabled}}" status="{{_status}}" statusMessage="{{_statusMessage}}" required="{{required}}">
+  <view class="g-upload">
+    <view class="g-upload__container">
+      <view class="g-upload__file" wx:for="{{value}}" wx:key="filePath">
+        <image class="g-upload__close" src="https://imgcache.gzonline.gov.cn/cos/icon-delete_e2d29a1e.png" mode="widthFix" data-item="{{item}}" catch:tap="removeFile" />
+        <view catch:tap="handleClickImage" data-item="{{item}}">
+          <view wx:if="{{item.status && item.status !== 'done'}}" class="g-upload__file__mask">
+            <text wx:if="{{item.status === 'uploading'}}">上传中</text>
+            <text wx:if="{{item.status === 'error'}}">重试</text>
+            <text wx:if="{{item.status === 'maxSize'}}">图片过大</text>
+          </view>
+        <image class="g-upload__img" src="{{item.filePath}}"  mode="aspectFill" />
+        </view>
+      </view>
+      <view wx:if="{{maxNumber <= 0 || value.length < maxNumber}}" hover-class="view--hover" class="g-upload__input-box" bind:tap="chooseImage">
+        <g-icon type="plus" size="50" />
+      </view>
+    </view>
+  </view>
+</g-form-item>

@@ -1,0 +1,151 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.textarea__element, .textarea__text {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  display: block;
+  flex: 1;
+}
+
+.textarea__text {
+  padding-top: 4rpx;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.textarea__placeholder {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  color: #bbbec4;
+}
+
+.textarea__element--disabled, .textarea__text--disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.textarea__action {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  align-self: flex-end;
+  color: #4293f4;
+}
+
+.textarea__wrapper {
+  height: 144rpx;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.textarea--ios {
+  position: absolute;
+  margin-top: -10rpx;
+  margin-left: -10rpx;
+  width: 100%;
+}
+
+.textarea__text--ios {
+  position: absolute;
+  box-sizing: border-box;
+  padding-right: 10rpx;
+}

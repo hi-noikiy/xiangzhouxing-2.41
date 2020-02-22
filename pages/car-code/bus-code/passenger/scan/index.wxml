@@ -1,0 +1,18 @@
+<view>
+ <g-wrapper>
+    <view class="sk-scan-layer">
+      <text class="sk-scan-layer__title">我是乘客</text>
+      <text class="sk-scan-layer__descript">请登记出行信息</text>
+
+      <!-- 扫码区域 -->
+      <button class="sk-scan-layer__scan" style="background: #fff;" type="primary" bind:tap="scanCode">
+        <image class="s-icon" src="https://imgcache.gzonline.gov.cn/cos/car-code/icon_scran@2x.png" />
+        <text class="s-text">点击此处 扫码乘车</text>
+      </button>
+
+      <!-- 手动填写 -->
+      <!-- <button class="sk-scan-layer__btn" type="plain" bind:tap="openEdit">手动填写</button> -->
+    </view>
+  </g-wrapper>
+</view>
+

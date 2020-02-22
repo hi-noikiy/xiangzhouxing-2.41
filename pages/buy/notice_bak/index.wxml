@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<image src="https://imgcache.gzonline.gov.cn/cos/banner@2x_5dca6e9b.png" mode="widthFix" alt="" class="banner"/>
+<!--<text class="title">公告：预约购买功能将于1月31日晚上8点开放</text>-->
+<view wx:for="{{notices}}" class="content line-{{index+1}}">{{item}}</view>

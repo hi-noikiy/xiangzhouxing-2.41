@@ -1,0 +1,43 @@
+/* packages/health-code/pages/toggle-grid/index.wxss */
+.content {
+  width: 100%;
+  height: 100vh;
+}
+
+.current-point {
+  display: flex;
+  align-items: center;
+  height: 54rpx;
+  font-size: 30rpx;
+  color: #333;
+  flex: 0 0 100rpx;
+  /* 不放大不缩小固定100rpx */
+  margin-bottom: 12rpx;
+}
+
+.second-title {
+  color: #aaa;
+  height: 48rpx;
+  font-size: 32rpx;
+}
+
+.radio-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em;
+}
+
+.radio-item>button {
+  margin: 0;
+}
+
+.scroll-view {
+  height: calc(100% - 185rpx);
+}
+
+.custom-button {
+  height: 54rpx;
+  color: #00BFFF;
+  line-height: 54rpx;
+}

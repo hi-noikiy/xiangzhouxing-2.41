@@ -1,0 +1,82 @@
+/* pages/report/index.wxss */
+
+.self-image {
+    margin: 20rpx 40rpx;
+}
+
+.label-container {
+    margin-left: 30rpx;
+}
+
+.agree {
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    color: red;
+}
+
+.checkbox__item {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.checkbox {
+    position: absolute;
+    /* left: -9999rpx; */
+}
+
+.checkbox__label {
+    margin-right: 20rpx;
+    margin-left: 60rpx;
+}
+
+.checkbox__label__text {
+    line-height: 48rpx;
+}
+
+.checkbox__label__desc {
+    line-height: 40rpx;
+    color: #909399;
+    margin-top: 6rpx;
+}
+
+.wrapPhone {
+    /* line-height: 100rpx;padding-left:35rpx; */
+    position: relative;
+}
+
+#phone {
+    position: relative;
+}
+
+.btn2 {
+    float: right;
+    height: 100rpx;
+    margin-right: 37rpx;
+    position: absolute;
+    right: 0px;
+    bottom: 7rpx;
+    background: #fff;
+    border: none;
+    z-index: 999;
+    font-family: MicroSoft yahei;
+    font-weight: normal;
+    font-size: 36rpx;
+    line-height: 90rpx;
+    color: #4293f4;
+    text-align: right;
+    align-self: flex-start;
+    margin-left: 20rpx;
+}
+
+.phoneLabel {
+    margin-top: 80rpx;
+}
+
+.xrequired:before {
+    content: '* ';
+    color: red;
+    float: left;
+    padding-top: 36rpx;
+    padding-left: 22rpx;
+}

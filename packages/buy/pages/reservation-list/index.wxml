@@ -1,0 +1,223 @@
+<block wx:if="{{showPage}}">
+  <block wx:if="{{buyType === 'lot' }}">
+    <g-tips wx:if="{{wllConfig.lot_flow_info.lotDelayTips}}">{{wllConfig.lot_flow_info.lotDelayTips}}</g-tips>
+    <g-wrapper title="参与预约摇号情况" wx:if="{{myLotInfo&&myLotInfo.id}}">
+        <view slot="action" wx:if="{{wllConfig.buy_feedback_open}}">
+          <image class="feedback" src="../../images/feedback.png" bind:tap="onTapFeedback"></image>
+        </view>
+        <view style="height:24rpx;"></view>
+        <g-preview type="grey" text-align="right" label-width="206">
+            <g-preview-item label="预约提交时间">{{myLotInfo.submitDate}}</g-preview-item>
+            <g-preview-item label="摇号有效期">{{myLotInfo.validDate}}</g-preview-item>
+            <g-preview-item label="中签时间" wx:if="{{myLotInfo.lotDate}}">{{myLotInfo.lotDate}}</g-preview-item>
+            <g-preview-item>
+              <view class="state-tag">
+              <!--0：登记 1：摇号中奖 2：摇号中 3、失效 -->
+                <block wx:if="{{myLotInfo.lotStatus == 0}}">
+                  <image src="../../images/state-tag.png"></image>
+                  <view>尚未中签，请期待下一次的摇号。</view>
+                </block>
+                <block wx:if="{{myLotInfo.lotStatus == 1}}">
+                  <image src="../../images/state-success.png"></image>
+                  <view>
+                    <view>本次预约已成功中签，</view>
+                    <view>自中签日期起，{{wllConfig.lot_flow_info.interval_day}}日后可重新预约。</view>
+                  </view>
+                </block>
+                <block wx:if="{{myLotInfo.lotStatus == 2}}">
+                  <image src="../../images/loting.svg"></image>
+                  <view>
+                    <view>本期摇号结果稍后公布，请耐心等待</view>
+                  </view>
+                </block>
+              <block wx:if="{{myLotInfo.lotStatus == 3}}">
+                  <image src="../../images/lot_fail.png"></image>
+                  <view>本次预约已超过摇号有效期，您可重新提交预约登记。</view>
+                </block>
+              </view>
+            </g-preview-item>
+        </g-preview>
+        <view class="btn-navigator bottomBlock" wx:if="{{myLotInfo.lotStatus == 3}}">
+          <button bindtap="orderMask" hover-class="none"><text class="color-blue">再次预约</text></button>
+        </view>
+    </g-wrapper>
+    <g-wrapper title="参与预约摇号情况" wx:else>
+        <view slot="action">
+          <image wx:if="{{wllConfig.buy_feedback_open}}" class="feedback" src="../../images/feedback.png"
+          bind:tap="onTapFeedback"></image>
+        </view>
+        <view style="height:24rpx;"></view>
+        <g-preview type="grey" text-align="right" label-width="206">
+          <g-preview-item>
+            <view class="state-placeholder">
+              <image src="../../images/placeholder.png"></image>
+              <view>您暂未提交口罩预约参与摇号。</view>
+            </view>
+          </g-preview-item>
+        </g-preview>
+        <view class="btn-navigator bottomBlock">
+          <button type="primary" bindtap="orderMask">去预约</button>
+        </view>
+    </g-wrapper>
+    <view style="height:10rpx;background:#FAFAFA;"></view>
+    <view class='res-container'>
+      <view class='res-title-container'>
+        <view class="res-title">中签记录</view>
+      </view>
+      <block wx:if="{{reservations.length<1}}">
+        <view style="height:20rpx;"></view>
+        <g-preview type="grey" text-align="right" label-width="206" >
+          <g-preview-item>
+            <view class="state-placeholder">
+              <image src="../../images/placeholder.png"></image>
+              <view>您暂无预约成功记录。</view>
+            </view>
+          </g-preview-item>
+        </g-preview>
+      </block>
+    </view>
+  </block>
+
+  <g-wrapper wx:for="{{reservations}}" title="{{item.productName}}" wx:key="id">
+    <block wx:if="{{buyType === 'preorder' }}">
+      <block wx:if="{{item.status === 'success' }}">
+          <view wx:if="{{item.hasExpired}}">
+              <view class="result-label expired">已过期</view>
+              <view class="tips">
+                  <view>抱歉，当前预约在24小时内您没完成付款，预约已自动取消。</view>
+              </view>
+          </view>
+          <view wx:else>
+              <view class="result-label ok">预约成功</view>
+              <view wx:if="{{item.total_fee > 0}}">
+                  <view class="tips">
+                      <view>恭喜您！预约成功。</view>
+                      <view wx:if="{{item.mail_address}}">请您<text class="redText">在新一轮预约前</text>完成支付，我们将根据您提供的邮寄地址（仅限珠海市内）为您提供送货上门服务。</view>
+                      <view wx:else>请尽快填写邮寄信息，以便我们为您提供送货上门服务。</view>
+                  </view>
+              </view>
+              <view wx:else>
+                  <view class="tips">
+                      <view>恭喜您！您已预约成功。</view>
+                        <view wx:if="{{item.access === 1}}">请按以下信息在<text class="redText">24小时</text>内前往药店购买。</view>
+                        <block wx:else>
+                          <view wx:if="{{item.mail_address}}">我们将根据您提供的邮寄地址（仅限珠海市内）为您提供免费的送货上门服务，请您耐心等候。</view>
+                          <view wx:else>请尽快填写邮寄信息，以便我们为您提供送货上门服务。</view>
+                        </block>
+                  </view>
+              </view>
+          </view>
+      </block>
+
+      <block wx:if="{{item.status === 'complete' }}">
+          <view class="result-label ok">支付成功</view>
+          <view class="tips">支付成功，我们将根据您提供的邮寄地址（仅限珠海市内）提供送货上门服务，请耐心等候。</view>
+      </block>
+
+      <block wx:if="{{item.status === 'failure' }}">
+          <view class="result-label fail">预约失败</view>
+          <view class="tips">抱歉，本轮预约没有成功，请下次再试。别着急，{{startTimeText}}将开放预约。</view>
+      </block>
+
+      <view wx:if="{{item.status === 'running' }}" class="tips">排队中，请耐心等候</view>
+    </block>
+    <block wx:else>
+      <!-- // 摇号 status;// ' 0中签； 1 完成支付 ；2，过期；-->
+        <view wx:if="{{item.status==='2'}}">
+                <view class="result-label expired">已失效</view>
+                <view class="tips">
+                    <view wx:if="{{item.access === 1}}">抱歉，当前预约在规定时间内您没有前往药店购买，预约已自动取消。</view>
+                    <view wx:else>抱歉，当前预约在规定时间内您没有支付，预约已自动取消。</view>
+                </view>
+        </view>
+        <view wx:if="{{item.status==='0'}}">
+                <view class="result-label ok">预约成功</view>
+                <view class="tips">
+                    <view>恭喜您！预约成功。</view>
+                    <view wx:if="{{item.access === 1}}">请按以下信息在<text class="redText">24小时</text>内前往药店购买。</view>
+                    <view wx:else>请您在<text class="redText">24小时内</text>完成支付，我们将根据您提供的邮寄地址（仅限珠海市内）为您提供送货上门服务。</view>
+                </view>
+        </view>
+        <view wx:if="{{item.status==='1'}}">
+                <view class="result-label ">已支付</view>
+                <view class="tips">
+                    <view>支付成功。</view>
+                    <view>我们将尽快为您发货，请耐心等候。</view>
+                </view>
+        </view>
+    </block>
+
+      <g-preview type="grey" text-align="right" label-width="206">
+          <!--<g-preview-item label="药品类型">{{item.productType}}</g-preview-item>-->
+          <g-preview-item label="申请时间">{{item.create_time}}</g-preview-item>
+          <g-preview-item label="付款时间" wx:if="{{item.status==='complete'||item.status==='1'}}">
+            {{item.payTime}}
+          </g-preview-item>
+          <g-preview-item label="口罩型号">{{item.productType}}</g-preview-item>
+          <g-preview-item label="预约数量">{{item.count}}{{item.unit}}</g-preview-item>
+          <block wx:if="{{item.access === 1 }}">
+            <block wx:if="{{buyType === 'lot' }}">
+              <g-preview-item label="购买取货时间">{{item.valid_time}}</g-preview-item>
+              <g-preview-item label="到店时段">{{item.timecode}}</g-preview-item>
+            </block>
+            <g-preview-item label="药店名称">{{item.shopName}}</g-preview-item>
+            <g-preview-item label="药店地址">{{item.shopAddr}}</g-preview-item>
+          </block>
+          <block wx:if="{{item.access === 0&&item.status!=='failure'}}">
+          <g-preview-item label="口罩总价">{{item.totalFee}}</g-preview-item>
+          <g-preview-item label="包装物流费">{{item.mail_fee}}</g-preview-item>
+          <g-preview-item label="邮寄地址" wx:if="{{buyType === 'lot'&&item.mail_address}}">
+          {{item.mail_address}}
+          </g-preview-item>
+          <g-preview-item>
+            <view class="total_fee">合计 {{item.order_total_fee}}</view>
+          </g-preview-item>
+          </block>
+      </g-preview>
+      <view class="barcode" wx:if="{{item.code&&item.access === 1&&item.status!=='2'}}">
+          <view class="barnum">预约码</view>
+          <canvas canvas-id="barcode-{{item.code}}" />
+          <view class="code">{{item.code}}</view>
+      </view>
+      <block wx:if="{{!item.hasExpired&&(item.status==='success'||item.status==='0')}}">
+          <view class="address" wx:if="{{item.access === 0 && !item.mail_address}}">
+              <view class="bottomBlock">
+                  <view class="title">
+                      <image class="icon" src="../../images/addr_notice.png"></image>
+                      <text>请补填邮寄信息，下一轮预约开始后失效</text>
+                  </view>
+                  <g-form model="{{formData}}" rules="{{rules}}"
+                          primary-text="确认提交"
+                          data-item="{{item}}"
+                          bind:submit="handleFormSubmit"
+                  >
+                      <addr-info  bind:chooseAddrFail="handleChooseAddrFail" bind:updateAddress="handleUpdateAddress" bind:updateAddressField="handleUpdateAddressField"></addr-info>
+                  </g-form>
+              </view>
+          </view>
+          <view wx:elif="{{item.total_fee > 0 && item.access === 0}}">
+              <view wx:if="{{buyType === 'preorder'||(buyType === 'lot' && (item.pay_status==0||item.pay_status==3))}}"
+              class="bottomBlock">
+                  <button type="primary" bindtap="handlePayTap" data-desc="{{item.productName}}" data-ordernumber="{{item.orderNumber}}">付款</button>
+              </view>
+          </view>
+          <view wx:if="{{item.access === 1}}" class="bottomBlock">
+              <button type="primary" bindtap="openShopLocation" data-shopName="{{item.shopName}}"
+              data-shopAddr="{{item.shopAddr}}"
+              data-location="{{item.shopLocation}}">药店导航</button>
+          </view>
+      </block>
+
+  </g-wrapper>
+
+  <view class="btn-navigator bottomBlock" wx:if="{{wllConfig.lot_flow_info.preorderBth.isShow&&buyType=='lot'}}">
+    <button bindtap="handleSwitchTap" hover-class="none">
+      <text class="color-blue">{{wllConfig.lot_flow_info.preorderBth.text}}</text>
+    </button>
+  </view>
+
+  <view wx:if="{{reservations.length<1&&buyType === 'preorder'}}" class="empty">你暂没有预约成功的记录</view>
+
+  <view class="foot-tips" wx:if="{{buyType === 'preorder'}}">只显示最近24小时内的预约记录</view>
+
+</block>

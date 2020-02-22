@@ -1,0 +1,65 @@
+/* pages/donate/form/index.wxss */
+
+.shop-addr {
+  color: #000;
+  margin-top: 12rpx;
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  justify-content: space-between;
+}
+
+.shop-desc {
+  margin: 10rpx 40rpx;
+}
+
+.addr-icon {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.copyContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyButton {
+  margin: 0;
+  font-size: 27rpx !important;
+  display: flex;
+  align-items: center;
+  vertical-align:middle;
+}
+
+.mine__cell-image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 6px;
+}
+.copyButtonInfo{
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 68rpx;
+}
+
+button[disabled]{
+  color: #D0D0D0
+}
+
+.msg-info{
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+  color: #909399;
+}
+
+.feedback{
+  height: 60rpx;
+  width: 208rpx;
+  margin-top: 10rpx;
+}

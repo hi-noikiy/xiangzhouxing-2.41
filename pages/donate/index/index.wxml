@@ -1,0 +1,18 @@
+<!--pages/donate/index.wxml-->
+<view class="title">医疗物资捐赠</view>
+<view class="content">
+  <view class="donate-desc">
+  根据《中华人民共和国红十字会法》《中国红十字会捐赠工作管理办法》，为进一步做好新型冠状病毒感染的肺炎疫情防控工作，发挥红十字会在人道领域的助手作用，现向社会各界企业及爱心人士呼吁爱心捐赠。
+  </view>
+    <view class="sec-title">医疗队急需防护物资如下：</view>
+    <view class="requirement">
+      <view>1.医用快速消毒液；</view>
+      <view>2.医用外科口罩；</view>
+      <view>3.医用一次性工作帽；</view>
+      <view>4.医用防护面罩；</view>
+      <view>5.医用一次性鞋套</view>
+    </view>
+</view>
+<g-button-group agree fixed primary-text="查看捐赠渠道" bind:primaryTap='handlePrimaryTap'>
+  <view slot="agree">我已阅读医疗物资捐赠要求</view>
+</g-button-group>

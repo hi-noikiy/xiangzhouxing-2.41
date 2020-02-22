@@ -1,0 +1,19 @@
+/* packages/health-code/pages/traffic-record/index.wxss */
+.calendar{
+  margin-top: 30rpx;
+}
+.log-time .log-tv{
+    margin-left: 40rpx;
+}
+.log-gps {
+  display: flex;
+  margin-top: 20rpx;
+}
+.log-gps .gps-addr{
+  margin-left: 10rpx;
+}
+.tx-title{
+  margin-top: 50rpx;
+  font-size: 35rpx;
+  margin-left: 40rpx;
+}

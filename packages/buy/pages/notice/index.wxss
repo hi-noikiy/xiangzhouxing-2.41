@@ -1,0 +1,66 @@
+/* pages/donate/index.wxss */
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  height: 140rpx;
+  line-height: 140rpx;
+  padding: 0 40rpx;
+  text-align: center;
+}
+
+.content {
+  padding: 0 40rpx;
+}
+
+.margin-bottom {
+  margin-bottom: 106px;
+}
+
+.btn-row {
+  padding: 40rpx 40rpx;
+}
+
+.donate-desc {
+  font-size: 30rpx;
+  color: #666666;
+  text-indent: 2em;
+}
+
+.attention {
+  margin-top: 38rpx;
+  color: #f1912a;
+}
+
+.attention em {
+    text-decoration: underline;
+}
+
+.attention view {
+  margin-bottom: 14rpx;
+}
+
+.sec-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 22rpx;
+}
+
+.requirement {
+  font-size: 30rpx;
+}
+
+.group-other-link {
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #4293f4;
+  text-align: right;
+  align-self: flex-start;
+  margin-left: 20rpx;
+  text-decoration:underline; 
+}
+
+.group-other{
+  position: absolute;
+  right: 40rpx;
+  top: 32rpx;
+}

@@ -1,0 +1,18 @@
+<!--packages/health-code/pages/add-grid/index.wxml-->
+<g-input id="name" type="number" placeholder="小区/写字楼/学校等" prepend append value="{{formData.name}}" bind:change="handleChange">
+	<view slot="prepend">
+		<g-picker class="prepend" id="prefix" placeholder="当前" type="dropdown" value="{{searchValue}}" range="{{selectorRange}}" bind:change="handleChange" />
+	</view>
+	<!-- <view slot="append">
+		<icon type="search" size="20" style="vertical-align: middle;"></icon>
+	</view> -->
+</g-input>
+
+<view class="map">
+	<g-map position="{{position}}" markers="{{list}}" activeId="{{activeMarkerId}}" bind:mapUpdate="handleMapUpdate" bind:activeMarker="handleActiveMarker"></g-map>
+</view>
+
+<g-wrapper>
+	<g-cell wx:for="{{list}}" wx:key="id" label='{{item.title}}' desc="{{item.address}}" data-url="/pages/report/index/index?type=1" bindtap="add" data-item="{{item}}">
+	</g-cell>
+</g-wrapper>

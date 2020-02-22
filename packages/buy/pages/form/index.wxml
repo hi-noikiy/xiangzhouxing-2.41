@@ -1,0 +1,61 @@
+<!--pages/donate/form/index.wxml-->
+
+<g-tips wx:if="{{showGtips}}">温馨提示：{{primaryText}}</g-tips>
+<view style="padding: 30rpx 22rpx 30rpx 40rpx" class="copyContainer" wx:if="{{ifShowCopyButton}}">
+  <text class="copyButtonInfo">已复制上一次健康自查基本信息</text>
+  <button size="mini" class="copyButton" bindtap="handleCopyHealthReportInfo" disabled="{{copyButtonDisabled}}">
+    <image class="mine__cell-image" src="{{copyButtonIconSrc}}"></image><text class="copyButtonText">{{copyButtonText}}</text>
+    </button>
+</view>
+<g-form model="{{formData}}" rules="{{rules}}" primary-text="{{primaryText}}" bind:submit="handleSubmit"
+disabled="{{submitBtnDisabled}}" debounceDuration="{{100}}">
+  <view slot="content">
+    <g-wrapper title="身份信息">
+    <view slot="action" wx:if="{{wllConfig.buy_feedback_open}}">
+      <image class="feedback" src="../../images/feedback.png" bind:tap="onTapFeedback"></image>
+    </view>
+      <g-input required label="姓名" id="name" bind:change="handleFormChange" value="{{formData.name}}" placeholder="请填写姓名" />
+      <g-picker required id="identityType" label="证件类型" placeholder="请选择证件类型" bind:change="handleFormChange" value="{{formData.identityType}}" data-form="formData" range="{{cardTypeRange}}"></g-picker>
+      <g-input required id="identity" type="{{identityInputType}}" label='证件号码' placeholder="请输入您的证件号码" bind:change="handleFormChange"
+      value="{{formData.identity}}" data-form='formData' />
+    </g-wrapper>
+    <g-wrapper title="选择购买方式">
+      <g-radio-group equired label="购买方式" id="access" value="{{formData.access}}" bind:change="handleFormChange" data-form="formData" items="{{accessItems}}" />
+      <block wx:if="{{formData.access === '1'}}">
+    	  <g-picker required id="time_code" label="到店时段" placeholder="请选择到店时段" bind:change="handleFormChange" value="{{formData.time_code}}" range="{{timeRange}}"></g-picker>
+      </block>
+    </g-wrapper>
+    <g-wrapper title="选择药店">
+      <g-picker required id="zone" label="所在区域" placeholder="请选择所在区域" bind:change="handleFormChange" value="{{formData.zone}}" range="{{regionData}}"></g-picker>
+      <g-picker required id="shop_id" label="药店" placeholder="请选择药店" bind:change="handleFormChange" disabled="{{!formData.zone}}" value="{{formData.shop_id}}" range="{{shopRange}}"></g-picker>
+      <g-form-cell wx:if="{{formData.shop_id}}" label="药店地址" value="{{shopAddr}}" actionText="导航" bind:tap="openShopLocation" />
+    </g-wrapper>
+    <g-wrapper title="选择口罩型号">
+      <g-picker required id="category" disabled="{{!formData.shop_id}}" label="口罩类型" placeholder="请选择口罩类型" bind:change="handleFormChange" value="{{formData.category}}" range="{{categoryRange}}"></g-picker>
+      <g-picker required id="commodity_id" disabled="{{!formData.category}}" label="口罩型号" placeholder="请选择口罩型号" bind:change="handleFormChange" value="{{formData.commodity_id}}" range="{{typeRange}}" desc="{{formData.commodity_id && number ? '当前药店库存'+number+'个':'' }}"></g-picker>
+      <g-form-number wx:if="{{limit}}" required id="number" desc="价格按{{price_text}}出售，申请上限{{limit}}{{unit}}"
+       label="数量({{unit}})"
+      bind:change="handleFormChange" value="{{formData.number}}" min="{{min_order_number}}" max="{{limit}}" step="1" />
+      <!-- <g-picker required id="time_code" label="到店时段" placeholder="请选择到店时段" bind:change="handleFormChange" value="{{formData.time_code}}" range="{{timeRange}}"></g-picker>-->
+      <!-- <g-cell>
+      <view slot="content">
+				<view class="form-item__label">
+	          若所选口罩型号库存不足，是否接受随机分配其
+	       </view>
+         <view>
+           <g-radio-group id="changeable" label="人员类型" value="{{formData.changeable}}" bind:change="handleFormChange"
+          		 data-form="selfForm" items="{{acceptItems}}" />
+         </view>
+      </view>
+     </g-cell> -->
+    </g-wrapper>
+        <addr-info wx:if="{{formData.access === '0'&& buyType === 'lot'}}" bind:chooseAddrFail="handleChooseAddrFail" bind:updateAddress="handleUpdateAddress" bind:updateAddressField="handleUpdateAddressField"></addr-info>
+    <view class="msg-info" wx:if="{{wllConfig.buy_flow_info.is_need_subscribe_message == 1}}">
+      <image class="mine__cell-image" src="../../images/icon-info.svg"></image>
+      提交后请允许接收通知，确保及时收到预约结果
+    </view>
+  </view>
+</g-form>
+
+<my-hover pdfUrl="{{pdfUrl}}" imgSrc="{{imgSrc}}"></my-hover>
+

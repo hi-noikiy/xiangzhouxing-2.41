@@ -1,0 +1,122 @@
+@import '../todo/list/todo-item.wxss';
+
+page {
+  background: #f0f0f0;
+}
+
+.btn-row {
+  padding: 40rpx 40rpx;
+}
+
+
+.mine__cell-image{
+  width: 38rpx;
+  height: 38rpx;
+  font-size: 0;
+  margin-right: 15rpx;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -4rpx;
+}
+
+.mine__logout {
+  width: 670rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  margin: 90rpx auto 0 auto;
+  background: #FAFAFA;
+  border: 2rpx solid rgba(0,0,0,0.10);
+  border-radius: 8rpx;
+  font-size: 34rpx;
+  color: #666666;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+
+.mine-profile {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 50rpx;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 2px 16px 0 rgba(69,76,100,0.10);
+}
+
+.mine-profile .phone {
+  margin-left: 18rpx;
+  display: inline-block;
+  font-size: 32rpx;
+  color: #666666;
+  letter-spacing: 0;
+  line-height: 44rpx;
+}
+
+.mine-profile .name{
+  flex:1;
+  white-space: nowrap;
+  overflow: hidden;
+  height:80rpx;
+  line-height: 80rpx;
+  text-overflow: ellipsis;
+  font-size: 40rpx;
+  color: #000000;
+}
+.mine-profile-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+  overflow: hidden;
+  position: relative;
+}
+.mine-profile-avatar image, .mine__card-avatar image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/*认证*/
+.mine__not-log-auth {
+  font-size: 34rpx;
+  padding: 50rpx 40rpx;
+  text-align: center;
+  background: #fff;
+  margin-top: 30rpx;
+}
+
+.mine__not-log-auth-icon {
+  margin: 0 auto;
+  width: 280rpx;
+  height: 190rpx;
+  display: block;
+  line-height: 0;
+}
+
+.mine__not-log-auth-title {
+  font-size: 34rpx;
+  color: #111111;
+  text-align: center;
+  margin-top: 50rpx;
+}
+
+.mine__not-log-auth-info {
+  font-size: 28rpx;
+  color: #9B9B9B;
+  text-align: center;
+  margin-top: 8rpx;
+}
+
+.mine__list {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.container {
+  padding: 40rpx;
+}
+
+.mine__btn {
+  margin-top: 100rpx;
+}

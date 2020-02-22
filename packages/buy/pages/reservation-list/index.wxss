@@ -1,0 +1,203 @@
+/* pages/donate/msg/index.wxss */
+.tips {
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 48rpx;
+  margin: 19rpx 40rpx;
+}
+
+.result-label {
+  font-size: 30rpx;
+  line-height: 44rpx;
+  border: 1rpx solid #4293f4;
+  color: #4293f4;
+  background: #e3eefb;
+  border-radius: 25rpx;
+  border-radius: 25rpx;
+  display: inline-block;
+  padding: 2rpx 40rpx;
+  position: absolute;
+  top: 45rpx;
+  right: 40rpx;
+}
+
+.result-label.fail {
+  color: #F0422C;
+  background: rgba(240,66,44,0.15);
+  border-color: #F0422C;
+}
+
+.result-label.ok {
+  color: #09BB07;
+  background: rgba(150,206,149,0.21);
+  border-color: #09BB07;
+}
+.result-label.expired {
+  color: #ffffff;
+  background: #aebac9;
+  border-color: #aebac9;
+}
+
+.resv-code {
+  font-weight: bold;
+  margin: 0 40rpx 16rpx;
+}
+
+.resv-code .value {
+  color: #09BB07;
+}
+
+.shop-navigation {
+  font-size: 32rpx;
+  color: #4293F4;
+  text-align: center;
+  line-height: 48rpx;
+}
+
+.shop-navigation .icon {
+  width: 25rpx;
+  height: 31rpx;
+  vertical-align: middle;
+  margin-right: 11rpx;
+}
+
+.foot-tips {
+  font-size: 32rpx;
+  color: rgba(0,0,0,0.43);
+  line-height: 48rpx;
+  padding: 31rpx 0;
+  text-align: center;
+  background: #F5F5F5;
+}
+
+.empty {
+  text-align: center;
+  margin: 30px;
+}
+
+.address {
+  margin-top: 40rpx;
+}
+
+.countdown{
+  margin-top: 20rpx;
+}
+.redText{
+  color: red;
+}
+
+.address .title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.address .title .icon{
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 14rpx;
+}
+
+.address .desc {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.bottomBlock{
+  padding-bottom: 40rpx;
+  margin:40rpx;
+  padding:0 20rpx;
+  /* border-bottom: 1rpx solid #EEEEEE; */
+}
+
+.state-placeholder{
+  text-align: center;
+  font-size: 36rpx;
+  color: #aeafb0;
+}
+.state-placeholder image{
+  margin-bottom: 33rpx;
+  width: 158rpx;
+  height: 158rpx;
+}
+.state-tag{
+  margin-top: 10rpx;
+  text-align: center;
+  color: #000000;
+}
+.state-tag image{
+  margin-bottom: 10rpx;
+  width: 256rpx;
+  height: 80rpx;
+}
+.btn-navigator{
+  margin: 40rpx;
+}
+
+.btn-navigator>button {
+  border-color:#4293F4;
+}
+
+.res-title-container {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 36rpx;
+  padding-bottom: 4rpx;
+}
+
+.res-title {
+  font-size: 48rpx;
+  line-height: 68rpx;
+  font-weight: bold;
+  flex: 1;
+  word-break: break-all;
+}
+.res-container {
+  /* margin-bottom: 30rpx; */
+  position: relative;
+}
+
+.total_fee {
+  color: #000;
+  font-weight: bold;
+  border-top: 1rpx solid #e6e6e6;
+  padding-top: 11rpx;
+}
+.color-blue{
+  color: #4293F4
+}
+
+.barcode{
+  padding: 40rpx;
+  margin: 40rpx;
+  border-radius:6rpx;
+  border:2rpx solid rgba(204,204,204,1);
+}
+.barcode .barnum{
+  font-size: 28rpx;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+.barcode .code{
+  text-align: center;
+  font-weight: bold;
+  margin-top: -24rpx; 
+}
+.barcode>canvas{
+  width: 100%;
+  height: 186rpx;
+  margin-left: 14rpx;
+}
+
+.feedback{
+  height: 60rpx;
+  width: 208rpx;
+  margin-top: 10rpx;
+}

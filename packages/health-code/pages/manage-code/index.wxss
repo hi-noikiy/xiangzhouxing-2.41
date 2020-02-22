@@ -1,0 +1,145 @@
+/* packages/health-code/pages/manage-code/index.wxss */
+
+.rap-title {
+  display: flex;
+  padding: 10rpx 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+ .add-code {
+  font-size: 35rpx;
+  color: #1890ff;
+}
+
+.rap-label {
+  color: gray;
+}
+
+
+
+.rap-label .rap-label-name {
+  font-size: 40rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.rap-btn {
+  margin-top: 60rpx;
+  padding: 0px 30rpx;
+}
+
+.rap-btn button {
+  margin-top: 20rpx;
+}
+
+.rap-flow-btn {
+  margin-top: 0rpx;
+  padding: 30rpx 30rpx;
+}
+
+.rap-flow-btn button+button {
+  margin-top: 30rpx;
+}
+.rap-flow-box{
+  padding:0px 30px;
+}
+
+.item8 {
+  height: 120rpx;
+  border-bottom-style: solid;
+  border-bottom-width: 1rpx;
+  border-bottom-color: #ebebeb;
+  color: #000;
+  margin: 0 16px;
+}
+
+.item {
+  position: relative;
+  border-bottom: 2rpx solid #eee;
+  height: 120rpx;
+  line-height: 120rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  color: #000;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+}
+
+.txt {
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding: 0 24rpx;
+  transition: left 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+  font-size: 30rpx;
+}
+
+.inner.del {
+  width: 160rpx;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  background-color: #e64340;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.tips {
+  color: #999;
+  margin: 40rpx;
+  text-align: center;
+}
+.itemBtn{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-style: solid;
+  border-width: 1rpx;
+  border-color: #EBEBEB;
+  text-align: center;
+  margin: 20rpx 0;
+}
+.scroll{
+  height: 500rpx;
+}
+.dialogTitle{
+  margin-top: 16rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #000;
+  font-size: 48rpx;
+  padding:24rpx 32rpx;
+}
+
+.rap-label-tips {
+  color: #999;
+  font-size: 28rpx;
+ padding:0 32rpx;
+ margin-bottom: 16rpx;
+}
+
+.sk-list-row{
+  display: flex;
+  justify-content: space-between;
+}
+.now-style{
+  color:#999;
+  font-size: 32rpx;
+  margin-right: 60rpx;
+}
+.sd-name{
+  display: flex;
+  align-items: center;
+}
+.sd-text{
+  margin-left: 20rpx;
+}

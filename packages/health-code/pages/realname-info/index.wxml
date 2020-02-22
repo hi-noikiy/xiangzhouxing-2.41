@@ -1,0 +1,22 @@
+<view class="title">基本信息</view>
+
+<view class="box">
+  <view class="textL">姓名</view>
+  <view class="textR">{{userName}}</view>
+</view>
+
+<view class="box">
+  <view class="textL">证件类型</view>
+  <view class="textR">{{cardType}}</view>
+</view>
+
+<view class="box">
+  <view class="textL">证件号码</view>
+  <view class="textR">{{identity}}</view>
+</view>
+
+<view  class="box">
+  <view class="textL">手机号码</view>
+  <view class="textR">{{phone}}</view>
+</view>
+<button wx:if="{{showBtn}}" bindtap='clickBtn'  class="btn" type="primary">变更</button>

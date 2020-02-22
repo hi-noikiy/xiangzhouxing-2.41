@@ -1,0 +1,12 @@
+<!--pages/car-code/bus-code/passenger/fllow/index.wxml-->
+<view>
+  	<button bindtap="scanQrcode">健康码录入</button>
+  	<button bindtap="addOtherHealth">为他人上报</button>
+		<g-form model="{{formData}}" primary-text="确认提交" bind:submit="handleFormSubmit">
+			<view slot="content">
+				<g-wrapper title="近七天上报记录">
+					<g-checkbox-group id="checkboxA" items="{{checkItems}}" value="{{formData.checkboxA}}" bind:change="handleChange" bind:iconTap="handleTapIcon" />
+				</g-wrapper>
+			</view>
+		</g-form>
+	</view>

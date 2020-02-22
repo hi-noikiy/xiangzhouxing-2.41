@@ -1,0 +1,93 @@
+<template is="tab-template-one" data="{{ message, keyMap, keyMapOther, reporterKeyMap, reportedKeyMap, reportContentKeyMap }}"></template>
+<template is="tab-template-two" data="{{ scheduleList: message.itemList, message, keyMap, query }}"></template>
+<g-form wx:if="{{ userInfo.isVolunteer && (message.status === 0 || message.status === 1) && query.todoType === 'affair' }}" model="{{formData}}" rules="{{rules}}"
+        primary-text="添加回复"
+        second-text="办结"
+        bind:submit="onTapReply"
+        bind:second="onTapDone"
+>
+    <view slot="content">
+        <g-wrapper title="处理">
+            <g-textarea id="content" label="回复内容" value="{{formData.content}}" bind:change="onChangeForm"></g-textarea>
+        </g-wrapper>
+    </view>
+</g-form>
+
+<!-- 详情页 -->
+<template name="tab-template-one">
+    <g-wrapper title="基本信息" wx:if="{{message.clueType != 1}}">
+        <g-preview text-align="right">
+            <block wx:for="{{keyMap}}" wx:key="item.key" >
+                <block wx:if="{{message[item.key]}}">
+                    <g-preview-item label="{{ item.label }}" text-align="right">{{ message[item.key] }}</g-preview-item>
+                </block>
+            </block>
+        </g-preview>
+    </g-wrapper>
+    <g-wrapper title="其它信息" label-width="200" wx:if="{{message.clueType != 1}}">
+        <g-preview text-align="right">
+            <block wx:for="{{keyMapOther}}" wx:key="item.key">
+                <block wx:if="{{message[item.key]}}">
+                    <g-preview-item  label="{{ item.label }}" text-align="right">{{ message[item.key] }}</g-preview-item>
+                </block>
+            </block>
+        </g-preview>
+    </g-wrapper>
+
+    <g-wrapper title="反映人信息" wx:if="{{message.clueType == 1}}">
+        <g-preview text-align="right">
+            <block wx:for="{{reporterKeyMap}}" wx:key="item.key" >
+                <block wx:if="{{message[item.key]}}">
+                    <g-preview-item label="{{ item.label }}" text-align="right">{{ message[item.key] }}</g-preview-item>
+                </block>
+            </block>
+        </g-preview>
+    </g-wrapper>
+
+    <g-wrapper title="涉事人信息" wx:if="{{message.clueType == 1}}">
+        <g-preview text-align="right">
+            <block wx:for="{{reportedKeyMap}}" wx:key="item.key" >
+                <block wx:if="{{message[item.key]}}">
+                    <g-preview-item label="{{ item.label }}" text-align="right">{{ message[item.key] }}</g-preview-item>
+                </block>
+            </block>
+        </g-preview>
+    </g-wrapper>
+
+    <g-wrapper title="反映内容" wx:if="{{message.clueType == 1}}">
+        <g-preview text-align="right">
+            <block wx:for="{{reportContentKeyMap}}" wx:key="item.key" >
+                <block wx:if="{{message[item.key]}}">
+                    <g-preview-item label="{{ item.label }}" text-align="right">{{ message[item.key] }}</g-preview-item>
+                </block>
+            </block>
+        </g-preview>
+    </g-wrapper>
+
+    <g-wrapper>
+        <view class="btn-wrap" bind:tap="onTapAccess">
+            <button type="primary">重新上报</button>
+        </view>
+    </g-wrapper>
+    
+</template>
+
+<!-- 进度页 -->
+<template name="tab-template-two">
+    <!-- <g-wrapper title="反馈情况"></g-wrapper>
+    <g-timeline>
+        <block wx:for="{{scheduleList}}" wx:key="{{item.commitTime}}">
+            <g-timeline-item status="normal">
+                <view class="timeline">
+                    <view class="timeline_title timeline_title_active">
+                        <view>{{(query.todoType === 'report' && index === 0) ? '涉事人' : '上报人'}}：{{item.commiterName}} <view class="timeline_time">{{item.commitTime}}</view></view>
+                    </view>
+                    <view class="timeline_content">
+                        <view class="timeline_con_item">{{item.content}}</view>
+                    </view>
+                </view>
+            </g-timeline-item>
+        </block>
+    </g-timeline> -->
+</template>
+

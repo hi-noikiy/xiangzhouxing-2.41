@@ -1,0 +1,29 @@
+<!-- pages/g-tabs/index.wxml -->
+<view class="tabs">
+  <view class="tabs__header tab-header-class" id="tab-header" style="position: {{position}}">
+    <block wx:if="{{ scroll }}">
+      <scroll-view scroll-x id="tabs-scroll" scroll-left="{{_scrollLeft}}" scroll-with-animation>
+        <view class="tabs__header--scroll">
+          <template is="tabsHeader" data="{{ _tabs, activeKey }}"></template>
+          <view class="tabs__slider" style="{{ _sliderStyle }}"></view>
+        </view>
+      </scroll-view>
+    </block>
+    <block wx:else>
+      <template is="tabsHeader" data="{{ _tabs, activeKey }}"></template>
+      <view class="tabs__slider" style="{{ _sliderStyle }}"></view>
+    </block>
+  </view>
+  <view class="tabs__content" style="{{ _tabContentStyle }}">
+    <slot />
+  </view>
+</view>
+<template name="tabsHeader">
+  <block wx:for="{{ _tabs }}" wx:for-item="tabItem" wx:key="key">
+    <view class="tabs__item__wrap" catch:tap="handleTabItemTab" data-key="{{ tabItem.key }}">
+      <view aria-label="{{tabItem.tab}}" class="tabs__item {{ activeKey === tabItem.key ? 'tabs__item--active': '' }}">
+        {{ tabItem.tab }}
+      </view>
+    </view>
+  </block>
+</template>

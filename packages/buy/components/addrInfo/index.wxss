@@ -1,0 +1,78 @@
+.address .title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.address .title .icon {
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 14rpx;
+}
+
+.address .desc {
+  font-size: 28rpx;
+  color: #666;
+}
+
+
+.address-form-content {
+  margin-top: 40rpx;
+}
+
+.address-form-content .opt-area {
+  display: flex;
+  align-items: center;
+}
+
+.address-form-content .desc {
+  margin-top: 6rpx;
+  margin-left: 46rpx;
+  font-size: 28rpx;
+  color: #ccc;
+  word-break: break-all;
+
+}
+
+.address-form-content .opt-area .main-title {
+  font-size: 48rpx;
+  line-height: 68rpx;
+  font-weight: bold;
+  flex: 1;
+  word-break: break-all;
+}
+
+.opt-area .main-title .required {
+  margin-left: 16rpx;
+  font-size: 32rpx;
+  color: #F0422C;
+  margin-right: 8rpx;
+}
+
+.opt-area .opt {
+  border-radius: 10rpx;
+  margin-right: 22rpx;
+  padding: 14rpx 24rpx;
+  display: flex;
+  font-size: 26rpx;
+  align-items: center;
+}
+
+.opt-area .opt.update {
+  border: 1px solid #D9D9D9;
+  color: #666;
+}
+
+.opt-area .opt.add {
+  border: 1px solid #4293F4;
+  color: #4293F4;
+}
+
+.opt-area .opt .icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}

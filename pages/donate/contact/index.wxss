@@ -1,0 +1,44 @@
+/* pages/donate/contact/index.wxss */
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  height: 140rpx;
+  line-height: 140rpx;
+  padding-left: 40rpx;
+}
+
+.channel-title {
+  display: flex;
+  align-items: center;
+}
+
+.channel-title__num {
+  height: 50rpx;
+  width: 50rpx;
+  background: #4293F4;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+}
+.channel-title__txt {
+  font-size: 42rpx;
+  letter-spacing: 0;
+  line-height: 58rpx;
+  font-weight: bold;
+}
+
+.channel-desc {
+  font-size: 32rpx;
+  color: #999999;
+  letter-spacing: 0;
+  line-height: 44rpx;
+  padding-left: 70rpx;
+  margin-top: 30rpx;
+}
+
+.channel-desc__item {
+  line-height: 70rpx;
+}

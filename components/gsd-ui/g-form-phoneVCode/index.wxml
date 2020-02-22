@@ -1,0 +1,22 @@
+<!-- 组件模板 -->
+<g-input id="{{__id}}" label="{{label}}"
+  value="{{value}}"
+  maxlength="{{maxLength}}"
+  disabled="{{disabled}}"
+  status="{{_status}}"
+  statusMessage="{{_statusMessage}}"
+  placeholder="{{placeholder}}"
+  type="{{type}}"
+  append
+  bind:change="handleChange"
+>
+  <view slot='append'>
+    <button class='vcode-button' disabled="{{!mobile || __reSend}}" bindtap='bindVerifyAction' size="mini">
+        {{
+          __reSend && __second
+          ? __second+'s后重发'
+          : buttonText
+        }}
+      </button>
+  </view>
+</g-input>

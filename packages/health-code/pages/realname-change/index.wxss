@@ -1,0 +1,93 @@
+/* packages/health-code/pages/realname-submit/index.wxss */
+
+.page {
+  padding: 0 32rpx;
+}
+
+.tips {
+  background-color: #aebac9;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #fff;
+  letter-spacing: 0;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.title {
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 68rpx;
+  margin-left: 32rpx;
+  margin-top: 32rpx;
+}
+
+.name {
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 40rpx;
+  margin-bottom: 16rpx;
+}
+
+.nameTipe {
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #ccc;
+  letter-spacing: 0;
+  line-height: 48rpx;
+}
+
+.box {
+  box-shadow: inset 0 -1px 0 0 #ebebeb;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  padding: 16rpx 32rpx;
+  height: 120rpx;
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+}
+
+.selectText {
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #4293f4;
+  line-height: 48rpx;
+}
+
+.btn {
+  position: fixed;
+  bottom: 48rpx;
+  left: 32rpx;
+  right: 32rpx;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.text {
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 48rpx;
+  height:  48rpx;
+}
+.label_require{
+  position: relative;
+  background: red;
+}
+.label_require:before {
+  content: "*";
+  position: absolute;
+  left: 10px;top: 18px;
+  color: #F6423B;
+}

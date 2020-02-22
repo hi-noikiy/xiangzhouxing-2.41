@@ -1,0 +1,74 @@
+<!--pages/car-code/bus-code/passenger/edit/index.wxml-->
+<g-form model="{{formData}}" rules="{{rules}}" validateType="{{validateType}}" primary-text="提交" bind:submit="handleFormSubmit">
+	<view slot="content">
+		<g-wrapper title="卡口登记信息"  wx:if="{{!hasId}}">
+			<!-- <g-input id="carNum" label="车牌号" value="{{formData.carNum}}" bind:change="handleChange" placeholder="请输入车牌号" data-form='formData' bind:tap="handleOpenVehicleKeyboard"></g-input> -->
+
+      <g-form-cell id="carNum" label='车牌号' placeholder="请输入车牌号" value="{{formData.carNum}}" bind:tap="handleOpenVehicleKeyboard" />
+
+			<g-input id="routerNo" label="班次行程号" type="number" value="{{formData.routerNo}}" bind:change="handleChange" placeholder="请输入班次行程号" data-form='formData'></g-input>
+		</g-wrapper>
+    <g-wrapper class="content__title" title="卡口登记信息" wx:if="{{hasId}}">
+			<g-preview text-align="right">
+				<g-preview-item label="车牌号">{{formData.carNum}}</g-preview-item>
+				<g-preview-item label="班次行程码">{{formData.routerNo}}</g-preview-item>
+			</g-preview>
+		</g-wrapper>
+		<view class="sk-dropdown-list">
+      <view class="sk-dropdown-list__head">
+        <text class="sk-dropdown-list__title">乘车人信息（{{passengerList.length||1}}人 ）</text>
+        <g-icon style="padding: 16rpx 10rpx;" type="{{toggleIcon}}" color="#666" size="36" bind:tap="handleToggleShrink"/>
+      </view>
+      <view class="’sk-dropdown-list__content ‘ + {{ toggleIcon === 'arrow-down' ? 'is-hidden' : '' }}">
+        <button class="sk-dropdown-list__btn" bind:tap="handleAddPassenger">
+          <image class="sk-dropdown-list__plus" src="https://imgcache.gzonline.gov.cn/cos/car-code/icon_add@2x.png" />
+          <text class="sk-dropdown-list__plus-text">添加乘车人</text>
+        </button>
+        <view class="sk-dropdown-list__ul">
+          <view class="sk-dropdown-list__item" wx:for="{{passengerList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item">
+            <view class="sk-dropdown-list__box">
+              <text class="s-name">{{ item.name }}{{ item.mark ? "（"+ item.mark +"）": ""}}</text>
+              <text class="s-phone">{{item.phone}}</text>
+            </view>
+            <view class="sk-dropdown-list__delete">
+              <g-icon type="close-circle" color="#999" size="36" wx:if="{{item.mark !== '本人'}}" data-index="{{item.qrcId}}" bind:tap="handleDeletePassenger" />
+            </view>
+          </view>
+        </view> 
+      </view>
+    </view>
+	</view>
+</g-form>
+
+<g-plate-number-keyboard visible="{{showVehicleKeyboard}}" bind:change="handlePlateChange" value="{{formData.clueVehicle}}" />
+
+<!-- 显示弹层 添加乘客人员 -->
+<g-poplayer visible="{{ passengerVisible }}" bind:close="handleClosePassengerLayer">
+  <!-- 构建内容页面 -->
+  <view class="sk-pop-layer">
+    <text class="sk-pop-layer__title">添加乘车人</text>
+    <text class="sk-pop-layer__descript">请添加全部乘车人信息，包括家人和朋友</text>
+
+    <!-- 扫码区域 -->
+    <button class="sk-pop-layer__scan" style="background: #fff;" type="primary" bind:tap="getScanCode">
+      <image class="s-icon" src="https://imgcache.gzonline.gov.cn/cos/car-code/icon_scran@2x.png" />
+      <text class="s-text">扫一扫对方健康码二维码</text>
+    </button>
+ <!-- 扫描二维码的数据 -->
+      <view class="sk-scan-list">
+        <text class="sk-scan-list_title" wx:if="{{scanPassengerList.length>0}}">已扫描添加({{scanPassengerList.length}}人)</text>
+        <view class="sk-scan-list_container">
+          <text class="sk-scan-list_item" wx:for="{{scanPassengerList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item">{{item.name}}</text>
+        </view>
+      </view>
+    <!-- 近七天上报记录 -->
+    <view class="sk-recommer-recently">
+      <text class="sk-recommer-recently__title">近七天上报记录</text>
+      <g-checkbox-group id="checkboxA" class="checkbox_group" items="{{checkRecordItems}}" data-num="" value="{{checkboxRecordValue}}" bind:change="handleRecordChange" wx:if="{{checkRecordItems.length > 0}}" />
+      <text class="sk-recommer-recently__empty" wx:else>暂无上报记录</text>
+    </view>
+
+    <!-- 按钮区域 -->
+    <button bind:tap='handleSubmitPassenger' type="primary">完成</button>
+  </view>
+</g-poplayer>

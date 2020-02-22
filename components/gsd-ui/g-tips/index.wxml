@@ -1,0 +1,29 @@
+<view wx:if="{{_isShow}}" 
+  class="tips {{position ? 'tips--' + position : ''}} tips--{{status}}  {{loop ? 'tips--loop' : ''}} "
+  catch:tap="handleTap"
+  hover-class="{{to || access ? 'tips--' + status + '--hover' : ''}}"
+  hover-stay-time="250"
+  style="{{tipsStyle}}"
+  >
+  <view class="tips__container  {{to || access ? 'dgdui_tips__access' : ''}}" >
+    <!--content  -->
+    <view class="tips__content">
+      <view class="tips__content-text" style="{{loopDuration ? 'animation-duration: ' + loopDuration + 's;' : ''}}">
+        <slot/>
+      </view>
+    </view>
+
+    <!-- access -->
+    <!-- 是否允许关闭 -->
+    <g-icon wx:if="{{closeable}}" 
+      class="tips__close tips__icon"
+      type="close" size="23" color="key" 
+      catch:tap="handleClose"
+    />
+    <!-- 是否显示箭头 -->
+    <g-icon class="tips__icon"
+      wx:if="{{!closeable && (to || access)}}" 
+      type="ft" size="26" color="key" 
+    />
+  </view>
+</view>

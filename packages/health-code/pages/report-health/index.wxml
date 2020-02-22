@@ -1,0 +1,154 @@
+<view>
+  <view class="rep-wrap">
+    <!-- 提交上报-健康码 begin-->
+     <view class="report-code" wx:if="{{relationUserList.length==0}}">
+        <view class="report-tips-show">
+             <image src="https://imgcache.gzonline.gov.cn/cos/health/icon-apply@2x.png" mode='widthFix' class="rt-img"></image>
+             <view class="tj-code">
+               <text>提交健康自查上报</text>
+               <text class="tj-code-erwm">获取健康码</text>
+             </view>
+        </view>
+
+         <button type="primary" bind:tap='handleNavigateTo' data-url='/pages/report/index/index?type=1'>上报健康信息</button>
+
+         <view class="rewrp-info">
+            <g-icon type="info-o" color="#999" size="35"/>
+            <text class="rewrp-info-text">出示健康码，无纸化无接触问询通行，做好防疫第一步</text>
+         </view>
+     </view> 
+      <!-- 提交上报-健康码 end-->
+
+
+      <!-- 健康码信息 begin -->
+      <view class="code-info" wx:elif="{{relationUserList.length>0}}">
+         <!-- 健康码显示 -->
+         <view class="{{isMine ? 'code-img' : 'code-img code-img-other'}}">
+            <!-- 轮播上一张 -->
+            <view class="arrowBtn preBtn" wx:if="{{current>0}}" bind:tap='handleArrowChange' data-arrow='up'>
+               <g-icon type="arrow-left" color="#fff" size="40"/>
+            </view>
+
+             <!-- 轮播下一张 -->
+            <view class="arrowBtn nextBtn" bind:tap='handleArrowChange' wx:if='{{current<relationUserList.length-1}}' data-arrow='next'>
+               <g-icon type="arrow-right" color="#fff" size="40"/>
+            </view>
+
+            <swiper
+            current="{{current}}"
+            bindchange='handleSwiperChange'
+            style='height:590rpx'
+            indicator-color="{{'rgba(255,255,255,0.5)'}}"
+            indicator-active-color="{{'#fff'}}"
+        indicator-dots="{{relationUserList.length > 1 ? indicatorDots : false}}" 
+        interval="{{interval}}" duration="{{duration}}" >
+        <block wx:for="{{relationUserList}}" wx:key="{{item.uid}}">
+          <swiper-item>
+            <view>
+                 <view class="code-user-name">{{item.username+(item.isMe ? '':'（非本人）')}}</view>
+             <view class='code-tip'>
+               有效期还有
+               <text class="{{item.day > 2 ? 'normal-day' : 'warning-day'}}">{{item.day}}</text>
+               天
+               <text class="code-line" wx:if='{{item.day>0}}'>|</text>
+               <text class="code-update" bind:tap='handleNavigateTo' data-url="{{item.isMe ? '/pages/report/index/index?type=1':'/pages/report/index/index?type=2'}}" wx:if='{{item.day>0}}'>申请更新</text>
+             </view>
+
+             <view bind:tap='showTips' data-verCode="{{item.verCode}}">
+                      <view class="img-fix">
+                 <!-- <image src="{{item.url}}" class='img'></image> -->
+                 <canvas class="img" canvas-id="{{'myQrcode'+index}}"></canvas>
+                 <view class="img-fix-mask" wx:if='{{item.day<=0}}'>
+                    <view class="img-fix-text">已过期</view>
+                    <view class="lj-update" bind:tap='handleNavigateTo' data-url="{{item.isMe ? '/pages/report/index/index?type=1':'/pages/report/index/index?type=2'}}">立即更新</view>
+                 </view>
+             </view>
+
+             <view class="codeBox">
+                 <view class="codeBox-label">验证码：</view>
+                 <view class="codeBox-content">{{item.verCode}}</view>
+             </view>
+             </view>
+
+       
+       
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+           
+          <view class="code-manage" bind:tap='handleNavigateTo' data-url="{{'/packages/health-code/pages/manage-code/index?codeId='+selfInfo.codeId+'&username='+selfInfo.username}}">健康码管理></view>
+
+         </view>
+
+   
+       
+         <!-- 症状 -->
+        <view class="title">最新健康自报</view>
+         <view class="zz-show">
+           <view class="zz-item" wx:for='{{symptomList}}'>
+           <g-icon wx:if='{{item.checked}}' type="success" color="{{isMine ?'#0080EF':'#09BB07'}}" size="40" class="sel-icon"/>
+             <image src="{{'https://imgcache.gzonline.gov.cn/cos/health/'+(item.checked ? (isMine ? item.icon.sel:item.icon.other) : item.icon.nol)+'.png'}}" class='icon-img' mode='widthFix'></image>
+             <view>{{item.des}}</view>
+           </view>
+         </view>
+        <view class="tips-block">
+          <view>试运营阶段，欢迎获取健康码</view>
+          <view>实现无接触问询，提高出行效率</view>
+        </view>
+          <!-- <view class="title-day">
+             <view class="title-day-text">近10条通行记录</view>
+          </view> -->
+          <!-- <view>
+            <view class="cx-log" wx:if='{{logList.length == 0}}'>
+               <image src="https://imgcache.gzonline.gov.cn/cos/no-log.png" mode='widthFix' class="cx-log-img"></image>
+               <view class="cx-log-text">暂无出行记录</view>
+            </view>
+            <g-wrapper wx:else>
+               <g-cell wx:for='{{logList}}'>
+                  <view class="log-time">
+                    <view class="log-dt">
+                       <text>{{item.createTime}}</text> -->
+                       <!-- <text class="log-dt-time">{{item.time}}</text> -->
+                    <!-- </view>
+                    <view class="log-tv">
+                     <text>体温：</text>
+                     <text wx:if='{{item.temperature > 37.3}}' class='ycsty'>{{item.temperature}}℃</text>
+                     <text wx:else class="zcsty">正常</text>
+                    </view>
+                  </view>
+                  <view class="log-gps">
+                    <image src="https://imgcache.gzonline.gov.cn/cos/health/icon-address@2x.png" mode='widthFix' class="icon-gps"></image>
+                    <view class="gps-addr">
+                      <view>
+                      {{item.gridPointName}}
+                      </view>
+                      <view>
+                        {{item.state == 1 ? '(外出)': (item.state == 2 ? '(入内)' : '')}}
+                         {{item.state == 3 ? '(途径)':''}}
+                      </view>
+                    </view>
+                  </view>
+               </g-cell>
+                 
+           </g-wrapper>
+          </view> -->
+
+
+      </view>
+      <!-- 健康码信息 end -->
+
+</view>
+      <!-- 底部copyright begin -->
+      <view class='copyright'>
+         <view>珠海市香洲区</view>
+         <view>腾讯公司/腾讯云提供技术支持</view>
+      </view>
+
+      <!-- 底部copyright end -->
+
+
+
+
+
+</view>

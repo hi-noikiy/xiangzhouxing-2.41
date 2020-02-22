@@ -1,0 +1,70 @@
+<!-- <g-tabs activeKey="{{tabIndex}}" bind:change="handleTabTap">
+
+    <template wx:if="{{todoType === 'affair'}}" is="tab" data="{{ name: '待处理', index: '0', todoType, itemList: todoType === 'affair' ? todoAffairList : todoType === 'check' ? todoCheckList : todoReportList }}"></template>
+    <template is="tab" data="{{ name: '进行中', index: '1', todoType, itemList: todoType === 'affair' ? doingAffairList : todoType === 'check' ? doingCheckList : doingReportList }}"></template>
+    <template is="tab" data="{{ name: '已办结', index: '2', todoType, itemList: todoType === 'affair' ? doneAffairList : todoType === 'check' ? doneCheckList : doneReportList }}"></template>
+
+    <template name="tab">
+        <g-tab-pane tab="{{ name }}" key="{{ index }}">
+            <g-cell wx:for="{{itemList}}" wx:key="item.id" wx:if="{{itemList.length}}"
+                    data-item="{{item}}" bindtap="handleItem" access>
+                <view slot="content">
+                  <!-- <view class="cell-title">{{item.dscr || item.reportName || '无'}}</view> -->
+                  <!-- <view class="cell-title" wx:if="{{item.clueType != 2}}">为自己上报</view>
+                  <view class="cell-title" wx:if="{{item.clueType == 2}}">为他人上报</view>
+                  <view class="cell-desc">{{item.createTime}}</view>
+                </view>
+                <view slot="append">
+                    <g-badge dot wx:if="{{item.isRead === 0}}"></g-badge>
+                    <view wx:if="{{ todoType === 'affair' && item.status === 0 }}" class='my-todo__append my-todo__append-red'>{{ item.process_name || '待处理' }}</view>
+                    <view wx:if="{{ todoType !== 'affair' && item.status === 0 }}" class='my-todo__append my-todo__append-999999'>{{ item.process_name || '进行中' }}</view>
+                    <view wx:if="{{item.status === 1 }}" class='my-todo__append my-todo__append-999999'>{{ item.process_name || '进行中' }}</view>
+                    <view wx:if="{{item.status === 2 }}" class='my-todo__append my-todo__append-999999'>{{ item.process_name || '已办结' }}</view>
+                </view>
+            </g-cell>
+            <view wx:if="{{!itemList.length}}">
+                <view class="no-todo-image">
+                    <image src="https://imgcache.gzonline.gov.cn/cos/empty_0283358d.svg"></image>
+                </view>
+                <view class="no-todo">当前没有事项</view>
+            </view>
+        </g-tab-pane>
+    </template>
+
+</g-tabs> -->
+
+<template is="tabNew" data="{{ name: '进行中', index: '1', todoType, itemList: todoType === 'affair' ? doingAffairList : todoType === 'check' ? doingCheckList : doingReportList }}"></template>
+
+<template name="tabNew">
+    <g-wrapper>
+            <g-cell wx:for="{{itemList}}" wx:key="item.id" wx:if="{{itemList.length}}"
+                    data-item="{{item}}" bindtap="handleItem" access>
+                <view slot="content">
+                  <!-- <view class="cell-title">{{item.dscr || item.reportName || '无'}}</view> -->
+                  <view class="cell-title" wx:if="{{item.clueType == 0}}">为自己上报</view>
+                  <view class="cell-title" wx:if="{{item.clueType == 2}}">为他人上报</view>
+                  <view class="cell-title" wx:if="{{item.clueType == 1}}">{{item.createTime}}</view>
+                  <view class="cell-desc" wx:else>{{item.createTime}}</view>
+                </view>
+                <!-- <view slot="append">
+                    <g-badge dot wx:if="{{item.isRead === 0}}"></g-badge>
+                    <view wx:if="{{ todoType === 'affair' && item.status === 0 }}" class='my-todo__append my-todo__append-red'>{{ item.process_name || '待处理' }}</view>
+                    <view wx:if="{{ todoType !== 'affair' && item.status === 0 }}" class='my-todo__append my-todo__append-999999'>{{ item.process_name || '进行中' }}</view>
+                    <view wx:if="{{item.status === 1 }}" class='my-todo__append my-todo__append-999999'>{{ item.process_name || '进行中' }}</view>
+                    <view wx:if="{{item.status === 2 }}" class='my-todo__append my-todo__append-999999'>{{ item.process_name || '已办结' }}</view>
+                </view> -->
+            </g-cell>
+            <view wx:if="{{!itemList.length}}">
+                <view class="no-todo-image">
+                    <image src="https://imgcache.gzonline.gov.cn/cos/empty_0283358d.svg"></image>
+                </view>
+                <view class="no-todo">当前没有事项</view>
+            </view>
+    </g-wrapper>
+</template>
+
+
+
+
+
+

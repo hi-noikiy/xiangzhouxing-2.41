@@ -1,0 +1,38 @@
+<view class="tips">
+  若您是中国大陆用户，请选择身份证验证！</view>
+<!-- <view class="title">实名资料提交</view>
+
+
+<view class="box">
+  <view class="name">姓名</view>
+  <input class="text"  bindinput='bindinput' id="name"    placeholder-class="nameTipe" placeholder='请填写姓名'></input>
+</view>
+
+<view class="box">
+  <view class="name">证件类型</view>
+  <view class='select'>
+   <view wx:if="{{identityType==-1}}" class="nameTipe flex1">请选择</view>
+    <view wx:if="{{identityType!=0}}" class="nameTipe flex1">{{identityTypes[identityType].label}}</view>
+    <view class="selectText"  bindtap="showSelect" >选择</view>
+  </view>
+</view>
+
+<view class="box">
+  <view class="name">证件号码</view>
+  <input class="text" bindinput='bindinput' id="cardId"  placeholder-class="nameTipe" placeholder='请输入您的证件号码'></input>
+</view>
+
+<button bindtap='submit' class="btn" type="primary">提交</button> -->
+<g-form model="{{selfForm}}" rules="{{selfFormRules}}" bind:submit="handleSelfSubmit" primary-text="提交" validateType="{{validateType}}">
+  <g-wrapper title='实名资料提交'>
+    <g-input class="label_require"  id="username" label='姓名' maxlength="20" placeholder="请输入您的姓名" value="{{selfForm.username}}" bind:change="handleFormChange" data-form='selfForm' />
+    <g-picker id="identityType" label="证件类型" placeholder="请选择证件类型" bind:change="handleFormChange" value="{{selfForm.identityType}}" data-form="selfForm" range="{{cardTypeRange}}">
+    </g-picker>
+
+
+    <g-input class="label_require" maxlength="50" id="identity" type="{{identityInputType}}" label='证件号码' placeholder="请输入证件号码" bind:change="handleFormChange" value="{{selfForm.identity}}" data-form='selfForm' />
+
+  </g-wrapper>
+</g-form>
+
+ 

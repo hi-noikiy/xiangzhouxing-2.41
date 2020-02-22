@@ -1,0 +1,152 @@
+page {
+  background: #f5f5f5;
+  padding-bottom: 30rpx;
+}
+
+.chart-line {
+  background: #fff;
+  padding-top: 20rpx;
+  margin-bottom: 50rpx;
+}
+
+.chart-title {
+  padding-left: 30rpx;
+}
+
+.header-region{
+  display: flex;
+  align-items: center
+}
+.header-region .form-item{
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+.content-border {
+  background: #FFFFFF;
+  box-shadow: 0 12rpx 18rpx 0 rgba(10,55,82,0.10);
+  border-radius: 15rpx;
+  margin: 32rpx 48rpx;
+}
+
+.content-padding{
+  padding: 15rpx 46rpx;
+}
+
+
+
+.content-header{
+  border-bottom: 1rpx solid #DDDDDD;
+  margin-bottom: 20rpx;
+}
+
+.content-light{
+  opacity: 0.7;
+  font-family: PingFangSC-Medium;
+  font-size: 26rpx;
+  color: #999999;
+  text-align: right;
+}
+
+.index__container {
+  position: relative;
+  padding-top: 260rpx;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.justify-item {
+  justify-content: space-between;
+}
+
+.flex-item {
+  flex: 1;
+  text-align: center;
+}
+
+.label{
+  opacity: 0.7;
+  font-family: PingFangSC-Medium;
+  font-size: 26rpx;
+  color: #000000;
+  text-align: center;
+}
+
+.content{
+  font-family: PingFangSC-Semibold;
+  font-size: 48rpx;
+  color: #344356;
+  text-align: center;
+  line-height: 28rpx;
+  margin: 15rpx 0;
+}
+
+.back-view{
+  position: relative;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.back-view.show {
+  opacity: 1;
+}
+.back-image{
+  width:100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+.access-box {
+  display: flex;
+  background: #FFFFFF;
+  box-shadow: 0 12rpx 18rpx 0 rgba(10,55,82,0.10);
+  border-radius: 16rpx;
+  margin: 32rpx 48rpx 32rpx;
+  padding: 48rpx 36rpx;
+}
+
+.access-box--hover {
+  background: #DEEDFF;
+  box-shadow: 0 12rpx 18rpx 0 rgba(66,147,244,0.30);
+}
+
+.access-box--disabled {
+  background: rgba(0, 0, 0, .05);
+}
+
+.access-box .img {
+  width: 128rpx;
+  height: 128rpx;
+  margin-right: 20rpx;
+}
+
+.access-box .img image {
+  width: 128rpx;
+  height: 128rpx;
+}
+
+.access-box .right-content {
+  flex: 1;
+  text-align: left;
+  padding: 0;
+}
+
+.access-box .right-content .title {
+  font-size: 42rpx;
+  color: #000000;
+  line-height: 28rpx;
+  margin-top: 6rpx;
+}
+
+.access-box .right-content .desc {
+  opacity: 0.7;
+  font-size: 26rpx;
+  color: #000000;
+  line-height: 37rpx;
+  margin-top: 20rpx;
+}

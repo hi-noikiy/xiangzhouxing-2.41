@@ -1,0 +1,191 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/stat/index",
+    "pages/car-code/code-edit/index",
+    "pages/web-view/index",
+    "pages/mine/index/index",
+    "pages/mine/todo/list/list",
+    "pages/mine/todo/detail/detail",
+    "pages/mine/empty/index",
+    "pages/report/home/index",
+    "pages/report/index/index",
+    "pages/donate/index/index",
+    "pages/donate/msg/index",
+    "pages/donate/form/index",
+    "pages/donate/contact/index",
+    "pages/report/msg/index",
+    "pages/mine/donation/index",
+    "pages/report/inform/index",
+    "pages/diagnosis/index",
+    "pages/car-code/code-manage/index",
+    "pages/car-code/code-detail/index",
+    "pages/car-code/bus-code/passenger/edit/index",
+    "pages/car-code/submit-success/index",
+    "pages/car-code/pub-tran-code/index",
+    "pages/car-code/bus-code/driver/daba-edit/index",
+    "pages/car-code/traffic-police/start/index",
+    "pages/car-code/traffic-police/car-check/index",
+    "pages/car-code/traffic-police/passenger-infor2/index",
+    "pages/car-code/bus-code/passenger/home/index",
+    "pages/car-code/bus-code/passenger/scan/index",
+    "pages/car-code/bus-code/passenger/commit/index",
+    "pages/car-code/bus-code/passenger/detail/index",
+    "pages/car-code/bus-code/passenger/fllow/index",
+    "pages/car-code/bus-code/car-success/index",
+    "pages/car-code/bus-code/driver/daba-code-detail/index",
+    "pages/car-code/bus-code/driver/poster/index",
+    "pages/buy/notice/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packages/health-code",
+      "pages": [
+        "pages/new-workbench/new-workbench",
+        "pages/realname-submit/index",
+        "pages/realname-info/index",
+        "pages/admin-grid/index",
+        "pages/traffic-record/index",
+        "pages/workbench/index",
+        "pages/report-health/index",
+        "pages/manage-code/index",
+        "pages/verification/index",
+        "pages/scan-success/index",
+        "pages/add-grid/index",
+        "pages/add-person/index",
+        "pages/collection-point/index",
+        "pages/toggle-grid/index",
+        "pages/admin/index",
+        "pages/empty/index",
+        "pages/realname-change/index",
+        "pages/inputcode/index",
+        "pages/collection-point-manage/index"
+      ]
+    },
+    {
+      "root": "packages/enterprise",
+      "pages": ["pages/form/index", "pages/list/index"]
+    }, 
+    {
+      "root": "packages/buy",
+      "name": "buy",
+      "pages": [
+        "pages/over/index",
+        "pages/notice/index",
+        "pages/form/index",
+        "pages/reservation-list/index",
+        "pages/result-fail/index",
+        "pages/result-ok/index"
+      ]
+    }
+  ],
+  "tabBar": {
+    "color": "#344356",
+    "selectedColor": "#4293F4",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home/icon_home@2x.png",
+        "selectedIconPath": "images/home/icon_home_selected@2x.png"
+      },
+      {
+        "pagePath": "pages/mine/index/index",
+        "text": "我的",
+        "iconPath": "images/home/icon_me@2x.png",
+        "selectedIconPath": "images/home/icon_me_selected@2x.png"
+      }
+    ],
+    "position": "bottom",
+    "custom": false
+  },
+  "usingComponents": {
+    "home-tips": "/components/home-tips/index",
+    "g-speech": "/components/g-speech/index",
+    "g-collapse": "/components/gsd-ui/g-collapse/index",
+    "g-collapse-pane": "/components/gsd-ui/g-collapse-pane/index",
+    "g-form-number": "/components/gsd-ui/g-form-number/index",
+    "g-address-item": "/components/gsd-ui/g-address-item/index",
+    "g-address-map": "/components/gsd-ui/g-address-map/index",
+    "g-agree": "/components/gsd-ui/g-agree/index",
+    "g-auth-footer": "/components/gsd-ui/g-auth-footer/index",
+    "g-badge": "/components/gsd-ui/g-badge/index",
+    "g-banner": "/components/gsd-ui/g-banner/index",
+    "g-button-group": "/components/gsd-ui/g-button-group/index",
+    "g-calendar": "/components/gsd-ui/g-calendar/index",
+    "g-card": "/components/gsd-ui/g-card/index",
+    "g-cascader": "/components/gsd-ui/g-cascader/index",
+    "g-cell": "/components/gsd-ui/g-cell/index",
+    "g-checkbox-group": "/components/gsd-ui/g-checkbox-group/index",
+    "g-checkbox-label": "/components/gsd-ui/g-checkbox-label/index",
+    "g-date-range-picker": "/components/gsd-ui/g-date-range-picker/index",
+    "g-circle": "/components/gsd-ui/g-circle/index",
+    "g-dropdown": "/components/gsd-ui/g-dropdown/index",
+    "g-footer": "/components/gsd-ui/g-footer/index",
+    "g-form": "/components/gsd-ui/g-form/index",
+    "g-plate-number-keyboard": "/components/gsd-ui/g-plate-number-keyboard/index",
+    "g-form-item": "/components/gsd-ui/g-form-item/index",
+    "g-form-cell": "/components/gsd-ui/g-form-cell/index",
+    "g-icon": "/components/gsd-ui/g-icon/index",
+    "g-index-list": "/components/gsd-ui/g-index-list/index",
+    "g-input": "/components/gsd-ui/g-input/index",
+    "g-map": "/components/gsd-ui/g-map/index",
+    "g-modal": "/components/gsd-ui/g-modal/index",
+    "g-msg": "/components/gsd-ui/g-msg/index",
+    "g-form-phoneVCode": "/components/gsd-ui/g-form-phoneVCode/index",
+    "g-picker": "/components/gsd-ui/g-picker/index",
+    "g-picker-view": "/components/gsd-ui/g-picker-view/index",
+    "g-poplayer": "/components/gsd-ui/g-poplayer/index",
+    "g-popover": "/components/gsd-ui/g-popover/index",
+    "g-preview": "/components/gsd-ui/g-preview/index",
+    "g-preview-item": "/components/gsd-ui/g-preview-item/index",
+    "g-radio-group": "/components/gsd-ui/g-radio-group/index",
+    "g-region": "/components/gsd-ui/g-region/index",
+    "g-region-picker": "/components/gsd-ui/g-region-picker/index",
+    "g-search": "/components/gsd-ui/g-search/index",
+    "g-select": "/components/gsd-ui/g-select/index",
+    "g-selector": "/components/gsd-ui/g-selector/index",
+    "g-switch": "/components/gsd-ui/g-switch/index",
+    "g-tab-pane": "/components/gsd-ui/g-tab-pane/index",
+    "g-tabs": "/components/gsd-ui/g-tabs/index",
+    "g-textarea": "/components/gsd-ui/g-textarea/index",
+    "g-timeline": "/components/gsd-ui/g-timeline/index",
+    "g-timeline-item": "/components/gsd-ui/g-timeline-item/index",
+    "g-tips": "/components/gsd-ui/g-tips/index",
+    "g-title": "/components/gsd-ui/g-title/index",
+    "g-upload": "/components/gsd-ui/g-upload/index",
+    "g-nav-box": "/components/gsd-ui/g-nav-box/index",
+    "g-nav-box-item": "/components/gsd-ui/g-nav-box-item/index",
+    "g-table": "/components/gsd-ui/g-table/index",
+    "g-wrapper": "/components/gsd-ui/g-wrapper/index",
+    "my-hover": "/components/hover-button/index"
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "健康码",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff"
+  },
+  "networkTimeout": {
+    "request": 15000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList": [
+    "wxb032bc789053daf4",
+    "wxcf1f51ec21883acf",
+    "wx88736d7d39e2eda6",
+    "wx308bd2aeb83d3345",
+    "wx60433dee5714bfbc"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

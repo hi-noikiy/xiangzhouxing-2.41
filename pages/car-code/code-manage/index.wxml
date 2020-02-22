@@ -1,0 +1,83 @@
+<!-- pages/car-code/code-manage/index.wxml -->
+<g-tabs activeKey="{{ activeKey }}" position="relative" bind:change="handleTabChange" data-key="activeKey" position="fixed">
+  <g-tab-pane tab="交通卡口登记" key="1">
+    <view class="type-item" wx:for="{{carTypes}}" wx:key="{{item.value}}" bindtap="handleTypeTap" data-name="activeKey" data-value="{{item.value}}">
+      <image src="{{item.picture}}" alt="" class="type-item__icon"></image>
+      <text class="type-item__name">{{ item.name }}</text>
+    </view>
+    <g-poplayer visible="{{ visible }}" bind:close="closePoplayer">
+      <!-- <view>
+          <g-wrapper style="text-align:center">
+            <g-cell label="我是司机" to="/pages/car-code/bus-code/driver/daba-edit/index" />
+            <g-cell label="我是乘客" to="/pages/car-code/bus-code/passenger/scan/index" />
+            <g-cell label="取消" bind:tap="closePoplayer" />
+          </g-wrapper>
+        </view> -->
+      <!-- 构建内容页面 -->
+      <view class="sk-pop-layer">
+        <text class="sk-pop-layer__title">请选择</text>
+        <text class="sk-pop-layer__descript">请选择你的身份</text>
+        <view class="sk-pop-layer__card" bind:tap="handleTypeTap" data-value="/pages/car-code/bus-code/driver/daba-edit/index">
+          <image src="https://imgcache.gzonline.gov.cn/cos/car-code/icon_driver@2x.png" alt="" class="s-icon" />
+          <text class="s-name">我是司机</text>
+        </view>
+        <view class="sk-pop-layer__card" bind:tap="handleTypeTap" data-value="/pages/car-code/bus-code/passenger/scan/index">
+          <image src="https://imgcache.gzonline.gov.cn/cos/car-code/icon_passenger@2x.png" alt="" class="s-icon" />
+          <text class="s-name">我是乘客</text>
+        </view>
+      </view>
+    </g-poplayer>
+  </g-tab-pane>
+  <g-tab-pane tab="卡口通行码" key="2">
+    <view class="card-operate">
+      <text class="card-operate__title">我的登记</text>
+      <button class="card-operate__btn" style="background: #fff;" bind:tap="selectCarType">
+        <text class="card-operate__btn-name">{{selectTypeLabel}}</text>
+        <g-icon class="card-operate__btn-icon" type="triangle-down" color="#4293F4" size="16"/>
+      </button>
+    </view>
+    <!-- refresher-triggered="{{refresherTriggered}}" -->
+     <!-- upper-threshold="50"
+      refresher-threshold ="45" -->
+      <!-- bindrefresherpulling="bindrefresherpulling" -->
+      <!-- bindscrolltoupper="bindscrolltoupper" -->
+    <scroll-view
+      refresher-enabled="{{true}}"
+      refresher-triggered="{{refresherTriggered}}"
+      bindrefresherrefresh="bindrefresherrefresh"
+      bindscrolltolower="bindscrolltolower"
+     class="code-card__wrapper" scroll-y style="height: 600px; padding-top: 40rpx; padding-bottom: 250rpx"  wx:if="{{ codes.length > 0 }}">
+      <block wx:for="{{codes}}" wx:key="{{item.id}}">
+        <view wx:if="{{item.disabled == 0}}" class="code-card" wx:key="{{item.id}}">
+          <view class="code-card-from-to">
+          <text class="code-card__from">{{ item.leaveCityName == '市辖区' ? item.leaveProvinceName : item.leaveCityName }}</text>
+          <image src="https://imgcache.gzonline.gov.cn/cos/car-code/icon_arrow@2x.png" class="code-card__icon"></image>
+          <text class="code-card__to">{{ item.arriveCityName == '市辖区' ? item.arriveProvinceName : item.arriveCityName}}</text>
+        </view>
+          <view class="code-card-car-type">{{item.verticalCodeStr}} : {{item.carNumber?item.carNumber:item.carBatchNo}}</view>
+          <view class="code-card-date-time">登记时间 : {{item.createTime}}</view>
+          <view class="code-card-btns">
+            <button style="width:50%" plain catchtap="handleTapDelCode" data-value="{{item}}">删除</button>
+            <text class="code-card-btns__slit"></text>
+            <button style="width:50%"  class="is-active" plain catchtap="handleTapEditCode" data-value="{{item}}">
+              查看通行码
+            </button>
+          </view>
+        </view>
+      </block>
+      <view class="simple-info" wx:if="{{loading}}">加载中</view>
+      <!-- <view class="simple-info" wx:else>重新加载</view> -->
+    </scroll-view>
+
+    <view class="code-card__wrapper" wx:else>
+      <text class="code-card__empty">暂无数据</text>
+    </view>
+  </g-tab-pane>
+</g-tabs>
+<!-- 显示弹层 选择卡口通行码类型 -->
+<!-- <g-poplayer visible="{{ showSelectType }}" bind:close="handleCloseCodeTypeLayer">
+ <view wx:for="{{busType}}" wx:key="{{item}}" class="option-item" data-type="{{item}}" bindtap="searchData">
+ {{item.value}}
+ </view>
+
+</g-poplayer> -->

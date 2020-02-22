@@ -1,0 +1,19 @@
+<view class="container">
+  <view><g-switch label="使用证件照自动裁剪" value="{{_isClip}}" bind:change="handleSwitchChange"/></view>
+  <view class="upload">
+    <view class="upload__label" aria-label="{{label}}">{{label}}</view>
+    <view class="upload__container">
+      <view aria-role="button" aria-label="移除图片" catch:tap="handleRemove" wx:if="{{value.filePath}}"><image class="upload__delete__icon" src="https://imgcache.gzonline.gov.cn/cos/delete_fe310276.svg" /></view>
+      <view class="upload__image__container {{value.filePath && 'upload__image__container--uploaded'}}">
+        <view aria-role="button" aria-label="预览图片" catch:tap="handlePreview" wx:if="{{value.filePath}}">
+          <g-image mode="widthFix" image-class="upload__image" src="{{value.filePath}}" />
+        </view>
+        <view aria-role="button" aria-label="上传图片" wx:else bind:tap="uploadImage">
+          <image class="upload__image__background" mode="aspectFit" src="https://imgcache.gzonline.gov.cn/cos/user_a26f540d.svg"/>
+          <image class="upload__add__icon" src="https://imgcache.gzonline.gov.cn/cos/add_13dac7c1.svg" />          
+        </view>
+      </view>
+      <view aria-role="button" aria-label="预览图片" catch:tap="handlePreview" wx:if="{{value.filePath}}"><image class="upload__preview__icon" src="https://imgcache.gzonline.gov.cn/cos/preview_42ea8cd3.svg" /></view>      
+    </view>
+  </view>
+</view>

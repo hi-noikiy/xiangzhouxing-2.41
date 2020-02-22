@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-form-item": "../g-form-item/index",
+    "g-cell": "../g-cell/index"
+  }
+}

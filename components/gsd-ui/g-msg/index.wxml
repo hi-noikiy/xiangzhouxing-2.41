@@ -1,0 +1,15 @@
+<!--pages/g-msg/index.wxml-->
+<view class="msg">
+  <g-title title="{{title}}" status="{{status}}"/>
+
+  <view class="msg__desc" aria-label="{{desc}}">{{desc}}</view>
+
+  <slot />
+
+  <view class="msg__btn">
+    <button wx:if="{{primaryText}}" type="primary" catch:tap="handlePrimaryTap">{{primaryText}}</button>
+    <button wx:if="{{secondText}}" type="default" catch:tap="handleSecondTap">{{secondText}}</button>
+  </view>
+
+  <g-footer fixed="{{footerFixed}}" />
+</view>

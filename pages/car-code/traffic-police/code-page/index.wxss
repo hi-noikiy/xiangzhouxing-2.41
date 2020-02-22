@@ -1,0 +1,37 @@
+/* pages/car-code/traffic-police/code-page/index.wxss */
+page{
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #fff;
+}
+.code-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.msg{
+  margin-top: 170rpx;
+}
+.icon{
+  display: inline-block;
+  font-weight: normal;
+  color: #F6423B;
+}
+.mag-main{
+  font-weight: bold;
+  font-size: 64rpx;
+  line-height: 90rpx;
+   margin-bottom: 16rpx;
+}
+.msg-sub{
+  font-size: 36rpx;
+  color: #666;
+  line-height: 50rpx;
+}
+.qr-image{
+  margin-top: 110rpx;
+  width: 418rpx;
+  height: 418rpx;
+}

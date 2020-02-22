@@ -1,0 +1,46 @@
+/* pages/donate/form/index.wxss */
+.material-item {
+  border: 2rpx solid #EBEBEB;
+  border-radius: 8rpx;
+  margin: 40rpx;
+  padding: 36rpx 0;
+}
+
+.material-item__title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40rpx;
+}
+
+.material-item__title-bar .title {
+  font-size: 42rpx;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 60rpx;
+  font-weight: bold;
+}
+
+.remove {
+  opacity: 0.9;
+  font-size: 36rpx;
+  color: #4293F4;
+  letter-spacing: 0;
+  text-align: right;
+  line-height: 48rpx;
+}
+.add-operation {
+  opacity: 0.9;
+  font-size: 36rpx;
+  color: #4293F4;
+  letter-spacing: 0;
+  line-height: 48rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+}
+.add-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}

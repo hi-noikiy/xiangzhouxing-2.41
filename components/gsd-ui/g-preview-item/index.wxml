@@ -1,0 +1,13 @@
+<!--pages/g-preview-item/index.wxml-->
+<view class="preview-item--{{type}}">
+  <!-- Label 模式 -->
+  <view wx:if="{{label}}" aria-label="{{label}}" class="preview-item--{{type}}__label" style="width: {{_labelWidth ? _labelWidth + 'rpx' : ''}}">{{label}}</view>
+  <!-- Icon 模式 -->
+  <view wx:if="{{iconType}}" class="preview-item__icon">
+    <g-icon type="{{iconType}}" size="48" color="{{iconColor}}"/>
+  </view>
+  <!-- 主要内容 -->
+  <view class="preview-item__content" style="text-align: {{textAlign || _textAlign}}">
+    <slot />
+  </view>
+</view>

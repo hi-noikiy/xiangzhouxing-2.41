@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "查看通行码",
+    "usingComponents": {
+        "poster": "../../../../miniprogram_dist/poster/index"
+    }
+}

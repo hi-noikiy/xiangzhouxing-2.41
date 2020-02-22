@@ -1,0 +1,10 @@
+<!--pages/g-title/index.wxml-->
+<view class="title">
+  <view wx:if="{{total || status}}" class="title__circle">
+    <g-circle current="{{current}}" total="{{total}}" status="{{status}}" />
+  </view>
+  <view class="title__text" aria-label="{{title}}">
+    {{title}}
+    <slot/>
+  </view>
+</view>

@@ -1,0 +1,157 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.switch {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch__header__label {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  color: #000;
+}
+
+.switch__header__desc {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #909399;
+  margin-top: 19rpx;
+}
+
+.switch__widget {
+  margin-left: 130rpx;
+}
+
+.switch__widget__container {
+  width: 90rpx;
+  height: 52rpx;
+  background: #ccc;
+  border-radius: 26rpx;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.switch__widget__container::after {
+  content: '';
+  position: absolute;
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 1;
+  left: 0;
+  top: 4rpx;
+  transform: translate(4rpx, 0);
+  transition: all 0.3s;
+}
+
+.switch__widget__container--checked {
+  background: #4293f4;
+}
+
+.switch__widget__container--checked::after {
+  transform: translate(42rpx, 0);
+}

@@ -1,0 +1,14 @@
+<view class="wrap component-class  {{ disabled ? 'wrap--disabled' : '' }}">
+  <view wx:if="{{ title }}" class="wrap__title__container title-class">
+    <text wx:if="{{xrequired}}" style="color: red;font-size: 200%;">{{xrequired}}</text>
+    <view class="wrap__title" aria-label="{{title}}">{{ title }}</view>
+    <view class="wrap__action"><slot  name="action" /></view>
+  </view>
+  <view class="wrap--content">
+    <slot name="content" />
+    <slot />
+  </view>
+
+  <!-- 专用于禁用覆盖 tap 功能的蒙层 -->
+  <view wx:if="{{disabled}}" class="wrap--disabled__mask"></view>
+</view>

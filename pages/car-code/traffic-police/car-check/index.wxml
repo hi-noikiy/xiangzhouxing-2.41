@@ -1,0 +1,122 @@
+<!--车辆查验-->
+<view>
+  <view wx:if="{{loaded}}">
+    <view class="block">
+      <view class="car-info__main">
+        <view class="car-main__info title">
+          <view>{{carInfo.carNumber != null ? carInfo.carNumber : carBatchNo}}</view>
+          <view wx:if="{{carType}}" class="car-type">{{carType}}</view>
+        </view>
+        <image src="https://imgcache.gzonline.gov.cn/cos/icon_scan_search@2x_b63b8fb7.png" class="car-main__scan" catchtap="handleScan" />
+      </view>
+      <view class="{{arrowStatus === 'arrow-down' ? 'car-info__sub is-hidden' : 'car-info__sub'}}">
+        <g-preview text-align="right">
+          <g-preview-item label="出发地">{{carInfo.leaveAddress || '-'}}</g-preview-item>
+          <g-preview-item label="目的地">{{carInfo.arriveAddress || '-'}}</g-preview-item>
+          <g-preview-item class="{{carBatchNo ? '' : 'hidden'}}" label="当前车次{{carInfo.vehicleTypeCode == 3 ? '/航次' : ''}}">{{carBatchNo}}</g-preview-item>
+          <g-preview-item label="司乘人数">{{carInfo.passNum >= 0 ? carInfo.passNum : '-'}}人 <view wx:if="{{carInfo.sensitiveNum > 0}}" class="car-info__sub-tip">敏感: {{carInfo.sensitiveNum}}人</view></g-preview-item>
+        </g-preview>
+        <view class="report-time">最近申报时间:{{reportTime}}</view>
+      </view>
+      
+      <view class="car-info-footer" bind:tap="handleToggleContent">
+        <g-icon class="inline-view" type="{{arrowStatus}}" size="32"/>
+      </view>
+    </view>
+    <!--司乘信息-->
+    <view class="block passenger-info">
+
+      <!--乘客列表-->
+      <view wx:if="{{carInfo.isDriver === 1}}">
+        <view class="title main-padding">司乘信息</view>
+        <view class="person-list">
+          <view class="summary main-padding">
+            <view class="person-list__sub">
+              <view>核验人数：</view>
+              <view class="person-list__sub-remark">{{carInfo.verificationNum >= 0 ? carInfo.verificationNum : '-'}}人（共{{carInfo.passNum >= 0 ? carInfo.passNum : '-'}}人）</view>
+            </view>
+            <view class="warning common-size"><view wx:if="{{carInfo.sensitiveNum > 0}}" class="inline sensitive">敏感: {{carInfo.sensitiveNum}}人</view>
+            <!--<view class="inline">已核验: {{carInfo.verificationNum >= 0 ? carInfo.verificationNum : '-'}}人</view>-->
+            </view>
+          </view>
+          <!-- 一个人 -->
+          <view wx:for="{{passList}}" wx:key="idx" wx:for-index="idx" class="person-item main-padding {{item.isSensitive == 1 ? 'item-sensitive' : ''}}">
+            <view class="person-item__head">
+              <view class="item-base item-row">
+                <view class="item-header">
+                  <view class="item-name inline bold">{{item.username}}</view>
+                  <view wx:if="{{item.roleState == 1}}" class="inline">(司机)</view>
+                  <view class="item-status link {{item.isVerification ? 'link-visited' : ''}}" data-value="{{item}}" catchtap="handleCheck">{{item.isVerification ? '已核查' : '核查登记'}}<view class="link-arrow">></view></view>
+                  <view class="item-symptoms inline {{item.healthState != '1' && item.symptomsName != '无症状' ? 'warning' : ''}}">{{item.symptomsName}}</view>
+                </view>
+              </view>
+              <view class="item-address item-row common-size">
+                <view class="native-place inline">籍贯: {{item.nativePlace}}</view> <view class="inline">户籍所在地: {{item.domicilePlace}}</view>
+              </view>
+              <g-icon class="person-item__head-icon" data-index="{{ idx }}" type="{{ item.isShrink === true ? 'arrow-up' : 'arrow-down' }}" size="32" bind:tap="handleToggleCard" />
+            </view>
+            <view class="{{ 'item-body common-size ' + (item.isShrink === true ? '' : 'is-hidden') }}">
+              <view class="info-detail item-row">
+                <view class="info-label">近期旅居史:</view> 
+                <view class="info-content">{{item.sojourningHistory}}</view>
+              </view>
+              <view class="info-detail item-row">
+                <view class="info-label">近期接触史:</view> 
+                <view class="info-content">{{item.touch}}</view>
+              </view>
+              <view class="info-detail item-row">
+                <view class="info-label">个人健康现况:</view> 
+                <view class="info-content">{{item.healthState}}</view>
+              </view>
+              <view class="info-detail">
+                <view class="info-label">备注:</view> 
+                <view class="info-content">{{item.remark || '-'}}</view>
+              </view>
+              <view class="report-time">最近申报时间: {{item.updateTime || '-'}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--乘客详情页-->
+      <view wx:elif="{{carInfo.isDriver === 0}}" class="personal-info">
+        <g-wrapper title="基本信息">
+          <g-preview text-align="right">
+            <g-preview-item label="姓名">{{passenger.username}}</g-preview-item>
+            <g-preview-item label="性别">{{passenger.gender}}</g-preview-item>
+            <g-preview-item label="国籍">{{passenger.chineseZH}}</g-preview-item>
+            <g-preview-item label="联系方式">{{passenger.clueSupplierPhone}}</g-preview-item>
+            <g-preview-item label="证件类型">{{passenger.identityTypeZH}}</g-preview-item>
+            <g-preview-item label="证件号码">{{passenger.identity}}</g-preview-item>
+            <g-preview-item label="出生日期">{{passenger.birthday}}</g-preview-item>
+            <g-preview-item label="居住地址">{{passenger.liveAddress}}</g-preview-item>
+            <g-preview-item label="详细地址">{{passenger.detailedAddress}}</g-preview-item>
+          </g-preview>
+        </g-wrapper>
+        <g-wrapper title="其他信息">
+          <g-preview text-align="right">
+            <g-preview-item label="是否常住珠海">{{passenger.residentZH}}</g-preview-item>
+            <g-preview-item label="近期是否在珠海">{{passenger.recentZH}}</g-preview-item>
+            <g-preview-item class="{{passenger.recent == 3 ? '' : 'hidden'}}" label="来或返回珠海日期">{{passenger.returnTime}}</g-preview-item>
+            <g-preview-item class="{{passenger.recent == 4 ? '' : 'hidden'}}" label="目前所在地">{{passenger.currentLocation}}</g-preview-item>
+            <g-preview-item class="{{passenger.recent == 4 ? '' : 'hidden'}}" label="拟返回珠海日期">{{passenger.proposedArriveTime}}</g-preview-item>
+            <g-preview-item class="{{passenger.recent != 1 ? '' : 'hidden'}}" label="近期旅居史">{{passenger.sojourningHistoryZH}}</g-preview-item>
+            <g-preview-item label="近期接触史">{{passenger.touchZH}}</g-preview-item>
+            <g-preview-item class="{{passenger.touch ? '' : 'hidden'}}" label="接触时间">{{passenger.touchTime}}</g-preview-item>
+            <g-preview-item label="个人健康现况">{{passenger.healthStateZH}}</g-preview-item>
+            <g-preview-item class="{{passenger.healthState != 1 ? '' : 'hidden'}}" label="症状列表">{{passenger.symptomsName}}</g-preview-item>
+            <g-preview-item label="其他症状">{{passenger.symptomsContext}}</g-preview-item>
+            <g-preview-item label="体温">{{passenger.temperature}}</g-preview-item>
+            <g-preview-item label="备注">{{passenger.remark}}</g-preview-item>
+          </g-preview>
+        </g-wrapper>
+        <view class="btn-wrap">
+            <button class="submit-btn" bindtap='handleCheckOne' type="primary">核查登记</button>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<g-footer></g-footer>

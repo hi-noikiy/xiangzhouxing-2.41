@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-map": "/components/gsd-ui/g-map/index",
+    "g-tab-pane": "/components/gsd-ui/g-tab-pane/index",
+    "g-tabs": "/components/gsd-ui/g-tabs/index",
+    "g-dropdown": "/components/gsd-ui/g-dropdown/index",
+    "g-region": "/components/gsd-ui/g-region/index",
+    "g-address-item": "/components/gsd-ui/g-address-item/index"
+  }
+}

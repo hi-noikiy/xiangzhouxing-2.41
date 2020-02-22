@@ -1,0 +1,98 @@
+/* components/tips/index.wxss */
+
+.tips {
+  display: flex;
+  background: #FFFFFF;
+  box-shadow: 0 12rpx 18rpx 0 rgba(10,55,82,0.10);
+  border-radius: 16rpx;
+  margin: 0 48rpx 32rpx;
+  border-top: 8rpx solid #FFF;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 36rpx;
+  padding-left: 37rpx;
+  padding-right: 34rpx;
+}
+
+.access {
+  color: #C7C7CC;
+  font-size: 32rpx;
+  margin-left: 47rpx;
+  position: relative;
+  padding-right: 32rpx;
+}
+
+.access::after {
+  content: " ";
+  display: inline-block;
+  box-sizing: border-box;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #C7C7CC;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  right: 6rpx;
+}
+
+.tips__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+.tips__container__content {
+  height: 100rpx;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+
+.tips__container__content--text {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.tips--loop .tips__container__content--text{
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  animation: home-loop 20s linear infinite;
+}
+
+.tips__icon {
+  margin-right: 20rpx;
+}
+
+.tips--warn {
+  border-top-color: #FF6969;
+  box-shadow: 0 10px 10px 0 rgba(240,66,44,0.10);
+  color: #FF6969;
+}
+
+.tips--info {
+  border-top-color: red;
+  box-shadow: 0 12rpx 18rpx 0 red;
+}
+
+.tips--success {
+  border-top-color: red;
+  box-shadow: 0 12rpx 18rpx 0 red;
+}
+
+.view--hover {
+  background: #DEEDFF;
+}
+
+@keyframes home-loop {
+  0% {
+    transform: translateX(509rpx);
+  }
+  100% {
+    transform: translateX(-105%);
+  }
+}

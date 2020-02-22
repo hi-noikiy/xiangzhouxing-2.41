@@ -1,0 +1,156 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.select {
+  padding: 40rpx 30rpx;
+}
+
+.select__main {
+  margin-top: -40rpx;
+  margin-left: -20rpx;
+}
+
+.select__main::after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+
+.select__btn {
+  position: relative;
+  height: 80rpx;
+  text-align: center;
+  font-size: 34rpx;
+  line-height: 46rpx;
+  line-height: 80rpx;
+  color: #1c2438;
+}
+
+.select__btn::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  box-shadow: 0 0 0 1px #ebebeb inset;
+  border-radius: 16rpx;
+  transform-origin: left top;
+  transform: scale(0.5);
+}
+
+.select__btn__wrap {
+  position: relative;
+  float: left;
+  margin-top: 40rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+
+.select__btn--selected {
+  color: #4293f4;
+}
+
+.select__btn--selected::after {
+  box-shadow: 0 0 0 1px #4293f4 inset;
+}

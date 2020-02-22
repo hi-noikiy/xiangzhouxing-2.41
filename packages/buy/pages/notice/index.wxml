@@ -1,0 +1,28 @@
+<!--pages/donate/index.wxml-->
+ <notice-bar
+    wx:if="{{buyFlowInfo.result_notice.is_open}}"
+    text="{{ buyFlowInfo.result_notice.short_desc }}"
+    bind:click="showNoticeModal"
+  />
+<view wx:if="{{show}}">
+	<view class="title">关于口罩预约购买的说明</view>
+	<view class="{{isAuth ? 'margin-bottom' : ''}}">
+	  <view class="donate-desc content" wx:for="{{buyFlowInfo.desc}}"  wx:key="index">
+	     {{item}}
+	  </view>
+	  <view class="attention content">
+	    <view wx:for="{{buyFlowInfo.attention}}"  wx:key="index">
+	    {{index+1}}、{{item}}
+	    </view>
+	  </view>
+	  <g-footer sponsor="口罩预约购买服务由广药集团主办"></g-footer>
+	</view>
+	<view class="btn-row">
+	  <button wx:if="{{!isAuth}}" class="login-btn" type="primary" open-type="getPhoneNumber" bindgetphonenumber="onTapLogin">请先登录</button>
+	</view>
+	<g-button-group wx:if="{{isAuth}}" agree fixed primary-text="我要预约购买" bind:primaryTap='handlePrimaryTap'>
+	  <view slot="agree">我已阅读口罩购买说明</view>
+    <view wx:if="{{wllConfig.buy_feedback_open}}" slot="other" class="group-other"><view class="group-other-link"
+    bind:tap="onTapFeedback">帮助反馈</view></view>
+	</g-button-group>
+</view>

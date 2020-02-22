@@ -1,0 +1,102 @@
+<!-- pages/car-code/code-detail/index.wxml -->
+
+<poster id="poster" hide-loading="{{true}}" preload="{{false}}" config="{{posterConfig}}" bind:success="onPosterSuccess"
+	bind:fail="onPosterFail">
+	<!-- <button class="start-btn" data-url="{{url}}">获取车贴1</button> -->
+</poster>
+
+<view class="container">
+	<view class="header">
+		<view class="header-field">
+			<!-- 
+		  bindlongpress="saveImg" -->
+			<view wx:if="{{url}}">
+				<image class="header-field__code" src="{{url}}" data-url="{{url}}" />
+				<image class="header-field__icon" src="/images/logo@2x.png" />
+				<view class="btn-wrapper">
+					<!-- <button class="start-btn" data-url="{{url}}" bindtap='handleDrawPoster'>获取车贴</button> -->
+					<button class="start-btn" data-url="{{url}}" bindtap='onCreatePoster'>获取车贴</button>
+				</view>
+			</view>
+			<view wx:else class="header-field__empty" bindtap='handleRefleshPage'>
+				暂无数据 点击刷新
+			</view>
+
+		</view>
+		<view class="cro-left-bottom" />
+		<view class="cro-right-bottom" />
+		<view class="cro-line-bottom" />
+	</view>
+	<view class="content">
+		<view class="cro-left-top" />
+		<view class="cro-right-top" />
+		<g-wrapper title="已登记司乘信息({{passengersTotal}}人)">
+			<!-- <view class="edit-text">
+            <text style="margin-right:30rpx;" bindtap='refreshPassenger'>刷新</text>
+            <text bindtap='managePassenger'>管理</text>
+        </view> -->
+			<text wx:if="{{step == 1 || step == 2}}" class="edit-text" bindtap='refreshPassenger'>刷新</text>
+		</g-wrapper>
+		<g-wrapper class="content__title" title="入穗登记信息">
+			<text wx:if="{{step == 1 || step == 2}}" class="edit-text" bindtap='toEditPage'>编辑</text>
+			<g-preview text-align="right">
+				<g-preview-item label="编号">{{detailInfo.tripNo}}</g-preview-item>
+				<g-preview-item label="车牌号">{{detailInfo.carNumber}}</g-preview-item>
+				<g-preview-item label="班次行程号">{{detailInfo.carBatchNo}}</g-preview-item>
+				<g-preview-item label="出发城市">{{detailInfo.leaveProvinceName}}{{detailInfo.leaveCityName}}
+				</g-preview-item>
+				<g-preview-item label="到达城市">{{detailInfo.arriveProvinceName}}{{detailInfo.arriveCityName}}
+				</g-preview-item>
+			</g-preview>
+		</g-wrapper>
+	</view>
+</view>
+<view class="btn-group">
+	<view class="btn-item" wx:if="{{step !== 3}}">
+		<button style="background: #efefef;" bindtap="managePassenger">司乘列表</button>
+	</view>
+	<view class="btn-item" style="width: {{step == 1 || step == 2 ? '50%' : '100%'}}">
+		<button wx:if="{{step == 1}}" type="primary" bindtap='handleStart'>
+			开始行程
+		</button>
+		<button wx:elif="{{step == 2}}" type="warn" bindtap='handleStart'>
+			结束行程
+		</button>
+		<button wx:else="{{step == 3}}" style="background:gray" type="primary">
+			行程已结束
+		</button>
+	</view>
+</view>
+
+<g-poplayer visible="{{ visible }}" bind:close="closePoplayer">
+	<g-wrapper title="已登记司乘信息({{passengersTotal}}人)">
+		<text class="edit-text" bindtap='managePassenger'>刷新</text>
+		<view class="sk-dropdown-list__ul">
+			<view class="sk-dropdown-list__item" wx:for="{{passengers}}" wx:for-index="idx" wx:key="idx"
+				wx:for-item="item">
+				<view class="sk-dropdown-list__box">
+					<text class="s-name">{{ item.name }}<text wx:if="{{item.roleState == 1}}">（本人）</text></text>
+					<text class="s-phone">{{item.phone ? item.phone : ''}}</text>
+				</view>
+				<view class="sk-dropdown-list__delete">
+					<g-icon type="close-circle" color="#999" size="36" wx:if="{{item.roleState == 2}}"
+						data-checkPointRegisterId="{{item.checkPointRegisterId}}" data-id="{{item.id}}"
+						bindtap='handleDeleteTap' />
+				</view>
+			</view>
+		</view>
+		<!-- <view wx:for="{{passengers}}" class="passenger-item">
+			<view>
+				<g-icon type="close" color="red" size="48" data-id="{{item.id}}" bindtap='handleDeleteTap' />
+			</view>
+			<view class="passenger-card">
+				<g-preview text-align="right">
+					<g-preview-item label="{{item.name}}">
+						{{item.phone}}
+					</g-preview-item>
+				</g-preview>
+			</view>
+		</view> -->
+
+	</g-wrapper>
+</g-poplayer>

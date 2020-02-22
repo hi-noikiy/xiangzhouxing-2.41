@@ -1,0 +1,15 @@
+<!-- pages/g-agree/index.wxml -->
+<checkbox-group bind:change="handleChange">
+  <label class="agree">
+    <view class="agree__checkbox__container">
+      <checkbox class="agree__checkbox" id="agree" value="agree" checked="{{value}}" />
+      <view class="checkbox__icon">
+        <view hidden="{{!value}}"><g-icon class="checkbox__icon--checked" type="check" size="32" /></view>
+        <view hidden="{{value}}" class="checkbox__icon--unchecked"></view>
+      </view>
+    </view>
+    <view class="agree__desc">
+      <slot />
+    </view>
+  </label>
+</checkbox-group>

@@ -1,0 +1,106 @@
+<!--司乘信息编辑页 -->
+<view>
+  <view title="基本信息">
+    <view class="info__title">
+      <view class="title__cont">基本信息</view>
+      <g-icon class="person-item__head-icon" data-index="{{ idx }}" type="{{ baseShow ? 'arrow-up' : 'arrow-down' }}" size="32" bind:tap="handleToggleBase" />
+    </view>
+    <g-preview text-align="right">
+      <view class="{{baseShow ? '' : 'hidden'}}">
+        <g-preview-item label="姓名">{{baseInfo.username}}</g-preview-item>
+        <g-preview-item label="性别">{{baseInfo.gender}}</g-preview-item>
+        <g-preview-item label="国籍">{{baseInfo.chineseZH}}</g-preview-item>
+        <g-preview-item label="联系方式">{{baseInfo.clueSupplierPhone}}</g-preview-item>
+        <g-preview-item label="证件类型">{{baseInfo.identityTypeZH}}</g-preview-item>
+        <g-preview-item label="证件号码">{{baseInfo.identity}}</g-preview-item>
+        <g-preview-item label="出生日期">{{baseInfo.birthday}}</g-preview-item>
+        <g-preview-item label="居住地址">{{baseInfo.liveAddress}}</g-preview-item>
+        <g-preview-item label="详细地址">{{baseInfo.detailedAddress}}</g-preview-item>
+      </view>
+    </g-preview>
+  </view>
+  <view title="其他信息">
+    <view class="info__title">
+      <view class="title__cont">其他信息</view>
+    </view>
+    <g-form model="{{form}}" disabled="{{!agree}}" rules="{{formRules}}" bind:submit="handleSubmit" primary-text="提交" validateType="{{validateType}}" class="form-wrapper">
+				<g-wrapper title='是否常住珠海'>
+					<g-radio-group id="resident" value="{{form.resident}}" bind:change="handleFormChange" data-form="form" items="{{residentFlagItems}}" />
+				</g-wrapper>
+
+				<g-wrapper title='近期是否在珠海'>
+					<g-radio-group id="recent" value="{{form.recent}}" bind:change="handleFormChange" data-form="form" items="{{residentConditionItems}}" />
+					<g-picker wx:if="{{form.recent == 3}}" id="returnTime" label="来或返回珠海日期" placeholder="请选择返回日期（最近14日内）" bind:change="handleFormChange" value="{{form.returnTime}}" data-form="form" mode="date" start="{{halfMonthAgo}}" end="{{today}}"></g-picker>
+          <g-picker wx:if="{{form.recent == 4}}" value="{{form.currentLocation}}" id="currentLocation" label="目前所在地" placeholder="请选择目前所在地点"  bind:change="handleFormChange" data-form="form" range="{{residentPlaceItems}}" />
+					<g-picker wx:if="{{form.recent == 4}}"id="proposedArriveTime" label="拟返回珠海日期" placeholder="请选择日期" bind:change="handleFormChange" value="{{form.proposedArriveTime}}" data-form="form" mode="date" start="{{today}}"></g-picker>
+				</g-wrapper>
+
+				<g-wrapper title="近期旅居史" wx:if="{{form.recent != 1}}">
+          <g-radio-group id="sojourningHistory" value="{{form.sojourningHistory}}" bind:change="handleFormChange" data-form="form" items="{{travelRegionClassItems}}" />
+				</g-wrapper>
+
+				<g-wrapper title='近期接触史（选填）'>
+					<g-switch label="14日内密切接触近期有湖北旅居史者" desc="近期有湖北旅居史者指：14日内来自湖北和去过湖北的人员" id="touchRecent" value="{{form.touchRecent}}" bind:change="handleTouchRecentChange" />
+					<g-picker wx:if="{{form.touchRecent}}" id="touchTime" label="接触日期" placeholder="请选择日期（最近14日内）" bind:change="handleFormChange" value="{{form.touchTime}}" data-form="form" mode="date" start="{{halfMonthAgo}}" end="{{today}}"></g-picker>
+					<g-switch label="自我感觉14日内曾与患者接触过者" desc="近期与确诊患者有接触，如乘搭同一公共交通工具等情况" id="touchLike" value="{{form.touchLike}}" bind:change="handleTouchLikeChange" />
+					<g-picker wx:if="{{form.touchLike}}" id="touchTimeLike" label="接触日期" placeholder="请选择日期（最近14日内）" bind:change="handleFormChange" value="{{form.touchTimeLike}}" data-form="form" mode="date" start="{{halfMonthAgo}}" end="{{today}}"></g-picker>
+				</g-wrapper>
+
+				<g-wrapper title='个人健康状态'>
+					<g-radio-group id="healthState" label="" value="{{form.healthState}}" bind:change="handleFormChange" data-form="form" items="{{healthStateItems}}" />
+				</g-wrapper>
+				<g-wrapper title='是否有如下症状（选填）' wx:if="{{form.healthState != 1}}">
+					<g-checkbox-group id="symptomsCode" label="是否有如下症状" value="{{form.symptomsCode}}" bind:change="handleFormChange" data-form="form" data-type="0" items="{{[symptomItems[0]]}}" />
+
+          <!--发热-->
+          <view>
+            <g-checkbox-group id="symptomsCode" label="是否有如下症状" value="{{form.symptomsCode}}" bind:change="handleFormChange" data-form="form" data-type="1" items="{{[symptomItems[1]]}}" />
+            <!-- <view wx:if="{{feverStatus === 'down'}}" class="temperature-form">
+              <g-input id="d1" value="{{form.d1}}" placeholder="" maxlength="1" type="number" bind:change="handleFormChange" data-form="form" />
+              <g-input id="d2" value="{{form.d2}}" placeholder="" maxlength="1" type="number" bind:change="handleFormChange" data-form="form" />.
+              <g-input id="d3" value="{{form.d3}}" placeholder="" maxlength="1" type="number" bind:change="handleFormChange" data-form="form" />℃ 
+            </view> -->
+
+            <!-- 温度控件 -->
+            <view class="select-btn-temperature" wx:if="{{feverStatus === 'down'}}">
+              <input class="temperature" type="number" id="d1" maxlength="1" value="{{form.d1}}"  bindinput='bindinput' bind:change="handleTemperChange"  data-form="form"></input>
+              <input class="temperature" type="number" bindinput='bindinput' focus="{{focus2}}" id="d2" maxlength="1" value="{{form.d2}}" bind:change="handleTemperChange" data-form="form"></input>
+              <text class="temperature-degree">·</text>
+              <input class="temperature" type="number" bindinput='bindinput' focus="{{focus}}" id="d3" maxlength="1" value="{{form.d3}}" bind:change="handleTemperChange" data-form="form"></input>
+              <text class="temperature-degree">°C</text>
+            </view>
+          </view>
+          
+          <view>
+            <g-checkbox-group id="symptomsCode" label="是否有如下症状" value="{{form.symptomsCode}}" bind:change="handleFormChange" data-form="form" data-type="2" items="{{[symptomItems[2]]}}" />
+            <!-- <view wx:if="{{feverStatus === 'up'}}" class="temperature-form">
+              <g-input id="d1" value="{{form.d1}}" placeholder="" maxlength="1" type="number" bind:change="handleFormChange" data-form="form" />
+              <g-input id="d2" value="{{form.d2}}" placeholder="" maxlength="1" type="number" bind:change="handleFormChange" data-form="form" />.
+              <g-input id="d3" value="{{form.d3}}" placeholder="" maxlength="1" type="number" bind:change="handleFormChange" data-form="form" />℃
+            </view> -->
+
+            <!-- 温度控件 -->
+            <view class="select-btn-temperature" wx:if="{{feverStatus === 'up'}}">
+              <input class="temperature" type="number" id="d1" maxlength="1" value="{{form.d1}}"  bindinput='bindinput' bind:change="handleTemperChange" data-form="form"></input>
+              <input class="temperature" type="number" bindinput='bindinput' focus="{{focus2}}" id="d2" maxlength="1" value="{{form.d2}}" bind:change="handleTemperChange" data-form="form"></input>
+              <text class="temperature-degree">·</text>
+              <input class="temperature" type="number" bindinput='bindinput' focus="{{focus}}" id="d3" maxlength="1" value="{{form.d3}}" bind:change="handleTemperChange" data-form="form"></input>
+              <text class="temperature-degree">°C</text>
+            </view>
+          </view>
+
+          <!--剩余选项-->
+          <g-checkbox-group id="symptomsCode" label="是否有如下症状" value="{{form.symptomsCode}}" bind:change="handleFormChange" data-form="form" data-type="3" items="{{otherSymptomItems}}" />
+
+					<g-textarea id="symptomsContext" label='其他症状' placeholder="请描述其他症状(不超过10个汉字)" value="{{form.symptomsContext}}" bind:change="handleFormChange" data-form='form' disabled="{{disableContext}}"/>
+				</g-wrapper>
+        <g-textarea id="remark" label='备注' placeholder="备注说明(不超过100个汉字)" value="{{form.remark}}" bind:change="handleFormChange" data-form='form' />
+
+				<view class="agree">
+					<g-agree bind:change="handleAgreeChange" value="{{agree}}">
+						<view>我已阅知本申报所列事项，并保证以上申报内容正确属实</view>
+					</g-agree>
+				</view>
+			</g-form>
+  </view>
+</view>

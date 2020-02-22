@@ -1,0 +1,10 @@
+<!--packages/health-code/pages/admin/index.wxml-->
+<view class="content">
+  <view>点击扫一扫对方二维码</view>
+  <view>快速登记出行信息</view>
+  <view class="img">
+    <image src="/images/home/yizhen@2x.png"></image>
+  </view>
+  <view>当前网络点：{{address}}</view>
+  <view class="tab">切换</view>
+</view>

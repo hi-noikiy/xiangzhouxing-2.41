@@ -1,0 +1,16 @@
+<!--components/g-speech/index.wxml-->
+<view wx:if="{{show}}">
+  <!-- 语音输入框 -->
+  <view class='container'>
+    <view class='content'>
+      <textarea class='textarea' placeholder="等待输入" />
+      <view class='record' hover-class='view--hover' bindtouchstart="handleStart" bindtouchend="handleStop">按住输入</view> 
+    </view>
+    <view class='close-btn' catch:tap="handleClose">点击关闭</view>
+  </view>
+
+  <view class='mask'></view>
+</view>
+
+<!-- 触发器 -->
+<view catch:tap="handleOpen"><slot/></view>

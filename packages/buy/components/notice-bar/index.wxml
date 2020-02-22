@@ -1,0 +1,13 @@
+<!--pages/buy/components/notice-bar/index.wxml-->
+<view wx:if="{{ show }}" class="custom-class notice-bar" style="color: {{ color }}; background-color: {{ backgroundColor }};" bind:tap="onClick">
+  <image wx:if="{{ leftIcon }}" src="../../images/horn.png" class="notice-bar__left-icon"></image>
+  <slot wx:else name="left-icon" />
+
+  <view class="notice-bar__wrap">
+    <view class="notice-bar__content ">
+      {{ text }}
+    </view>
+  </view>
+  <g-icon wx:if="{{ rightIcon }}" type="arrow-right" color="#FF9F00" size="26" />
+  <slot wx:else name="right-icon" />
+</view>

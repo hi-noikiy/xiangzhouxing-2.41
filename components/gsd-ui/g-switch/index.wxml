@@ -1,0 +1,14 @@
+<!--pages/g-switch/index.wxml-->
+<g-form-item disabled="{{disabled}}" component-class="form-item" required="{{required}}">
+  <view class="switch">
+    <view class="switch__header">
+      <view class="switch__header__label">{{label}}</view>
+      <view class="switch__header__desc" wx:if="{{desc}}">{{desc}}</view>
+    </view>
+    <view class="switch__widget" aria-role="button" catch:tap="handleChange"
+      aria-label="{{label + (value ? ' 开' : ' 关') + (disabled ? ' 已禁用' : '')}}"
+    >
+      <view class="switch__widget__container {{value ? 'switch__widget__container--checked': ''}}"></view>
+    </view>
+  </view>
+</g-form-item>

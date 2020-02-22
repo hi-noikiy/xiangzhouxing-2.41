@@ -1,0 +1,216 @@
+/* pages/car-code/traffic-police/car-check/index.wxss */
+
+/* 业务样式*/
+.car-info__main{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 60rpx 0 40rpx;
+}
+.car-info__sub-tip {
+  display: inline;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #F6423B;
+  vertical-align: top;
+  letter-spacing: 0;
+  line-height: 44rpx;
+}
+.car-type {
+  display: block;
+  height: 44rpx;
+  padding: 2rpx 18rpx;
+  margin: 0 20rpx;
+  background: #FFFFFF;
+  border: 1px solid #4293F4;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  font-family: PingFangSC-Semibold;
+  font-size: 26rpx;
+  line-height: initial;
+  color: #4293F4;
+  letter-spacing: 0;
+}
+.car-info__sub{
+  display: block;
+  /*height: 400rpx;*/
+  box-sizing: border-box;
+  /*transition: height .3s linear;*/
+}
+.car-info__sub.is-hidden {
+  height: 0;
+  overflow: hidden;
+}
+.car-info-footer{
+  padding: 20rpx 0;
+  text-align: center;
+  color: #C7C7CC;
+}
+
+/*司乘信息*/
+.summary{
+  display: flex;
+  justify-content: space-between;
+  line-height: 44rpx;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #F9F9F9;
+}
+
+.person-list__sub {
+  display: flex;
+  align-items: center;
+}
+.person-list__sub-remark {
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 44rpx;
+}
+.person-item{
+  color: #979797;
+  padding: 20rpx 0;
+  border-bottom: solid 1px #F5F5F5;
+}
+.item-sensitive{
+  background-color: #FEFAFA;
+}
+.item-body.is-hidden {
+  height: 0;
+  overflow: hidden;
+}
+.item-base{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item-header {
+  width: 100%;
+}
+.item-name{
+  font-weight: bold;
+  color: #000;
+  margin-right: 20rpx;
+}
+.item-status {
+  margin: 0 30rpx 0 40rpx;
+}
+.item-symptoms{
+  float: right;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 38rpx;
+}
+.item-row{
+  padding: 15rpx 0;
+}
+.native-place{
+  margin-right: 40rpx;
+}
+.info-detail{
+  display: flex;
+}
+.info-label{
+  flex-shrink: 0;
+}
+.info-content{
+  margin-left: 8rpx;
+}
+
+.personal-info{
+  padding-bottom: 20rpx;
+}
+.submit-btn{
+    width: 90%;
+}
+
+
+/* 页面样式 */
+page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  background-color: #F5F5F5;
+  font-size: 32rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+.common-size{
+  font-size: 26rpx;
+}
+.block{
+  padding-top: 20rpx;
+  background-color: #fff;
+}
+.block + .block{
+  margin-top: 20rpx;
+}
+.hidden{
+  display: none;
+}
+.main-padding{
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.inline{
+  display: inline-block;
+}
+.warning{
+  color: red;
+}
+.link{
+  display: inline-flex;
+  align-items: center;
+  color: #007DFF;
+  vertical-align: middle;
+}
+.link-arrow{
+  display: inline-block;
+  width: 24rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.link-visited{
+  color: #000;
+}
+.blod{
+  font-weight: bold;
+}
+.title{
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  color: #000000;
+  padding-top: 36rpx;
+  line-height: 68rpx;
+}
+.car-main__info {
+  display: flex;
+  align-items: center;
+}
+.car-main__scan {
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.report-time{
+  margin-top: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #999999;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.person-item__head {
+  position: relative;
+}
+.person-item__head-icon {
+  position: absolute;
+  right: 0;
+  bottom: 16rpx;
+  padding: 10rpx;
+}

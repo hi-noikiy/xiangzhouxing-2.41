@@ -1,0 +1,88 @@
+<view>
+  <!-- 带地图模式 -->
+  <view wx:if="{{showSelect}}" class="region {{ showMap ? 'map__region' : 'list__region'}}">
+    <g-dropdown color="#666">
+      <g-region value="{{_regionValue}}" level="{{regionLevel}}"
+        includes="{{regionIncludes}}" excludes="{{regionExcludes}}"
+        bind:change="handleRegionChange"
+      >
+        <view class="region__content">
+          {{_regionValue[regionLevel - 1] ? _regionValue[regionLevel - 1] : '请选择'}}
+        </view>
+      </g-region>
+    </g-dropdown>
+  </view>
+  <slot />
+  <g-tabs wx:if="{{showMap}}"
+    tab-header-class="tab__header"
+    activeKey="{{_tabActiveKey}}"
+    animated="{{false}}"
+    bind:change="handleTabChange"
+  >
+    <g-tab-pane tab="列表" key="list">
+      <view class="address-list" wx:if="{{list.length > 0}}">
+        <view class="address-list-item" wx:for="{{list}}" wx:key="{{item.id}}"
+          hover-class="view--hover" hover-stay-time="250"
+          catch:tap="handleListItemTap"
+          data-item="{{item}}"
+        >
+          <view class="address-list-item__wrapper">
+            <g-address-item item="{{item}}"  component-class="component-item-class" title-class="title-item-class"/>
+          </view>
+        </view>
+      </view>
+      <!-- empty -->
+      <view wx:else class="address-list--empty" style="height: {{_emptyListHeight}}px">
+        {{emptyText}}
+      </view>
+    </g-tab-pane>
+    <g-tab-pane id="tab-pane" tab="地图" key="map">
+      <view class="g-address__map" style="height: {{_mapHeight}}px;">
+        <g-map wx:if="{{canShowMap}}" position="{{_position}}" load-unit="{{loadUnit}}" markers="{{list}}" activeId="{{_activeId}}" bind:activeMarker="handleActiveMarker" bind:mapUpdate="handleMapUpdate"/>
+      </view>
+      <view id="map-address-item">
+        <view wx:if="{{!!list[_activeIndex]}}">
+          <view class="address-map-item" data-item="{{list[_activeIndex]}}" hover-class="{{mode !== 'navigator' ? 'view--hover' : ''}}" hover-stay-time="200" catch:tap="handleMapItemTap">
+            <g-address-item item="{{list[_activeIndex]}}" component-class="component-item-class" title-class="title-item-class"/>
+          </view>
+          <!-- 如果是导航模式，则有电话和导航地址 -->
+          <view class="button-group-action" wx:if="{{mode === 'navigator'}}">
+            <view class="button-group-action__wrapper" catch:tap="handleNavigatorTap" hover-class="view--hover" hover-stay-time="250">
+              <view class="button-group-action__button">导航</view>
+            </view>
+            <view wx:if="{{list[_activeIndex].phone.length > 0}}" catch:tap="handlePhoneTap" class="button-group-action__wrapper" hover-class="view--hover" hover-stay-time="250">
+              <view class="button-group-action__button">电话</view>
+            </view>
+          </view>
+        </view>
+        <!-- empty -->
+        <view wx:else class="address-map-item--empty">
+          {{emptyText}}
+        </view>
+      </view>
+    </g-tab-pane>
+  </g-tabs>
+  <!-- 纯列表模式 -->
+  <view wx:else>
+    <!-- 隐藏的地图用于统一事件 -->
+    <view class="hidden-map" hidden="{{true}}">
+      <g-map position="{{_position}}" markers="{{list}}" activeId="{{_activeId}}" bind:activeMarker="handleActiveMarker" bind:mapUpdate="handleMapUpdate"/>
+    </view>
+    <view id="list-title" class="address-list__title">附近的网点</view>
+    <view class="list__address-list" wx:if="{{list.length > 0}}">
+      <view class="address-list-item" wx:for="{{list}}" wx:key="{{item.id}}"
+        hover-class="view--hover" hover-stay-time="200"
+        catch:tap="handleListItemTap"
+        data-item="{{item}}"
+      >
+        <view class="address-list-item__wrapper">
+          <g-address-item item="{{item}}" />
+        </view>
+      </view>
+    </view>
+    <!-- empty -->
+    <view wx:else class="address-list--empty" style="height: {{_emptyListHeight}}px">
+      {{emptyText}}
+    </view>
+  </view>
+</view>

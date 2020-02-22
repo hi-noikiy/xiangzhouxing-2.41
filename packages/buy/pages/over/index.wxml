@@ -1,0 +1,11 @@
+<!--pages/donate/msg/index.wxml-->
+<g-msg title="口罩已被预约完" status="error"
+  desc="{{wllConfig.buy_flow_info.sellOutTips}}"
+  primary-text="返回首页"
+  bind:primaryTap="handlePrimaryTap"
+  footerFixed
+>
+</g-msg>
+<view class="link">
+  <view bindtap="handleNav">口罩预约说明</view>
+</view>

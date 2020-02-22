@@ -1,0 +1,16 @@
+<g-poplayer visible="{{visible}}" bind:close="handleClose">
+  <g-tabs catchtouchmove="{{false}}" pane-height="670" activeKey="{{_tabActiveIndex}}" bind:change="handleTabChange" scroll>
+    <g-tab-pane wx:for="{{range}}" wx:for-index="index" tab="{{_value[index].name || item.title}}" key="{{index}}" wx:key="title">
+      <scroll-view scroll-y class="pane-scroll-view">
+        <view class="picker-item" 
+          wx:for="{{item.data}}" catch:tap="handleChoose" 
+          wx:for-item="subItem" data-item="{{subItem}}" 
+          wx:for-index="subIndex"
+          data-column-index="{{index}}" 
+          wx:key="value" hover-class="view--hover">
+          {{subItem.name}}
+        </view>
+      </scroll-view>
+    </g-tab-pane>
+  </g-tabs>
+</g-poplayer>

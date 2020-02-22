@@ -1,0 +1,16 @@
+<!-- pages/g-form/index.wxml -->
+<view>
+  <g-tips wx:if="{{showTips}}" position="fixed" is-show="{{_tipsShow}}" status="warn" closeable catch:close="handleTipsClose">
+    {{_tipsMessage}}
+  </g-tips>
+  <form class="form">
+    <!-- slot/slot[content] 共用 -->
+    <slot></slot>
+    <slot name="content"></slot>
+    <g-button-group agree="{{showAgree}}" auto-agree="{{autoAgree}}" disabled="{{disabled}}" direction="{{buttonDirection}}" primary-text="{{primaryText}}" second-text="{{secondText}}" catch:primaryTap="handleSubmit" catch:secondTap="handleSecondTap">
+      <view wx:if="{{showAgree}}" slot="agree">
+        <slot name="agree"></slot>
+      </view>
+    </g-button-group>
+  </form>
+</view>

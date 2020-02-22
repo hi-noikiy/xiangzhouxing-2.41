@@ -1,0 +1,21 @@
+<!--pages/car-code/bus-code/passenger/home/index.wxml-->
+<view>
+	<view class="access-box" hover-class="access-box--hover" bind:tap="openPoplayer">
+		<view class="img">
+			<image src="https://imgcache.gzonline.gov.cn/cos/main_zicha@2x_741b99ed.png"></image>
+		</view>
+		<view class="right-content">
+			<view class="title">大巴/中巴</view>
+			<view class="desc">社区互信共享，提高出行效率 </view>
+		</view>
+	</view>
+	<g-poplayer visible="{{ visible }}" bind:close="closePoplayer">
+		<view>
+			<g-wrapper style="text-align:center">
+				<g-cell label="我是司机" to="/pages/car-code/bus-code/driver/daba-edit/index" />
+				<g-cell label="我是乘客" to="/pages/car-code/bus-code/passenger/scan/index" />
+				<g-cell label="取消" bind:tap="closePoplayer" />
+			</g-wrapper>
+		</view>
+	</g-poplayer>
+</view>

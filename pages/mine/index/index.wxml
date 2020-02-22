@@ -1,0 +1,146 @@
+<view class="mine-profile">
+  <!--微信头像  -->
+  <view class="mine-profile-avatar">
+    <open-data type="userAvatarUrl" style="position: absolute; z-index: 999"></open-data>
+  </view>
+  <!--微信昵称  -->
+  <view>
+    <open-data class="mine-profile-nickname name" type="userNickName"></open-data>
+    <view class="phone">{{userInfo.phone}}</view>
+  </view>
+</view>
+
+<block wx:if="{{!userInfo.isAuth}}">
+    <view class="mine__not-log-auth">
+        <image class="mine__not-log-auth-icon"
+                src="https://imgcache.gzonline.gov.cn/cos/smrz_6a057627.svg"
+                mode="scaleToFill"/>
+        <view class="mine__not-log-auth-title">{{ authTitle }}</view>
+        <view class="mine__not-log-auth-info">
+            <view><text>{{ authDesc }}</text></view>
+        </view>
+        <button class="mine__btn" type="primary" open-type="getPhoneNumber" bindgetphonenumber="onTapLogin" loading="{{needCheckSession}}">{{ authBtnText }}</button>
+    </view>
+</block>
+
+<block wx:if="{{userInfo.isAuth}}">
+  <view class="mine__list">
+    <g-cell wx:if="{{!userInfo.isLeader}}" to="{{isRealName?'/packages/health-code/pages/realname-info/index':'/packages/health-code/pages/realname-submit/index'}}" access="true">
+      <view slot="prepend">
+        <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_card_26438e10.svg"></image>
+      </view>
+      <view class="row" slot="content">
+        <view class="label">实名认证</view>
+        <view wx:if="{{!isRealName}}" class="tipsNo">
+          <view>未认证</view>
+          <image class="tipsIcon" src="https://imgcache.gzonline.gov.cn/cos/readname-no_8ae67657.png"> </image>
+        </view>
+        <view wx:if="{{isRealName}}" class="tipsNo">
+          <view style="color:#000">已认证</view>
+          <image class="tipsIcon" src="https://imgcache.gzonline.gov.cn/cos/readname_5074e506.png"> </image>
+        </view>
+      </view>
+    </g-cell>
+    <g-cell label="我的待办" wx:if="{{userInfo.isVolunteer && !userInfo.isLeader}}"
+            to="/pages/mine/todo/list/list?todoType=affair"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_db_d9c183a2.svg"></image>
+        </view>
+    </g-cell>
+    <g-cell label="我的健康自查上报" wx:if="{{!userInfo.isLeader}}"
+            to="/pages/mine/todo/list/list?todoType=check"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_sb_cc481086.svg"></image>
+        </view>
+    </g-cell>
+    <g-cell label="我的消息" wx:if="{{userInfo.isLeader}}"
+            to="/pages/mine/empty/index?title=我的消息"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_bell_fe716069.svg"></image>
+        </view>
+    </g-cell>
+    <g-cell label="我的待办" wx:if="{{userInfo.isLeader}}"
+            to="/pages/mine/empty/index?title=我的待办"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_db_d9c183a2.svg"></image>
+        </view>
+    </g-cell>
+    <!-- <g-cell wx:if="{{!userInfo.isLeader}}" label="我的企业复工备案"
+                to="/packages/enterprise/pages/list/index"
+                access="true">
+            <view slot="prepend">
+                <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/qyfg/icon-space.svg"></image>
+            </view>
+        </g-cell> -->
+    <g-cell wx:if="{{!userInfo.isLeader}}" label="我的疫情线索上报"
+            to="/pages/mine/todo/list/list?todoType=report"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_bs_f57a8fca.svg"></image>
+        </view>
+    </g-cell>
+    <!-- <g-cell wx:if="{{false}}" label="我的捐赠"
+            to="/pages/mine/donation/index"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_jz_5d9de18b.svg"></image>
+        </view>
+    </g-cell>
+    <g-cell wx:if="{{!userInfo.isLeader}}" label="我的预约"
+            bind:tap="onTapBook"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_verivied_159fd662.svg"></image>
+        </view>
+    </g-cell> -->
+    <g-cell wx:if="{{!userInfo.isLeader && wllConfig.feedback_open}}" label="帮助与反馈"
+            bind:tap="onTapFeedback"
+            access="true">
+        <view slot="prepend">
+            <image class="mine__cell-image" src="/images/home/iconspace_me@2x.png"></image>
+        </view>
+    </g-cell>
+  </view>
+
+  <view wx:if="{{role}}" class="work">
+    <g-cell label="社区工作台" bind:tap="onJump" access="true">
+      <view slot="prepend">
+        <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_work_122d6690.svg"></image>
+      </view>
+    </g-cell>
+  </view>
+  <!-- <view class="work">
+    <g-cell label="卡口工作台" bind:tap="toKKGZT" access="true">
+      <view slot="prepend">
+        <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_work_122d6690.svg"></image>
+      </view>
+    </g-cell>
+  </view> -->
+  <view class="btn-row">
+    <button type="default" bind:tap="onTapLogout">退出登录</button>
+  </view>
+  <view class="mine__list" wx:if="{{false}}">
+      <g-cell label="最新公告" access>
+          <view slot="prepend">
+              <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_gg_ce5b4fc2.svg"></image>
+          </view>
+      </g-cell>
+      <g-cell label="志愿者申请" access>
+          <view slot="prepend">
+              <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_zyz_20a923aa.svg"></image>
+          </view>
+      </g-cell>
+      <g-cell label="留言反馈"
+              catchtap="onTapFeedback"
+              access="true">
+          <view slot="prepend">
+              <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_ly_c50984d6.svg"></image>
+          </view>
+      </g-cell>
+  </view>
+  <g-footer />
+</block>

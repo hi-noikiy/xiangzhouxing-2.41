@@ -1,0 +1,22 @@
+/* packages/health-code/pages/admin/index.wxss */
+
+.content {
+  width:100%;
+  height:100%;
+  position:  absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 32rpx;
+  color: #999;
+}
+
+.img {
+  margin: 60rpx 0;
+}
+
+.tab {
+  margin-top: 10rpx;
+  color: #00BFFF;
+}

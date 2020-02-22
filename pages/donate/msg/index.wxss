@@ -1,0 +1,20 @@
+/* pages/donate/msg/index.wxss */
+.link {
+  position: fixed;
+  bottom: 118rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #344356;
+  letter-spacing: 0;
+  line-height: 60rpx;
+}
+
+.divide-line {
+  background: #D8D8D8;
+  width: 2rpx;
+  height: 36rpx;
+  margin: 0 25rpx;
+}

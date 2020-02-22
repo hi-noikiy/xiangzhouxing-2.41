@@ -1,0 +1,9 @@
+<view class='collapse-pane'>
+  <view class='collapse-pane__header' catch:tap='handleToggleCollapse'>
+    <view class='collapse-pane__title'>{{title}}</view>
+    <g-icon class="collapse-pane__icon" type="{{_isCollapse ? 'arrow-down' : 'arrow-up'}}" color='#CCC' />
+  </view>
+  <view class="collapse-pane__content {{_isCollapse ? 'collapse-pane__content--hide' : ''}}">
+    <slot />
+  </view>
+</view>

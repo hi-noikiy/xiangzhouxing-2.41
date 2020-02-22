@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-form-item": "../g-form-item/index",
+    "g-icon": "../g-icon/index",
+    "g-popover": "../g-popover/index"
+  }
+}

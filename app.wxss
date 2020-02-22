@@ -1,0 +1,12 @@
+.container {
+  padding: 40rpx;
+}
+
+page {
+  padding-bottom: 60rpx;
+}
+
+
+@import '/components/gsd-ui/static/style/main'
+
+

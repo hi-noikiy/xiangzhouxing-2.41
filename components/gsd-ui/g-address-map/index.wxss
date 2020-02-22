@@ -1,0 +1,4 @@
+@import '../static/style/components/g-address-map';
+.select__hidden{
+    display: none;
+}

@@ -1,0 +1,99 @@
+@import "todo-item.wxss";
+
+page {
+  font-size: 32rpx;
+  background: #FFF;
+  padding-bottom: 170rpx;
+}
+
+.cell-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.4;
+}
+
+.cell-desc {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.my-todo-tab {
+  font-size: 32rpx;
+  position: relative;
+  background: #fff;
+  display: flex;
+  text-align: center;
+  line-height: 94rpx;
+  box-shadow: 0 1rpx 18rpx rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.my-todo-tab-item {
+  flex: 1;
+  position: relative;
+}
+
+.my-todo-tab-item.selected {
+  color: #2FABA4;
+}
+
+.my-todo-tab-item.selected:after {
+  content: "";
+  position: absolute;
+  left: 40rpx;
+  right: 40rpx;
+  bottom: 0;
+  height: 6rpx;
+  background: #2FABA4;
+}
+
+.my-todo-content {
+  /*background: #fff;*/
+}
+
+.my-todo-list {
+  display: none;
+}
+
+.my-todo-list.selected {
+  display: block;
+}
+.my-todo-list-in{
+  background-color: #fff;
+}
+/*没有事项*/
+.no-todo {
+  text-align: center;
+  /*line-height: 360rpx;*/
+  font-size: 32rpx;
+  color:#000;
+  opacity: 0.3;
+}
+.no-todo-image{
+  margin:200rpx auto 30rpx auto;
+  width:200rpx;
+  height:200rpx;
+}
+.no-todo-image image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.my-todo__append{
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #999999;
+  letter-spacing: 0;
+  text-align: right;
+  line-height: 48rpx;
+}
+.my-todo__append-red{
+  color: red;
+}
+.my-todo__append-999999{
+  color:#999999;
+}

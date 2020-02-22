@@ -1,0 +1,28 @@
+/* pages/donate/index.wxss */
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  height: 140rpx;
+  line-height: 140rpx;
+  padding-left: 40rpx;
+}
+
+.content {
+  padding: 0 40rpx;
+}
+
+.donate-desc {
+  font-size: 30rpx;
+  color: #666666;
+  margin-bottom: 38rpx;
+}
+
+.sec-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 22rpx;
+}
+
+.requirement {
+  font-size: 30rpx;
+}

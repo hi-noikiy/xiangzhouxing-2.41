@@ -1,0 +1,19 @@
+<!--pages/mine/donation/index.wxml-->
+<view class="list">
+  <view wx:if="{{list.length > 0}}" wx:for="{{list}}" wx:key="{{index}}" class="item">
+    <view class="extra-info">
+      <view>{{item.create_time}}提交</view>
+      <view wx:if="{{item.status === 0}}" class="signed status">在登记</view>
+      <view wx:if="{{item.status === 1}}" class="handling status">对接中</view>
+      <view wx:if="{{item.status === 2}}" class="finished status">已完成</view>
+    </view>
+    <view wx:for="{{item.materials}}" wx:for-item="material" wx:for-index="index2" wx:key="{{index2}}" class="material-item">
+      <view>{{material.name}}</view>
+      <view>{{material.number}}</view>
+    </view>
+  </view>
+  <view wx:if="{{list.length === 0}}" class="empty-wrapper">
+    <image src="{{emptyIcon}}" class="empty-icon" />
+    <view>暂无事项</view>
+  </view>
+</view>

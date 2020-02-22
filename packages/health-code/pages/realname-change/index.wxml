@@ -1,0 +1,17 @@
+<view class="tips"> 身份认证仅支持一次变更！</view>
+<!-- <view class="title">实名资料变更</view> -->
+<g-form model="{{selfForm}}"  rules="{{selfFormRules}}" bind:submit="handleSelfSubmit" primary-text="提交"  validateType="{{validateType}}">
+  <g-wrapper title='实名资料变更'>
+  <g-input class="label_require" id="username"  maxlength="20" label='姓名' placeholder="请输入您的姓名" value="{{selfForm.username}}" bind:change="handleFormChange" data-form='selfForm'/>
+  <g-picker id="identityType" 
+            label="证件类型" 
+            placeholder="请选择证件类型" 
+            bind:change="handleFormChange" 
+            value="{{selfForm.identityType}}" 
+            data-form="selfForm" range="{{cardTypeRange}}">
+  </g-picker>
+  <g-input id="identity" class="label_require" maxlength="50" type="{{identityInputType}}" label='证件号码' placeholder="请输入证件号码" bind:change="handleFormChange" value="{{selfForm.identity}}" data-form='selfForm' />
+</g-wrapper>
+</g-form>  
+
+

@@ -1,0 +1,62 @@
+/* pages/car-code/bus-code/passenger/scan/index.wxss */
+.sk-scan-layer {
+  padding: 32rpx 40rpx;
+  box-sizing: border-box;
+}
+.sk-scan-layer__title {
+  display: block;
+  font-family: PingFangSC-Medium;
+  font-weight: 300;
+  font-size: 48rpx;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 66rpx;
+}
+.sk-scan-layer__descript {
+  display: block;
+  padding: 6rpx 0;
+  font-family: PingFangSC-Regular;
+  font-weight: 300;
+  font-size: 32rpx;
+  color: #999999;
+  letter-spacing: 0;
+  line-height: 44rpx;
+}
+.sk-scan-layer__scan {
+  height: 560rpx;
+  margin: 20rpx 0;
+  padding: 202rpx 0;
+  background: #FFFFFF;
+  border: 1px solid #EBEBEB;
+  box-sizing: border-box;
+}
+.sk-scan-layer__scan .s-icon {
+  display: block;
+  width: 86rpx;
+  height: 86rpx;
+  margin: 0 auto;
+}
+.sk-scan-layer__scan .s-text {
+  display: block;
+  padding-top: 30rpx;
+  font-weight: 300;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #000000;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 40rpx;
+}
+.sk-scan-layer__btn {
+  margin: 40rpx 0;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #FAFAFA;
+  border: 2rpx solid rgba(0,0,0,0.10);
+  border-radius: 8rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #666666;
+  letter-spacing: 0;
+  text-align: center;
+}

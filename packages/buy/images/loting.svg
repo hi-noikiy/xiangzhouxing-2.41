@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="80px" viewBox="0 0 256 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>编组 8备份</title>
+    <desc>Created with Sketch.</desc>
+    <g id="20200211-摇号登记流程" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-8备份">
+            <path d="M1,52.726504 L1,79 L255,79 L255,52.7782706 C247.673699,52.355049 243.471428,47.2443884 243.471428,39.7590857 C243.471428,32.2737736 247.673713,27.1631225 255,26.7399009 L255,1 L1,1 L1,26.7847125 C6.07182391,27.5145437 11.6062491,33.5830242 11.6062491,39.8399552 C11.6062491,45.9368921 5.8618977,51.967551 1,52.726504 Z" id="形状" stroke="#BEDBFF" stroke-width="2" fill="#E3EEFB"></path>
+            <text id="正在摇号中" font-family="PingFangSC-Regular, PingFang SC" font-size="32" font-weight="normal" line-spacing="44" fill="#4293F4">
+                <tspan x="48" y="52">正在摇号中</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

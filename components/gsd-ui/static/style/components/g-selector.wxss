@@ -1,0 +1,26 @@
+.selector__header {
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  line-height: 45px;
+}
+
+.selector__button {
+  margin: 0;
+  background: inherit;
+  border: none;
+  font-size: 32rpx;
+}
+
+.picker-view {
+  width: 100%;
+  height: 240px;
+  text-align: center;
+}
+
+.selector__item {
+  line-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

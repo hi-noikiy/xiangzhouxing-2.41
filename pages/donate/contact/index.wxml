@@ -1,0 +1,25 @@
+<!--pages/donate/contact/index.wxml-->
+<view class="title">两种捐赠渠道</view>
+<view class="content">
+  <g-wrapper>
+    <g-cell>
+      <view class="channel-title">
+        <text class="channel-title__num">1</text>
+        <text class="channel-title__txt">直接联系珠海市红十字会</text>
+      </view>
+      <view class="channel-desc">
+        <view class="channel-desc__item">地址：珠海市越秀区麓景路西1号</view>
+      </view>
+    </g-cell>
+    <g-cell>
+      <view class="channel-title">
+        <text class="channel-title__num">2</text>
+        <text class="channel-title__txt">登记捐赠线索</text>
+      </view>
+      <view class="channel-desc">
+        珠海市红十字会工作人员将与您联系对接，为各医疗机构统一调配医疗物资
+      </view>
+    </g-cell>
+  </g-wrapper>
+</view>
+<g-button-group fixed primary-text="我要登记" bind:primaryTap='handlePrimaryTap' />

@@ -1,0 +1,18 @@
+<!--packages/health-code/pages/toggle-grid/index.wxml-->
+<view class="content">
+	<view class="current-point">
+		<icon type="success_no_circle" size="24"></icon>
+		<view>当前采集点：富力千禧花园小区</view>
+	</view>
+
+	<view class="second-title">切换采集点</view>
+	
+	<scroll-view scroll-y="true" class="scroll-view" bindscrolltolower="onSrollBottom">
+		<view wx:for="{{items}}" class="radio-item" wx:key="index">
+			<radio value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.disabled}}" color="{{item.color}}">{{item.name}}</radio>
+			<button type="warn" size="mini">删除</button>
+		</view>
+	</scroll-view>
+
+	<view class="custom-button">自定义添加</view>
+</view>

@@ -1,0 +1,11 @@
+<!-- 组件模板 -->
+<view style="position: {{position}};">
+  <view class="container" bind:tap="onTap">
+    <view wx:if="{{visible && content}}" class="popBox {{placement}} {{_popVisible? 'show': 'hide'}}" style="{{_popoStyle}}">
+      <view class="contentStyle">{{content}}</view>
+    </view>
+    <view class="popoverItem">
+      <slot></slot>
+    </view>
+  </view>
+</view>

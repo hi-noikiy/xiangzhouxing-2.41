@@ -1,0 +1,35 @@
+<view>
+  <g-wrapper title="基本信息">
+    <g-preview text-align="right">
+      <g-preview-item label="姓名">{{passenger.username}}</g-preview-item>
+      <g-preview-item label="性别">{{passenger.gender}}</g-preview-item>
+      <g-preview-item label="国籍">{{passenger.chineseZH}}</g-preview-item>
+      <g-preview-item label="联系方式">{{passenger.clueSupplierPhone}}</g-preview-item>
+      <g-preview-item label="证件类型">{{passenger.identityTypeZH}}</g-preview-item>
+      <g-preview-item label="证件号码">{{passenger.identity}}</g-preview-item>
+      <g-preview-item label="出生日期">{{passenger.birthday}}</g-preview-item>
+      <g-preview-item label="居住地址">{{passenger.liveAddress}}</g-preview-item>
+      <g-preview-item label="详细地址">{{passenger.detailedAddress}}</g-preview-item>
+    </g-preview>
+  </g-wrapper>
+  <g-wrapper title="其他信息">
+    <g-preview text-align="right">
+      <g-preview-item label="是否常住珠海">{{passenger.residentZH}}</g-preview-item>
+      <g-preview-item label="近期是否在珠海">{{passenger.recentZH}}</g-preview-item>
+      <g-preview-item class="{{passenger.recent == 3 ? '' : 'hidden'}}" label="来或返回珠海日期">{{passenger.returnTime}}</g-preview-item>
+      <g-preview-item class="{{passenger.recent == 4 ? '' : 'hidden'}}" label="目前所在地">{{passenger.currentLocation}}</g-preview-item>
+      <g-preview-item class="{{passenger.recent == 4 ? '' : 'hidden'}}" label="拟返回珠海日期">{{passenger.proposedArriveTime}}</g-preview-item>
+      <g-preview-item class="{{passenger.recent != 1 ? '' : 'hidden'}}" label="近期旅居史">{{passenger.sojourningHistoryZH}}</g-preview-item>
+      <g-preview-item label="近期接触史">{{passenger.touchZH}}</g-preview-item>
+      <g-preview-item class="{{passenger.touch ? '' : 'hidden'}}" label="接触时间">{{passenger.touchTime}}</g-preview-item>
+      <g-preview-item label="个人健康现况">{{passenger.healthStateZH}}</g-preview-item>
+      <g-preview-item class="{{passenger.healthState != 1 ? '' : 'hidden'}}" label="症状列表">{{passenger.symptomsName}}</g-preview-item>
+      <g-preview-item label="其他症状">{{passenger.symptomsContext}}</g-preview-item>
+      <g-preview-item label="体温">{{passenger.temperature}}</g-preview-item>
+      <g-preview-item label="备注">{{passenger.remark}}</g-preview-item>
+    </g-preview>
+  </g-wrapper>
+  <view class="btn-wrap">
+      <button class="submit-btn" bindtap='handleCheckOne' type="primary">核查登记</button>
+  </view>
+</view>

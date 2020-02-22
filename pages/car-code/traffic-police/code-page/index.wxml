@@ -1,0 +1,14 @@
+<!--空白页-->
+<view class="code-page">
+  <view>
+    <view class="msg">
+      <view wx:if="{{msg}}" class="mag-main">
+        <g-icon type="warn-o" class="icon" size="64"/>
+        {{msg}}
+      </view>
+      <view class="msg-sub">请扫下方小程序码重新登记信息</view>
+    </view>
+    <image class="qr-image" src="https://imgcache.gzonline.gov.cn/cos/photo_wechat@2x_47367896.png"></image>
+  </view>
+  <g-footer></g-footer>
+</view>

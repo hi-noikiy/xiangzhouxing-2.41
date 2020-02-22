@@ -1,0 +1,17 @@
+<view class="g-nav-box component-class">
+
+  <view class="g-nav-box__title" catch:tap="handleTapTitle">
+    <image class="g-nav-box__title__icon" wx:if="{{ icon }}" src="{{ icon }}"></image>
+    <view class="g-nav-box__title__text">{{ title }}</view>
+    <view class="g-nav-box__title__more" wx:if="{{ to }}">
+      {{ toText || '全部' }}
+    </view>
+    <image class="g-nav-box__title__more__arrow" wx:if="{{ to }}" src="https://imgcache.gzonline.gov.cn/cos/arrow_9d3351d4.svg"></image>
+  </view>
+
+  <view class="g-nav-box__content">
+    <slot></slot>
+  </view>
+
+  <view class="g-nav-box__footer" wx:if="{{ footerText }}">{{ footerText }}</view>
+</view>

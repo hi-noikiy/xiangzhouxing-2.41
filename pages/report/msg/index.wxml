@@ -1,0 +1,17 @@
+<!--pages/report/msg/index.wxml-->
+<g-msg wx:if="{{source=='report'}}" title="提交成功" status="success"
+  desc="您已经成功提交。"
+  primary-text="返回首页"
+  bind:primaryTap="handleSecondTap"
+  footer-fixed
+>
+</g-msg>
+<g-msg wx:else title="提交成功" status="success"
+  desc="{{isFromBuy==1?'您已经成功提交，可进行口罩预约。':'您已经成功提交，可立即生成健康码'}}"
+  primary-text="{{isFromBuy==1?'立即预约':'立即生成健康码'}}"
+  second-text="返回首页"
+  bind:primaryTap="handlePrimaryTap"
+  bind:secondTap="handleSecondTap"
+  footer-fixed
+>
+</g-msg>

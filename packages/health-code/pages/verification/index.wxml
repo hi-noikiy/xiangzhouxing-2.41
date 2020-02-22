@@ -1,0 +1,108 @@
+<!--packages/health-code/pages/verification/index.wxml-->
+<view class="horizontal fff">
+	<view class="horizontal">
+
+		<view class="user-avatar background circular">
+
+			<image style="width:100rpx;height:100rpx" mode='scaleToFill' src="{{wxAvatar}}"></image>
+		</view>
+		<view class="nickname">{{username}}</view>
+	</view>
+	<view class="second-title">
+		<view>最近自查上报时间</view>
+		<view>{{lastTime}}</view>
+	</view>
+</view>
+
+<view class="status horizontal fff">
+	<view wx:for="{{status}}" wx:key="index">
+		<image src="{{ 'https://imgcache.gzonline.gov.cn/cos/health//' + item.icon }}" class="user-avatar"></image>
+		<view>{{item.text}}</view>
+	</view>
+</view>
+
+<view class="fff tabs">
+	<!-- <g-tabs activeKey="{{ activeKey }}" position="relative" animated="{{ animated }}" bind:change="tabChange" data-key="activeKey"> -->
+
+		<!-- <g-tab-pane tab="通行证登记" key="1"> -->
+			<g-form model="{{formData}}" rules="{{rules}}" validateType="{{validateType}}" primary-text="确认提交" bind:submit="handleFormSubmit">
+				<view slot="content">
+          <view class="content-title">
+            <view class="content-title__main">通行登记</view>
+            <view class="content-title__desc">避免前往人流密集场所，注意防疫安全</view>
+          </view>
+					<g-wrapper title="测得体温（℃）">
+						<radio-group class="radio-group" bindchange="handleChange" style="padding: 42rpx">
+							<radio color='#4293F4' style="width: 50%; margin-top: 42rpx;" class="radio" wx:for-items="{{checkItems}}" wx:key="name" value="{{item.value}}" checked="{{item.checked}}">
+								<text>{{item.name}}</text>
+							</radio>
+						</radio-group>
+					</g-wrapper>
+
+					<view class="select-btn-temperature">
+						<input class="temperature" bindblur="bindconfirm"  type="number" bindinput='bindinput' id="num1" maxlength="1" value="{{temperatureNums.num1}}" bind:change="handleTemperChange"></input>
+						<input class="temperature"   bindblur="bindconfirm"  type="number" bindinput='bindinput' focus="{{focus2}}" id="num2" maxlength="1" value="{{temperatureNums.num2}}" bind:change="handleTemperChange"></input>
+						<text style="color:#D1D1D1;font-size:50px">·</text>
+						<input class="temperature"  bindblur="bindconfirm" type="number" bindinput='bindinput' focus="{{focus}}" id="num3" maxlength="1" value="{{temperatureNums.num3}}" bind:change="handleTemperChange" ></input>
+						<text style="color:#D1D1D1;margin:0 24rpx">°C</text>
+					</view>
+
+					<g-wrapper title="症状">
+						<view style="padding: 15rpx">
+							<view wx:for="{{state}}" wx:key="value" data-value="{{item.value}}" class="{{item.active ? 'check active' : 'check'}}" bindtap="statusClick">
+								{{item.name}}
+							</view>
+						</view>
+					</g-wrapper>
+
+					<g-wrapper title="出行状态">
+						<radio-group class="radio-group trip" bindchange="handleChange2" style="padding: 42rpx">
+							<radio class="radio" wx:for-items="{{trip}}" wx:key="name" value="{{item.value}}" checked="{{item.checked}}">
+								<text>{{item.name}}</text>
+							</radio>
+						</radio-group>
+					</g-wrapper>
+
+					<view class="remark">
+						<view>备注</view>
+						<input style="margin-top:16rpx;" maxlength='200' bind:change="changRemark" placeholder='备注说明'></input>
+					</view>
+
+				</view>
+			</g-form>
+		<!-- </g-tab-pane> -->
+
+		<!-- <g-tab-pane tab="历史记录" key="2">
+			<view>
+				<view class="tip-msg">避免前往人流密集场所，注意防疫安全</view> -->
+				<!-- <g-cell wx:for="{{list}}" wx:key="index" class="list-item" access>
+					<view slot="content">
+						<view class="horizontal-container" data-item="{{item}}" bindtap="clickItem">
+							<view>{{item.createTime}}</view>
+							<view class="{{ item.temperature < 38 ? (item.temperature < 37.3 ? 'status-1' : 'status-2') : (item.temperature > 39 ? 'status-4 ' : 'status-3')}}">体温：
+								<text>{{ item.temperature>37.3 ? item.temperature + '°C' : '正常'}}</text>
+							</view>
+						</view>
+						<view>地点：{{item.gridPointName?item.gridPointName:''}}</view>
+					</view>
+				</g-cell> -->
+
+				<!-- <view wx:for="{{list}}" wx:key="index" class="list-item" data-item="{{item}}">
+					<view class="horizontal-container padding-40">
+						<view>{{item.createTime}}</view>
+						<view class="{{ item.temperature < 38 ? (item.temperature < 37.3 ? 'status-1' : 'status-2') : (item.temperature > 39 ? 'status-4 ' : 'status-3')}}">体温：
+							<text>{{ item.temperature>37.3 ? item.temperature + '°C' : '正常'}}</text>
+						</view>
+						<view><g-icon type="{{ item.open ? 'arrow-up' : 'arrow-down' }}" data-index="{{index}}" bindtap="clickItem" /></view>
+					</view>
+					<view class="padding-40">地点：{{item.gridPointName?item.gridPointName:''}}</view>
+					<view class="padding-40" wx:if="{{ item.open }}">
+						<view>症状：{{item.symptom}}</view>
+						<view>备注：{{item.remark}}</view>
+					</view>
+				</view>
+			</view>
+		</g-tab-pane> -->
+
+	<!-- </g-tabs> -->
+</view>

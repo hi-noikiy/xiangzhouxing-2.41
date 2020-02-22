@@ -1,0 +1,7 @@
+/* pages/detail/index.wxss */
+.submit-btn{
+    width: 90%;
+}
+.hidden{
+  display: none;
+}

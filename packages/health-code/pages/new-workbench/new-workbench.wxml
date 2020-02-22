@@ -1,0 +1,68 @@
+<!--packages/health-code/pages/new-workbench/new-workbench.wxml-->
+
+<view class="headTitle">
+  <view>{{roleName}}：</view>
+
+  <open-data class="mine-profile-nickname name" type="userNickName"></open-data>
+</view>
+
+<view class="headTitle2">
+  <image style="width:36rpx;height:36rpx;margin-right:8rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icon-address.png"> </image>
+  <view style="flex:1">{{gridPointId?address:"无"}}</view>
+  <view bindtap='goMyPostion' class="change">
+    <image style="width:24rpx;height:24rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icon-change.png"> </image>
+    切换
+  </view>
+</view>
+
+<view class="row txdj" bindtap='scanCode'>
+  <image style="width:100rpx;height:100rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icontxz.png"> </image>
+  <view class="column flex1" style="margin-left:16rpx" src="/images/workbench/icontxz.png">
+    <view style="color:#000;font-size:35rpx">通行登记</view>
+    <view style="color:#939393;margin-top:16rpx">采集查看群众通行记录</view>
+  </view>
+
+  <view class="column alignCenter">
+    <image style="width:32rpx;height:32rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icon-sm.png"> </image>
+    <view style="color:#4293F4;margin-top:16rpx">扫码</view>
+  </view>
+</view>
+
+<view style="height:24rpx"> </view>
+<!-- <view class="row txdj" bindtap='gotoCard2'>
+  <image style="width:100rpx;height:100rpx" src="/images/home/jttx.png"> </image>
+  <view class="column flex1" style="margin-left:16rpx" src="/images/workbench/icontxz.png">
+    <view style="color:#000;font-size:35rpx">交通卡口</view>
+    <view style="color:#939393;margin-top:16rpx">采集查看群众通行记录</view>
+  </view>
+
+  <view class="column alignCenter">
+    <image style="width:32rpx;height:32rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icon-sm.png"> </image>
+    <view style="color:#4293F4;margin-top:16rpx">扫码</view>
+  </view>
+</view> -->
+
+<view class="  box ">
+  <view class='grid'>
+    <view bindtap='go2jWZGL' class="column item " wx:if="{{isGly}}">
+      <image style="width:100rpx;height:100rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icon-cjygl.png"></image>
+      <view style="color:#000;font-size:33rpx;margin:24rpx">采集员授权管理</view>
+    </view>
+
+    <view bindtap='go2wljkgl' class="column item">
+      <image style="width:100rpx;height:100rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icon-cjjkdgl.png"></image>
+      <view style="color:#000;font-size:33rpx;margin-top:24rpx">采集点管理</view>
+    </view>
+
+    <view bindtap='go2Input' class="column   item ">
+      <image style="width:100rpx;height:100rpx" src="/images/inputcode/sdsrdj.png"></image>
+      <view style="color:#000;font-size:33rpx;margin:24rpx">手动输入登记</view>
+    </view>
+
+    <!-- <view bindtap='gotoCard' class="column item">
+      <image style="width:100rpx;height:100rpx" src="https://imgcache.gzonline.gov.cn/cos/workbench/icon-cjjkdgl.png"></image>
+      <view style="color:#000;font-size:33rpx;margin-top:24rpx">卡口</view>
+    </view> -->
+  </view>
+
+</view>

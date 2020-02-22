@@ -1,0 +1,64 @@
+.inline-sytle {
+  display: inline-block;
+}
+
+.number-container {
+  display: flex;
+  align-items: center;
+}
+
+.number-container__label {
+  width: 50%;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  margin-bottom: 6rpx;
+  color: #000;
+  word-break: break-all;
+}
+.form-item__label--required {
+  color: #f13939;
+}
+
+.number-container__numb-box {
+  width: 50%;
+  text-align: right;
+  float: right;
+  color: #000;
+}
+
+.number-descBox {
+  margin-top: 6rpx;
+  font-size: 30rpx;
+  color: #ccc;
+  word-break: break-all;
+}
+
+.count-sytle {
+  border: 1px rgba(0, 0, 0, 0.05) solid;
+  background: rgba(0, 0, 0, 0.05);
+  width: 110rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  font-size: 34rpx;
+  padding: 4rpx 0;
+  vertical-align: top;
+}
+
+.sign-sytle {
+  width: 60rpx;
+  text-align: center;
+  border: 1px #ccc solid;
+  margin: 0 8rpx;
+  border-radius: 8rpx;
+  overflow-x: hidden;
+  font-size: 34rpx;
+  padding: 4rpx 0;
+  background-color: #fff;
+  vertical-align: top;
+}
+
+.exrange-sytle {
+  color: rgba(0, 0, 0, 0.2);
+}

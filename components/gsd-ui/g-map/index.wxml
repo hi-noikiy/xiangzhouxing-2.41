@@ -1,0 +1,21 @@
+<!--pages/g-map/index.wxml-->
+<map
+    id="map"
+    class="g-map"
+    longitude="{{position.longitude}}"
+    latitude="{{position.latitude}}"
+    scale="{{scale}}"
+    markers="{{_markers}}"
+    show-location
+    bindregionchange="handleRegionChange"
+    bindmarkertap="handleMarkerTap"
+  >
+    <cover-view wx:if="{{_showLoad}}" class="g-map__load" catch:tap="handleLoadTap">
+      搜索此区域
+    </cover-view>
+    <cover-image
+      src="https://imgcache.gzonline.gov.cn/cos/map-location_f3dfe6e8.png"
+      class="g-map__location"
+      catch:tap="handleLocationTap"
+    />
+  </map>

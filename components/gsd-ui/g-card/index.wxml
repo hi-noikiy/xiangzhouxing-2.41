@@ -1,0 +1,15 @@
+<view>
+  <view class="{{'g-card__contain' + (disabled? ' disabled-class': '')}}" bindtap="bindtap">
+    <view class="g-card__checkBox" wx:if="{{iconType !== 'none'}}">
+      <view data-checked="{{checked}}">
+        <view hidden="{{!checked}}">
+          <g-icon class="{{__radioType ? 'radio__icon--checked' : 'checkbox__icon--checked'}}" size="48" type="{{__radioType ? 'circle': 'check'}}" />
+        </view>
+        <view class="{{__radioType ? 'radio__icon--unchecked' : 'checkbox__icon--unchecked'}}" hidden="{{checked}}" />
+      </view>
+    </view>
+    <view class="g-card__item">
+      <slot />
+    </view>
+  </view>
+</view>

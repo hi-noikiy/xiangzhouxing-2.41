@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-icon": "/components/gsd-ui/g-icon/index"
+  }
+}

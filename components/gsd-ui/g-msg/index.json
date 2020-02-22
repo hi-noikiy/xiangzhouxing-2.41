@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-title": "../g-title/index",
+    "g-footer": "../g-footer/index"
+  }
+}

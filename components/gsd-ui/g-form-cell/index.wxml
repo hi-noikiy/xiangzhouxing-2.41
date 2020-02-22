@@ -1,0 +1,12 @@
+<!--pages/g-input/index.wxml-->
+<g-form-item label="{{label}}" disabled="{{disabled}}" status="{{_status}}" statusMessage="{{_statusMessage}}" required="{{required}}">
+  <view wx:if="{{slot}}">
+    <slot />
+  </view>
+  <view wx:else>
+    <view class="picker">
+      <view class="picker__value {{!value ? 'picker__value--placeholder': ''}} {{disabled ? 'picker__value--disabled' : ''}}">{{value || placeholder}}</view>
+      <view class="picker__action" wx:if="{{actionText}}" bind:tap="handleActionTap">{{actionText}}</view>
+    </view>
+  </view>
+</g-form-item>

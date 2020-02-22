@@ -1,0 +1,15 @@
+<!--pages/g-timeline-item/index.wxml-->
+<view class="item item--{{status}}">
+  <view class="item__tail {{_isLast && 'item__tail--last'}} {{status && 'item__tail--' + status}} "/>
+  <view class="item__head">
+    <view wx:if="{{status === 'normal' || status === 'pending'}}">
+      <view class="item__head--{{status}}"></view>
+    </view>
+    <view wx:else>
+      <view class="item__head--icon item__head--{{status}}">
+        <g-icon type="{{status}}" size="48" />
+      </view>
+    </view>
+  </view>
+  <view class="item__content"><slot/></view>
+</view>

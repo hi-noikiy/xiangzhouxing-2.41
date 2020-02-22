@@ -1,0 +1,33 @@
+<!--packages/health-code/pages/collection-point/index.wxml-->
+
+<view class="container">
+	<view class="item-box">
+		<view class="title">
+			<view>我的采集点</view>
+			<view wx:if="{{showAdd}}" class="link" bindtap="onAdd">+自定义添加</view>
+		</view>
+
+		<view>
+			<scroll-view class="items" scroll-y style="height: calc(100vh - 280rpx); margin-bottom: 5px">
+				<radio-group class="radio-group" bindchange="radioChange">
+					<view wx:for="{{list}}" wx:key="id" class="item">
+						<view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
+							<radio value="{{item.id}}" checked="{{ item.id == current }}" disabled="{{item.disabled}}" color="{{item.color}}">
+								<view class="label">
+									<view>{{item.name}}</view>
+									<view wx:if="{{item.id === currentId}}">当前采集点</view>
+								</view>
+							</radio>
+						</view>
+						<view wx:if="{{item.isEnableDeleted == 1}}" data-index="{{index}}" data-id="{{item.id}}" bindtap="delItem" class="inner del">删除</view>
+					</view>
+				</radio-group>
+			</scroll-view>
+		</view>
+
+		<view class="btn-wrap">
+			<button type="primary" bindtap="onOk">确定</button>
+		</view>
+
+	</view>
+</view>

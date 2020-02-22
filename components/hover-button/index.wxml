@@ -1,0 +1,3 @@
+  <view bindtap='adddetial'>
+      <image class="add_icon" src="{{imgSrc}}"></image>
+  </view>

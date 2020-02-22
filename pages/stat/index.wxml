@@ -1,0 +1,151 @@
+<!--index.wxml-->
+<view>
+	<view>
+		<mp-navigation-bar title="健康码" back="{{false}}" color="{{isShowBg ? 'white' : 'black'}}" background="{{isShowBg ? '' : 'white'}}">
+			<view wx:if="{{userInfo.isLeader}}" slot="left" class="header-region" bind:tap="handleOpenRegion">{{value}}
+				<g-dropdown color="{{isShowBg ? 'white' : 'black'}}"></g-dropdown>
+			</view>
+		</mp-navigation-bar>
+	</view>
+	<view class="back-view {{isShowBg ? 'show' : '' }}">
+		<image src="https://imgcache.gzonline.gov.cn/cos/images/banner_2020_2_12.png" alt="" class="back-image"></image>
+	</view>
+	<view class='index__container'>
+		<block wx:if="{{!userInfo.isLeader}}">
+			<home-tips status="warn" access wx:if="{{wllConfig.home_notice.is_open}}" loopDuration="{{wllConfig.home_notice.duration}}" bind:tap="openTipsModal">{{ wllConfig.home_notice.title || '重要通知'}}</home-tips>
+
+	<view class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess" data-url="/packages/health-code/pages/report-health/index" data-real='{{true}}'>
+				<view class="img">
+					<image src="https://imgcache.gzonline.gov.cn/cos/wdhkm_989ae8ff.png"></image>
+				</view>
+				<view class="right-content">
+					<view class="title">我的健康码</view>
+					<view class="desc">社区互信共享，提高出行效率 </view>
+				</view>
+			</view>
+
+			<view class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess" data-url="/pages/report/home/index?target=self">
+				<view class="img">
+					<image src="https://imgcache.gzonline.gov.cn/cos/main_zicha@2x_741b99ed.png"></image>
+				</view>
+				<view class="right-content">
+					<view class="title">健康自查上报</view>
+					<view class="desc">普查所有市民健康状况，针对特定症状，社区将根据情况安排相关服务 </view>
+				</view>
+			</view>
+
+			<view class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess" data-url="/pages/report/inform/index">
+				<view class="img">
+					<image src="https://imgcache.gzonline.gov.cn/cos/main_yiqing@2x_809251b4.png"></image>
+				</view>
+				<view class="right-content">
+					<view class="title">疫情线索上报</view>
+					<view class="desc">如发现身边与新冠病毒疫情相关线索，请如实上报详细事件情况</view>
+				</view>
+			</view>
+	    <!-- <view class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess" data-url="/pages/car-code/code-manage/index">
+				<view class="img">
+					<image src="https://imgcache.gzonline.gov.cn/cos/traffic@2x_790da30a.png"></image>
+				</view>
+				<view class="right-content">
+					<view class="title">交通卡口登记</view>
+					<view class="desc">广东各个交通卡口检疫站申报登记</view>
+				</view>
+			</view> -->
+			<view wx:if="{{false}}" class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess" data-url="/pages/donate/index/index">
+				<view class="img">
+					<image src="https://imgcache.gzonline.gov.cn/cos/question@2x_8ebc7f3f.png"></image>
+				</view>
+				<view class="right-content">
+					<view class="title">医疗物资捐赠</view>
+					<view class="desc">医疗物资捐赠活动，收集捐赠线索报市红十字会后，统一调配使用</view>
+				</view>
+			</view>
+			<view class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess"
+			data-url="/packages/buy/pages/notice/index">
+				<view class="img">
+					<image src="https://imgcache.gzonline.gov.cn/cos/kouzhaoyuyue@2x_7c65b32e.png"></image>
+				</view>
+				<view class="right-content">
+					<view class="title">口罩预约购买</view>
+					<view class="desc">为满足珠海市民购买口罩的需要，提供线上预约快递到家的服务</view>
+				</view>
+			</view>
+			<view class="access-box" hover-class="access-box--hover" bind:tap="onTapAccess"
+					data-url="/pages/diagnosis/index">
+				<view class="img">
+					<image src="https://imgcache.gzonline.gov.cn/cos/yizhen@2x_ca109686.png"></image>
+				</view>
+				<view class="right-content">
+					<view class="title">在线免费问诊</view>
+					<view class="desc">珠海多家医院与第三方医疗平台免费为珠海市民提供在线疫情问诊服务</view>
+				</view>
+			</view>
+		</block>
+
+		<block wx:if="{{userInfo.isLeader}}">
+			<view class="content-border flex-container" style="height: 158rpx">
+				<view class="flex-item">
+					<view class="content">{{residentCount}}</view>
+					<view class="label">居民数量</view>
+				</view>
+				<view class="flex-item">
+					<view class="content">{{communistCount}}</view>
+					<view class="label">党员数量</view>
+				</view>
+				<view class="flex-item">
+					<view class="content">{{floatingCount}}</view>
+					<view class="label">流动人口</view>
+				</view>
+			</view>
+			<view class="content-border content-padding">
+				<view class="content-header">
+					<view class="flex-container justify-item">
+						<view class="label">疫情统计</view>
+						<view class="content-light">截止到{{endTime}}</view>
+					</view>
+					<view class="flex-container" style="padding: 25rpx 0">
+						<view class="label">今日新增病例</view>
+						<view class="content" style="padding-left: 20rpx; color: #4293F4">+{{todayCount}}</view>
+					</view>
+				</view>
+				<view class="flex-container justify-item">
+					<view class="flex-item">
+						<view class="label">确诊病例</view>
+						<view class="content" style="color: #F0422C">{{confirm}}</view>
+					</view>
+					<view class="flex-item">
+						<view class="label">疑似病例</view>
+						<view class="content" style="color: #FF6D3B">{{suspect}}</view>
+					</view>
+					<view class="flex-item">
+						<view class="label">治愈病例</view>
+						<view class="content" style="color: #09BB07">{{cure}}</view>
+					</view>
+					<view class="flex-item">
+						<view class="label">死亡病例</view>
+						<view class="content" style="color: #979797">{{dead}}</view>
+					</view>
+				</view>
+			</view>
+			<view wx:if="{{lineVisible}}" style="{{visible?'display: none;': '' }}" class="chart-line">
+				<view class="chart-title">社区疫情趋势</view>
+				<line class="chart-item" option="{{singleLine}}">
+				</line>
+			</view>
+		</block>
+	</view>
+	<g-footer></g-footer>
+</view>
+
+<!--珠海-->
+<!--<g-region-picker-->
+<!--visible="{{visible}}"-->
+<!--type="{{regionType}}"-->
+<!--includes="{{includes}}"-->
+<!--excludes="{{excludes}}"-->
+<!--bind:change="handleChange"-->
+<!--bind:close="handleClose"-->
+<!--/>-->
+
+<g-cascader visible="{{visible}}" range="{{regionRange}}" bind:change="handleRegionChange" bind:columnChange="handleRegionColumnChange" bind:close="handleRegionClose" />

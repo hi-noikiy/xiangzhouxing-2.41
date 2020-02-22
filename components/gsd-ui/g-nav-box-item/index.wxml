@@ -1,0 +1,3 @@
+<view class="g-nav-box__content-item" bindtap="handleTapItem">
+  <slot></slot>
+</view>

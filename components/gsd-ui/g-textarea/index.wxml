@@ -1,0 +1,22 @@
+<!--pages/g-textarea/index.wxml-->
+<g-form-item label="{{label}}" disabled="{{disabled}}" status="{{_status}}" statusMessage="{{_statusMessage}}" required="{{required}}">
+  <view class="textarea__wrapper">
+    <view catch:tap="handleTap" class="textarea__text {{disabled ? 'textarea__text--disabled' : ''}} textarea__text--{{_platform}} textarea__text--{{_platform}} {{_value? '':'textarea__placeholder'}}" style="{{ autoHeight? '':'height:' + height + 'rpx' }}"  hidden="{{!_hideElement}}">{{_value ? _value : placeholder}}</view>
+    <textarea catch:tap="handleTap" hidden="{{_hideElement}}" class="textarea__element textarea--{{_platform}} {{disabled ? 'textarea__element--disabled' : ''}}" value="{{_value}}" 
+      placeholder="{{placeholder}}" 
+      disabled="{{disabled}}" maxlength="{{maxlength}}" 
+      auto-focus="{{autoFocus}}" focus="{{_focus}}" 
+      style="height: {{height}}" 
+      auto-height="{{autoHeight}}"
+      style="height: 144rpx;"
+      cursor="{{cursor}}" show-confirm-bar="{{showConfirmBar}}" 
+      cursor-spacing="{{cursorSpacing}}"
+      selection-start="{{selectionStart}}" selection-end="{{selectionEnd}}" 
+      adjust-position="{{adjustPosition}}" 
+      bindinput="handleInput" bindfocus="handleFocus" 
+      bindblur="handleBlur" bindconfirm="handleConfirm" 
+      placeholder-class="textarea__placeholder" 
+    />
+    <view class="textarea__action action-class"><slot name='action' /></view>
+  </view>
+</g-form-item>

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-badge": "/components/gsd-ui/g-badge/index",
+    "g-icon": "/components/gsd-ui/g-icon/index"
+  }
+}

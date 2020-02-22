@@ -1,0 +1,17 @@
+<view class="g-checkbox-label">
+  <view wx:for="{{__items}}" 
+  wx:key="{{index}}" 
+  class="{{'g-checkbox-label__item ' + (item.disabled? 'g-checkbox-label__disabled-class': '')}}" 
+  bindtap="bindtap" 
+  data-change-value="{{item.value}}" 
+  data-disabled="{{item.disabled}}" 
+  >
+
+    <view class="{{'g-checkbox-label__box' + (item.checked ? ' g-checkbox-label__checked' : ' g-checkbox-label__unchecked')+ (item.disabled ? ' g-checkbox-label__disabled' : '')}}" bindtap="bindtap">
+      <view class="g-checkbox-label__label">
+        {{item.label}}
+      </view>
+      <view wx:if="{{item.checked}}" class="{{'triangle-icon' + (item.disabled ? ' triangle-icon__disabled' : '')}}"></view>
+    </view>
+  </view>
+</view>

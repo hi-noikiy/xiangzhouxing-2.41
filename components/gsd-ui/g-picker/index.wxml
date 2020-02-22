@@ -1,0 +1,29 @@
+<!--pages/g-picker/index.wxml-->
+
+<picker mode="{{mode}}" range="{{range}}" range-key="{{_rangeKey}}"
+  start="{{start}}" end="{{end}}" fields="{{fields}}"
+  disabled="{{disabled || _readonly}}" value="{{_valueIndex}}"
+  custom-item="{{customItem}}"
+  bindchange="handleChange"
+  bindcancel="triggerCancel"
+  bindcolumnchange="triggerColumnchange"
+>
+  <view wx:if="{{type === 'formItem'}}">
+    <g-form-item label="{{label}}"
+      required="{{required}}"
+      disabled="{{disabled}}" status="{{_status}}" statusMessage="{{_statusMessage}}">
+      <view class="picker">
+        <view class="picker__value {{_isEmpty ? 'picker__value--placeholder': ''}} {{disabled ? 'picker__value--disabled' : ''}}">{{_displayName}}</view>
+        <view class="picker__action" bind:tap="handleActionTap">{{actionText}}</view>
+      </view>
+         <view wx:if='{{desc && desc.length > 0}}' class='picker-descBox'>{{desc}}</view>
+    </g-form-item>  
+  </view>
+  <view wx:elif="{{type === 'dropdown'}}">
+    <g-dropdown>
+      <view class="dropdown dropdown-class {{_isEmpty ? 'picker__value--placeholder': ''}} {{disabled ? 'picker__value--disabled' : ''}}">
+        {{_displayName}}
+      </view>
+    </g-dropdown>
+  </view>
+</picker>

@@ -1,0 +1,16 @@
+<!--pages/g-picker-view/index.wxml-->
+
+<picker-view
+    class="picker-view"
+    style="{{ showLineNum? 'height: '+showLineNum*80+'rpx':'height: '+80*4+'rpx' }}"
+    indicator-class="picker-select"
+    mask-class="picker-mask"
+    value="{{ [value] }}"
+    bindchange="bindChange"
+>
+  <picker-view-column>
+    <view wx:for="{{dataList}}" wx:for-item="item" class="picker-line" wx:for-index="idx" wx:key="*this">
+      {{item.name? item.name:item}}
+    </view>
+  </picker-view-column>
+</picker-view>

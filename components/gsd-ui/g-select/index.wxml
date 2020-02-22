@@ -1,0 +1,12 @@
+<!--pages/g-select/index.wxml-->
+<view class="select">
+  <view class="select__main">
+    <block wx:for="{{ dataList }}" wx:for-item="item">
+      <view class="select__btn__wrap" style="width: {{ width }}">
+        <view class="select__btn my-class-btn {{ _current===index? 'select__btn--selected':'' }}" catch:tap="handleTap" data-index="{{ index }}">
+          {{ item.name }}
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,48 @@
+.g-nav-box {
+  border: 1px #ebebeb solid;
+  border-radius: 8rpx;
+  padding: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.g-nav-box__title {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.g-nav-box__title__text {
+  flex: 1;
+  font-size: 36rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.g-nav-box__title__icon {
+  width: 54rpx;
+  height: 54rpx;
+  margin-right: 18rpx;
+}
+
+.g-nav-box__title__more {
+  display: inline-block;
+  opacity: 0.9;
+  font-size: 30rpx;
+  color: #666666;
+  line-height: 40rpx;
+  text-align: right;
+  margin-right: 10rpx;
+}
+
+.g-nav-box__title__more__arrow {
+  height: 24px;
+  width: 14rpx;
+}
+
+.g-nav-box__footer {
+  font-size: 26rpx;
+  color: #909399;
+  line-height: 48rpx;
+  margin-top: 30rpx;
+  margin-bottom: -10rpx;
+}

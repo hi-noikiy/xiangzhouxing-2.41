@@ -1,0 +1,1 @@
+<g-cascader value="{{value}}" visible="{{visible}}" range="{{_range}}" bind:columnChange="handleColumnChange" bind:change="handleChange" bind:close="handleClose" />

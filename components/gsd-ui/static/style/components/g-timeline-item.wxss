@@ -1,0 +1,167 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.item {
+  position: relative;
+}
+
+.item__tail {
+  position: absolute;
+  top: 6rpx;
+  left: 15rpx;
+  width: 2rpx;
+  background-color: #EDBFC3;
+  height: 100%;
+}
+
+.item__tail--last {
+  display: none;
+}
+
+.item__head {
+  top: 6rpx;
+  position: absolute;
+  color: #4293f4;
+  background: #fff;
+  border: 10rpx solid #fff;
+  border-radius: 100rpx;
+  margin-left: -10rpx;
+}
+
+.item__head--pending {
+  box-sizing: border-box;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 50%;
+  border: 4rpx solid #EDBFC3;
+  background-color: #fff;
+}
+
+.item__head--normal {
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 50%;
+  border-radius: 100rpx;
+  background: #4293f4;
+  background-color: #4293f4;
+}
+
+.item__head--icon {
+  position: relative;
+  left: -8rpx;
+}
+
+.item__head--warn {
+  color: #ff9900;
+}
+
+.item__content {
+  margin-left: 90rpx;
+  padding-top: 10rpx;
+  padding-bottom: 60rpx;
+}
+
+.item--normal .item__tail {
+  background-color: #4293f4;
+}

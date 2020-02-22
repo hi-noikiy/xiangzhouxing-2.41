@@ -1,0 +1,129 @@
+@charset "UTF-8";
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.popBox {
+  border: 1px #666666 solid;
+  position: absolute;
+  background-color: #666666;
+  text-align: center;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  z-index: 800;
+  transition: opacity .3s;
+  max-width: 240rpx;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+.popBox.show {
+  opacity: 1;
+}
+
+.popBox.hide {
+  opacity: 0;
+}
+
+.contentStyle {
+  font-size: 24rpx;
+  width: 100%;
+  color: #fff;
+}
+
+.popoverItem {
+  display: inline-block;
+}
+
+.popBox::before {
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  content: "";
+  border-style: solid;
+  border-width: 8rpx;
+  border-color: #666666;
+  border-radius: 2rpx;
+  margin-left: -4rpx;
+  margin-top: -8rpx;
+  z-index: 750;
+}
+
+/* 上 */
+.popBox.top::before {
+  bottom: -8rpx;
+  transform: rotate(135deg);
+}
+
+.popBox.topLeft::before {
+  bottom: -8rpx;
+  left: 12rpx;
+  transform: rotate(135deg);
+}
+
+.popBox.topRight::before {
+  bottom: -8rpx;
+  right: 12rpx;
+  transform: rotate(135deg);
+}
+
+.popBox.topRight {
+  right: 0rpx;
+}
+
+/* 下 */
+.popBox.bottom::before {
+  top: 0rpx;
+  transform: rotate(-45deg);
+}
+
+.popBox.bottomLeft::before {
+  top: 0rpx;
+  left: 12rpx;
+  transform: rotate(-45deg);
+}
+
+.popBox.bottomRight::before {
+  top: 0rpx;
+  right: 12rpx;
+  transform: rotate(-45deg);
+}
+
+/* 左 */
+.popBox.left::before {
+  right: -8rpx;
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+.popBox.leftTop::before {
+  right: -8rpx;
+  top: 14rpx;
+  transform: rotate(45deg);
+}
+
+.popBox.leftBottom::before {
+  right: -8rpx;
+  bottom: 12rpx;
+  transform: rotate(45deg);
+}
+
+/* 右 */
+.popBox.right::before {
+  left: -4rpx;
+  top: 50%;
+  transform: rotate(-135deg);
+}
+
+.popBox.rightTop::before {
+  left: -4rpx;
+  top: 16rpx;
+  transform: rotate(-135deg);
+}
+
+.popBox.rightBottom::before {
+  left: -4rpx;
+  bottom: 8rpx;
+  transform: rotate(-135deg);
+}

@@ -1,0 +1,53 @@
+<!--pages/g-index-list/index.wxml-->
+<view class="list component-class">
+  <!-- 可定制内容 -->
+  <view class="list__header"><slot name="header"/></view>
+  <view class="list__container" wx:if="{{list && list.length > 0}}" style="height: {{_scrollViewHeight}}px">
+    <!-- 正常滚动索引状态 -->
+    <scroll-view class="list__scrollview" scroll-y scroll-top="{{_scrollTop}}">
+      <view class="list__slot__content"><slot name="content"/></view>
+      <view class="list__item" wx:for="{{_list}}" wx:key="{{item.key}}">
+        <view class="list__title">{{item.key}}</view>
+        <view class="list__wrapper">
+          <view
+            class="list__block"
+            wx:for="{{item.list}}"
+            wx:key="{{subIndex}}"
+            wx:for-item="subItem"
+            wx:for-index="subIndex"
+            hover-class="view--hover"
+            hover-stay-time="250"
+            catch:tap="handleChoose"
+            data-item="{{subItem}}"
+          >
+            <view class="list__block__content">{{ subItem.name }}</view>
+            <view class="list__block__desc" wx:if="{{subItem.desc}}">{{subItem.desc}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 索引列表 -->
+    <view class="index__list">
+      <view
+        class="index__list__key"
+        wx:for="{{_keys}}"
+        wx:key="{{index}}"
+        catch:tap="handleTouch"
+        catch:touchstart="handleTouch"
+        catch:touchmove="handleTouch"
+        catch:touchend="handleTouchEnd"
+      >
+        {{item || ''}}
+      </view>
+    </view>
+
+    <view class="key__mask" wx:if="{{_currentKey && _isTouch}}">
+      {{_currentKey}}
+    </view>
+  </view>
+  <!-- 空列表 -->
+  <view wx:else class="list__container--empty" style="height: {{_scrollViewHeight}}px">
+    <view>暂无结果</view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+@import '../static/style/components/g-input';
+
+.picker_action {
+font-size: 36rpx;
+line-height: 48rpx;
+color: #4293f4;
+text-align: right;
+align-self: flex-start;
+margin-left: 20rpx;
+
+}

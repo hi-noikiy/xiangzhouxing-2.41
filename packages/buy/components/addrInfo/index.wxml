@@ -1,0 +1,26 @@
+<!-- pages/buy/components/addrInfo/index.wxml -->
+<view class="address-form-content">
+  <view class="opt-area">
+    <view class="main-title">
+      <text class="required">*</text>
+      邮寄信息
+    </view>
+    <view class="{{addrOptType}}" bindtap="chooseAddress" wx:if="{{!chooseAddrFail}}">
+      <image class="icon" src="{{addrOptIcon}}"></image>
+      <text>{{addrOptText}}</text>
+    </view>
+  </view>
+  <view class="desc">点击“{{addrOptText}}”快速填写，仅支持邮寄珠海市内</view>
+  <g-preview wx:if="{{!chooseAddrFail&&formData.address}}" text-align="right" label-width="206">
+    <g-preview-item label="联系人">{{addrInfo.userName}}</g-preview-item>
+    <g-preview-item label="手机号码">{{addrInfo.telNumber}}</g-preview-item>
+    <g-preview-item label="地区">{{addrInfo.provinceName}},{{addrInfo.cityName}},{{addrInfo.countyName}}</g-preview-item>
+    <g-preview-item label="详细地址">{{addrInfo.detailInfo}}</g-preview-item>
+  </g-preview>
+</view>
+<block wx:if="{{chooseAddrFail}}">
+  <g-input required id="userName" bind:change="handleFormChange" label='收货人姓名' placeholder="请填写收货人姓名" value="{{formData.userName}}" />
+  <g-input type="mobile" required bind:change="handleFormChange" id="telNumber" label='手机号码' placeholder="请填写收货人手机号码" value="{{formData.telNumber}}" />
+  <g-picker required id="street" label="邮寄地区" mode="multiSelector" data-range="multiCountyRange" value="{{formData.street}}" range="{{multiCountyRange}}" bind:change="handleFormChange" placeholder="请选择邮寄地区" />
+  <g-input required id="addr" bind:change="handleFormChange" label='详细地址' placeholder="请填写详细地址（楼栋门牌号）" value="{{formData.addr}}" />
+</block>

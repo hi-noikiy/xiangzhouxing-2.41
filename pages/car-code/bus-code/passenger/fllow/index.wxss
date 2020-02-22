@@ -1,0 +1,35 @@
+/* pages/car-code/bus-code/passenger/fllow/index.wxss */
+.container{
+  background-color: gainsboro;
+ }
+ 
+ .header{
+   background-color: rgb(132, 209, 17);
+   display: flex;
+   justify-content: center;
+   height:100rpx;
+   border-radius: 10rpx;
+ }
+ 
+ .content{ 
+   margin-top: 15rpx;
+   background-color: white;
+   border-radius: 10rpx;
+   padding: 20rpx 10rpx 40rpx 10rpx;
+ }
+ 
+ .title{
+   margin-left: 20rpx;
+ }
+ 
+ .passenger-card{
+   border:1rpx solid gray;
+   margin-top: 20rpx;
+   margin-left:10rpx;
+   padding: 20rpx 10rpx;
+ }
+ 
+ .sub-btn{
+   margin-top: 30rpx;
+ }
+ 

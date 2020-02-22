@@ -1,0 +1,122 @@
+/* packages/health-code/pages/add-person/index.wxss */
+
+.copyright {
+  /* position: fixed;
+  bottom: 32rpx;
+  left:0px;   */
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+}
+.copyright2 {
+    position: fixed;
+  bottom: 32rpx;
+  left:0px;   
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.alignCenter {
+  align-items: center;
+  margin: 0;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.tips {
+  font-family: PingFangSC-Semibold;
+  font-size: 48rpx;
+  margin-top: 32rpx;
+  color: #000;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.tips2 {
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #666;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 60rpx;
+  margin-top: 16rpx;
+}
+
+.title {
+  color: #000;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.titleTips {
+  color: #999;
+  margin-top: 16rpx;
+  font-size: 30rpx;
+
+}
+
+.colorBlue {
+  color: #549df5;
+}
+
+.item {
+  position: relative;
+  border-bottom: 2rpx solid #eee;
+  height: 120rpx;
+  line-height: 120rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  color: #000;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+}
+
+.txt {
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding: 0 24rpx;
+  transition: left 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+  font-size: 30rpx;
+}
+
+.inner.del {
+  width: 160rpx;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  background-color: #e64340;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.address{
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+
+}

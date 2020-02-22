@@ -1,0 +1,70 @@
+<view class="page" style=" padding: 32rpx;">
+  <!-- 提交上报-健康码 begin-->
+  <view class="report-code" wx:if='{{showTips}}'>
+    <view class="column alignCenter">
+
+      <view style="height:80rpx"></view>
+      <image src="/images/addperson/icon-cjrysq.png" mode='widthFix' style="width:324rpx;height:324rpx"></image>
+      <text class="tips">暂未授权采集人员</text>
+      <text class="tips2">可通过下方扫一扫快速授权采集员</text>
+
+    </view>
+    <view style="height:40rpx"></view>
+    <button type="primary" bind:tap='goScan'>扫一扫快速添加</button>
+
+
+  </view>
+  <!-- 提交上报-健康码 end-->
+
+  <view class="row" wx:if='{{!showTips}}'>
+    <view class="column flex1">
+      <view class="title">我的采集点</view>
+      <view class="titleTips row">共
+        <view class="colorBlue">{{list.length}}</view>
+        个</view>
+    </view>
+    <view class="colorBlue" bind:tap='onAdd'>添加</view>
+  </view>
+
+  <view class="page" style="height:24rpx; "></view>
+  <view class="item" wx:for="{{list}}" wx:key="index" hover-class="hoverWhite" hover-stay-time="150">
+    <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="sp inner txt">
+      <view> {{item.name}}</view>
+      <view class="currentText">{{currentId==item.id?'当前':''}}</view>
+    </view>
+    <view data-index="{{index}}" bindtap="delItem" class="{{item.isEnableDeleted ==0 ? ' inner del gray' : ' inner del  red'}}">删除</view>
+
+  </view>
+
+
+
+
+  <view class="page" style="height:100rpx; "></view>
+
+</view>
+
+
+<view   class="popup_layout  "  wx:if="{{showPopup}}" >
+<view class="flex1" bindtap="close"></view>
+
+  <view class="popup_content ">
+    <view class="popupTitle ">
+      添加采集点
+    </view>
+
+    <view class="popupTips">采集点名称</view>
+    <view class="popup_content_form_input">
+      <input class="flex1"  bindinput="bindinput" placeholder="请填写采集点名称" placeholder-style="color:CCC" value="{{name}}" />
+      
+      <view class="popup_content_form_get" bindtap="getInfo">获取位置</view>
+    </view>
+ 
+    <button type="primary" class="popup_content_form_submit" bindtap="btnOk">确定</button>
+   
+  </view>
+</view>
+
+<view class='copyright2'>
+  <view>珠海市香洲区</view>
+  <view>腾讯公司/腾讯云提供技术支持</view>
+</view>

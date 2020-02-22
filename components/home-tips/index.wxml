@@ -1,0 +1,21 @@
+<!--components/tips/index.wxml-->
+<view class="tips {{loop ? 'tips--loop': ''}} tips--{{status}}" hover-class="{{(access || to) ? 'view--hover' : ''}}">
+  <view class="tips__container">
+    <g-icon class="tips__icon" 
+      type="{{status}}" size="36" color="#FF6969" 
+    />
+
+    <view class="tips__container__content">
+      <view class="tips__container__content--text"
+      style="{{loopDuration ? 'animation-duration:' + loopDuration + 's' : ''}}"
+      >
+        <slot />
+      </view>
+    </view>
+
+    <view wx:if="{{to || access}}"  class="access">
+      查看
+    </view>
+    
+  </view>
+</view>

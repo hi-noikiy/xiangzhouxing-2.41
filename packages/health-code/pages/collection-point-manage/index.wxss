@@ -1,0 +1,323 @@
+/* packages/health-code/pages/add-person/index.wxss */
+
+.copyright {
+  /* position: fixed;
+  bottom: 32rpx;
+  left:0px;   */
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+}
+
+.copyright2 {
+  position: fixed;
+  bottom: 32rpx;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.alignCenter {
+  align-items: center;
+  margin: 0;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.tips {
+  font-family: PingFangSC-Semibold;
+  font-size: 48rpx;
+  margin-top: 32rpx;
+  color: #000;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.tips2 {
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #666;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 60rpx;
+  margin-top: 16rpx;
+}
+
+.title {
+  color: #000;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.titleTips {
+  color: #999;
+  margin-top: 16rpx;
+  font-size: 30rpx;
+}
+
+.colorBlue {
+  color: #549df5;
+}
+
+.item {
+  position: relative;
+  border-bottom: 2rpx solid #eee;
+  height: 120rpx;
+  line-height: 120rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  color: #000;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+}
+
+.txt {
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding: 0 24rpx;
+  transition: left 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+  font-size: 30rpx;
+}
+
+.inner.del {
+  width: 160rpx;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.red {
+  background-color: #e64340;
+}
+
+.gray {
+  background-color: #cdcdcd;
+}
+
+.address {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+
+.page {
+  background: #fff;
+}
+
+.scroll {
+  margin-bottom: 80rpx;
+  height: 75%;
+}
+
+.position {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex_column {
+  flex-direction: column;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
+}
+
+.flex_nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex_center {
+  align-items: center;
+}
+
+.flex_start {
+  align-items: flex-start;
+}
+
+.flex_end {
+  align-items: flex-end;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.justify_end {
+  justify-content: flex-end;
+}
+
+.justify_sa {
+  justify-content: space-around;
+}
+
+.justify_sb {
+  justify-content: space-between;
+}
+
+.flex_rowreverse {
+  flex-direction: row-reverse;
+}
+
+.align_self_end {
+  align-self: flex-end;
+}
+
+.align_self_center {
+  align-self: center;
+}
+
+.fontSize_24 {
+  font-size: 24rpx;
+}
+
+.fontSize_32 {
+  font-size: 32rpx;
+}
+
+.fontSize_38 {
+  font-size: 38rpx;
+}
+
+.mb_12 {
+  margin-bottom: 12rpx;
+}
+
+.wrap {
+  padding: 12rpx;
+  width: calc(100vw - 24rpx);
+  height: calc(100vh - 24rpx);
+  background: #eaeaea;
+}
+
+.content {
+  width: calc(100vw - 24rpx);
+  height: calc(100vh - 24rpx);
+  background-color: #fff;
+}
+
+.current {
+  padding: 0 10rpx;
+  height: 78rpx;
+}
+
+.currentText {
+  color: #999;
+  padding-right: 24rpx;
+}
+
+.location_list {
+  width: calc(100vw - 24rpx);
+  height: calc(100vh - 102rpx);
+}
+
+.location_list_item {
+  padding: 0 0 0 24rpx;
+  height: 72rpx;
+  overflow: hidden;
+}
+
+.popup_layout {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 99;
+}
+
+.popup_content {
+   
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  
+}
+
+.popupTitle {
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  height: 160rpx;
+  padding-top: 48rpx;
+  color: #000;
+}
+
+.popupTips {
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #000;
+  letter-spacing: 0;
+}
+
+.popup_content_form_input {
+  display: flex;
+  flex-direction: row;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #000;
+  letter-spacing: 0;
+  padding-top: 16rpx;
+  padding-bottom: 32rpx;
+  box-shadow: inset 0 -1px 0 0 #EBEBEB;
+}
+
+.popup_content_form_get {
+  opacity: 0.9;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #4293f4;
+  letter-spacing: 0;
+  text-align: right;
+}
+.popup_content_form_submit_box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+.popup_content_form_submit {
+  width: 100%;
+   margin: 56rpx 0rpx;
+  
+}
+
+.sp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,4 @@
+<!--pages/g-timeline/index.wxml-->
+<view class="timeline">
+  <slot/>
+</view>

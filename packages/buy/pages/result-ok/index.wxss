@@ -1,0 +1,25 @@
+/* pages/donate/msg/index.wxss */
+.link {
+  position: absolute;
+  bottom: 118rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #344356;
+  letter-spacing: 0;
+  line-height: 60rpx;
+}
+
+.desc {
+  margin: 40rpx;
+  font-size: 36rpx;
+  color: #666666;
+  line-height: 60rpx;
+}
+
+.desc em {
+  font-weight: bold;
+  color: #160026;
+}

@@ -1,0 +1,7 @@
+<!-- components/dgdui/dgd-footer/dgd-footer.js.wxml -->
+<view class="g-footer component-class {{fixed ? 'g-footer--fixed' : ''}}">
+  <view class="g-footer__content">
+    <!-- <view class="g-footer__content__text">{{sponsor}}</view> -->
+    <view class="g-footer__content__text">{{supportor}}</view>
+  </view>
+</view>

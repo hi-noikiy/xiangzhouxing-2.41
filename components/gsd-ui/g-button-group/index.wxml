@@ -1,0 +1,29 @@
+<!-- pages/g-button-group/index.wxml -->
+<block wx:if="{{buttonList.length === 0}}">
+  <view class="button-group {{fixed ? 'button-group--fixed' : ''}}">
+    <view class="button-group__agree" wx:if="{{agree}}">
+      <g-agree catch:change="handleAgreeChange" value="{{_agreeChecked}}">
+        <slot name="agree" />
+      </g-agree>
+    </view>
+    <slot name="other" />
+    <view class="button-area button-area--{{direction}}">
+      <button wx:if="{{secondText}}" disabled="{{secondDisabled}}" catch:tap="handleSecondTap">{{secondText}}</button>
+      <button wx:if="{{primaryText}}" disabled="{{agree && !_agreeChecked || disabled}}" catch:tap="handlePrimaryTap" type="primary">
+        <view aria-label="{{label}}">{{primaryText}}</view>
+      </button>
+    </view>
+  </view>
+</block>
+<block wx:if="{{buttonList.length > 0}}">
+  <view class="button-list">
+    <view class="button-list__item"
+      id="{{index}}" hover-class="button-list__item--hover"
+      wx:for="{{buttonList}}" wx:key="{{index}}"
+      catch:tap="handelButtonListTap"
+      data-item="{{item}}"
+    >
+      <view class="button-list__text">{{item.text}}</view>
+    </view>
+  </view>
+</block>

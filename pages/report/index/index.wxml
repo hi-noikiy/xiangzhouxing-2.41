@@ -1,0 +1,100 @@
+<!-- pages/report/index.wxml -->
+<view>
+				<g-form model="{{selfForm}}" disabled="{{!agree}}" rules="{{selfFormRules}}" bind:submit="handleSelfSubmit" primary-text="提交" validateType="{{validateType}}">
+								<g-wrapper title='基本信息'>
+												<g-input id="username"  class="xrequired" label='姓名' placeholder="请输入您的姓名" bind:change="handleFormChange" value="{{selfForm.username}}" data-form='selfForm' />
+												<view class="wrapPhone">
+																<!-- <label class="phoneLabel">联系电话</label> -->
+																<!-- <button class="btn2"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+             获取绑定手机号</button> -->
+																<button class="btn2" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+																				获取绑定手机号
+																</button>
+																<g-input class="xrequired" label='手机号码' id="phone" placeholder="请输入您的手机号码" bind:change="handleFormChange" type="number" value="{{selfForm.phone}}" data-form='selfForm' />
+												</view>
+												<g-picker id="identityType" class="xrequired" label="证件类型" placeholder="请选择证件类型" bind:change="handleFormChange" value="{{selfForm.identityType}}" data-form="selfForm" range="{{cardTypeRange}}"></g-picker>
+												<g-input id="identity" class="xrequired" type="{{identityInputType}}" label='证件号码' placeholder="请输入您的证件号码" bind:blur="handleIdentityChange" value="{{selfForm.identity}}" data-form='selfForm' />
+												<g-picker id="gender" class="xrequired" label="性别" placeholder="请选择性别" bind:change="handleFormChange" value="{{selfForm.gender}}" data-form="selfForm" range="{{sexRange}}"></g-picker>
+												<g-picker id="birthday" class="xrequired" label="出生日期" placeholder="请选择出生日期" bind:change="handleFormChange" value="{{selfForm.birthday}}" data-form="selfForm" mode="date" start="{{startDay}}" end="{{today}}"></g-picker>
+												<!-- <g-switch label="是否中国国籍" id="isChinese" value="{{selfForm.isChinese}}" bind:change="handleNationChange" /> -->
+												<g-picker id="isChinese" class="xrequired" label="国籍/地区" placeholder="请选择国籍/地区" bind:change="handleFormChange" value="{{selfForm.isChinese}}" data-form="selfForm" range="{{nationRange}}"></g-picker>
+												<g-picker wx:if="{{selfForm.isChinese == 1}}" id="domicilePlace" label="户籍所在地" placeholder="请选择户籍所在地" bind:change="handleFormChange" value="{{selfForm.domicilePlace}}" data-form="selfForm" range="{{domicilePlaceRange}}"></g-picker>
+												<g-picker wx:if="{{selfForm.isChinese == 1 || selfForm.isChinese == 2}}" id="nativePlace" label="籍贯" placeholder="请选择籍贯" bind:change="handleFormChange" value="{{selfForm.nativePlace}}" data-form="selfForm" range="{{nativePlaceRange}}"></g-picker>
+												<!-- <g-form-cell wx:if="{{selfForm.isChinese}}" bind:tap="handleNativePlaceOpen" id="nativePlace" label='籍贯' placeholder="请选择籍贯" value="{{selfForm.nativePlace}}" action-text="选择" data-form='selfForm' /> -->
+												<!-- <button class="btn2"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="primary">获取微信绑定的手机号</button>
+					<g-input id="phone" label='联系电话' placeholder="请输入中国大陆手机号码" bind:change="handleFormChange"  type="number" value="{{selfForm.phone}}" data-form='selfForm' /> -->
+												<!-- <button  class="btn2" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        获取微信绑定的手机号</button> -->
+												<!-- <button class='btn2' bind:tap="getPhoneNumber">确认</button> -->
+												<g-form-cell class="xrequired"  bind:tap="handleOpenRegion"  id="street" label='居住地址' placeholder="请选择居住地址" value="{{selfForm.street}}" action-text="选择" data-form='selfForm' />
+												<g-input-map id="addr"  class="xrequired" label='详细住址' placeholder="请填写详细住址（楼栋门牌号）" value="{{selfForm.addr}}" bind:change="handleFormChange" bind:bindSelect="bindSelectData" data-form='selfForm' />
+								</g-wrapper>
+								<g-wrapper title-class="title_container" xrequired='*' title='是否常住珠海'>
+												<g-radio-group id="residentFlag" value="{{selfForm.residentFlag}}" bind:change="handleFormChange" data-form="selfForm" items="{{residentFlagItems}}" />
+								</g-wrapper>
+								<g-wrapper  xrequired='*'  title='近期是否在珠海'>
+												<g-radio-group id="residentCondition" value="{{selfForm.residentCondition}}" bind:change="handleFormChange" data-form="selfForm" items="{{residentConditionItems}}" />
+												<g-picker wx:if="{{selfForm.residentCondition == 3}}" id="returnDate" label="来或返回珠海日期" placeholder="请选择返回日期（最近14日内）" bind:change="handleFormChange" value="{{selfForm.returnDate}}" data-form="selfForm" mode="date" start="{{halfMonthAgo}}" end="{{today}}"></g-picker>
+												<g-picker wx:if="{{selfForm.residentCondition == 4}}" value="{{selfForm.recentRegionName}}" id="recentRegionName" label="目前所在地" placeholder="请选择目前所在地点" bind:change="handleFormChange" data-form="selfForm" range="{{residentPlaceItems}}" />
+												<g-picker wx:if="{{selfForm.residentCondition == 4}}" id="quasiReturnDate" label="拟返回珠海日期" placeholder="请选择日期" bind:change="handleFormChange" value="{{selfForm.quasiReturnDate}}" data-form="selfForm" mode="date" start="{{today}}"></g-picker>
+								</g-wrapper>
+								<g-wrapper  xrequired='*'  title="近一个月旅居史" wx:if="{{selfForm.residentCondition != 1}}">
+												<g-checkbox-group id="travelRegionClass" value="{{selfForm.travelRegionClass}}" bind:change="handleFormChange" data-form="selfForm" items="{{travelRegionClassItems}}" />
+								</g-wrapper>
+								<g-wrapper title='近期接触史（选填）'>
+												<g-switch label="14日内密切接触近期有湖北旅居史者" desc="近期有湖北旅居史者指：14日内来自湖北和去过湖北的人员" id="socialContact1" value="{{selfForm.socialContact1}}" bind:change="handleSocialContact1Change" />
+												<g-picker wx:if="{{selfForm.socialContact1}}" id="contactDateRecent" label="接触日期" placeholder="请选择日期（最近14日内）" bind:change="handleFormChange" value="{{selfForm.contactDateRecent}}" data-form="selfForm" mode="date" start="{{halfMonthAgo}}" end="{{today}}"></g-picker>
+												<g-switch label="自我感觉14日内曾与患者接触过者" desc="近期与确诊患者有接触，如乘搭同一公共交通工具等情况" id="socialContact2" value="{{selfForm.socialContact2}}" bind:change="handleSocialContact2Change" />
+												<g-picker wx:if="{{selfForm.socialContact2}}" id="contactDateLike" label="接触日期" placeholder="请选择日期（最近14日内）" bind:change="handleFormChange" value="{{selfForm.contactDateLike}}" data-form="selfForm" mode="date" start="{{halfMonthAgo}}" end="{{today}}"></g-picker>
+												<!-- <g-checkbox-group id="socialContact" label="" value="{{selfForm.socialContact}}" bind:change="handleFormChange" data-form="selfForm" items="{{socialContactItems}}" /> -->
+												<!-- <checkbox-group bindchange="handleCustomCheckboxChange" value="{{selfForm.socialContact}}" data-form="selfForm">
+					<view class="check__container" wx:for="{{socialContactItems}}" wx:key="index">
+						<label class="check__container__label">
+							<g-form-item disabled="{{item.disabled}}" component-class="form-item">
+								<view class="checkbox__item">
+								<checkbox class="checkbox" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />
+								<view class="checkbox__label">
+									<view class="checkbox__label__text">{{item.name}}</view>
+									<view class="checkbox__label__desc" >{{item.desc}}</view>
+								</view>
+								</view>
+							</g-form-item>
+							
+						</label>
+					</view>
+					</checkbox-group> -->
+								</g-wrapper>
+								<g-wrapper xrequired='*' title='个人健康状态'>
+												<g-radio-group id="healthState" label="" value="{{selfForm.healthState}}" bind:change="handleFormChange" data-form="selfForm" items="{{healthStateItems}}" />
+								</g-wrapper>
+								<!-- <g-wrapper title='人员类型（必选）'>
+					<g-radio-group id="personType" value="{{selfForm.personType}}" bind:change="handleFormChange" data-form="selfForm" items="{{personTypeItems}}" />
+				</g-wrapper> -->
+								<!-- <g-wrapper title="是否有湖北旅居史">
+					<g-switch id="recentInHubei" label="2020年1月1日后是否居住或途径湖北"  value="{{selfForm.recentInHubei}}" bind:change="handleFormChange" data-form="selfForm" />
+					<g-form-cell wx:if="{{selfForm.recentInHubei}}" value="{{selfForm.hubeiLivingCity}}" id="hubeiLivingCity" bind:tap='handleHBPickerOpen' label="湖北居住或途径城市" placeholder="请选择湖北居住或途径城市" action-text="选择" />
+				</g-wrapper> -->
+								<g-wrapper xrequired='*' title='是否有如下症状（必选）'>
+												<g-checkbox-group id="symptoms" label="是否有如下症状" value="{{selfForm.symptoms}}" bind:change="handleFormChange" data-form="selfForm" items="{{symptomItems}}" />
+												<!-- <g-textarea id="symptomDscr" label='其它症状' placeholder="请详细描述您的症状情况" value="{{selfForm.symptomDscr}}" bind:change="handleFormChange" data-form='selfForm' disabled="{{selfForm.symptoms.length === 0 || selfForm.symptoms.indexOf('15') === -1}}" /> -->
+												<g-textarea id="symptomDscr" label='其他症状' placeholder="请简要描述症状情况(不超过10个汉字)" value="{{selfForm.symptomDscr}}" bind:change="handleFormChange" data-form='selfForm' disabled="{{disableDetail}}" />
+								</g-wrapper>
+								<view class="agree">
+												<g-agree bind:change="handleAgreeChange" value="{{agree}}">
+																<view>我已阅知本申报所列事项，并保证以上申报内容正确属实</view>
+												</g-agree>
+								</view>
+				</g-form>
+</view>
+<!-- <g-region-picker type='city' visible="{{showHBCityPicker}}" includes="{{[['湖北省']]}}" bind:change="handleHBPickerChange" bind:close="handleHBPickerClose" /> -->
+<g-cascader visible="{{showRegionPicker}}" range="{{regionRange}}" bind:change="handleRegionChange" bind:columnChange="handleRegionColumnChange" bind:close="handleRegionClose" />
+<!-- <g-region-picker
+  visible="{{showNativePlacePicker}}"
+  type="province"
+  includes="{{provinceIncludes}}"
+  excludes="{{[]}}"
+  bind:change="handleNativePlaceChange"
+  bind:close="handleNativePlaceClose"
+/> -->
+<!-- <my-hover pdfUrl="{{pdfUrl}}" imgSrc="{{imgSrc}}"></my-hover> -->
+

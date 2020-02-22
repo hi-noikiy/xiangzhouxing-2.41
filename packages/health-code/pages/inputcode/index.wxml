@@ -1,0 +1,22 @@
+<!--pages/test/index.wxml-->
+
+<view class="title">手动输入验证码</view>
+<view style="height:32rpx" />
+<view class="column justifyCenter alignCenter">
+  <view>
+    <view class="tl">图例：</view>
+    <image class="image" src="/images/inputcode/iuputcode.png"></image>
+  </view>
+</view>
+<view style="height:48rpx" />
+<view class="row">
+  <view class="sryzm ">请输入验证码</view>
+  <view class="qk" bindtap="clear">清空</view>
+</view>
+<view style="height:24rpx" />
+<view class="borderBottom">
+  <input confirm-type="done" bindinput="bindinput" bindconfirm="submuit" focus="{{focus}}" class="input" type="number" maxlength="8" value="{{code}}"></input>
+</view>
+<button class="btn" bindtap="submuit" type="primary">提交登记</button>
+
+<!-- <view class="th row justifyCenter" bindtap="scanCode">切换扫码验证</view> -->

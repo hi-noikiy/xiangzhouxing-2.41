@@ -1,0 +1,9 @@
+diff a/pages/stat/index.js b/pages/stat/index.js	(rejected hunks)
+@@ -180,7 +180,6 @@
+         method: 'POST',
+         data: { "orCode": "10001" }
+       }).then(data => {
+-        console.log('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
+         console.log(data)
+         }).catch(data => {
+          

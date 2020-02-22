@@ -1,0 +1,4 @@
+<!--pages/g-preview/index.wxml-->
+<view class="preview--{{type}}">
+  <slot />
+</view>

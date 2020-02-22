@@ -1,0 +1,7 @@
+<!--pages/mine/donation/index.wxml-->
+<view class="list">
+  <view class="empty-wrapper">
+    <image src="{{emptyIcon}}" class="empty-icon" />
+    <view>暂无内容</view>
+  </view>
+</view>

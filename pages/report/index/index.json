@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "g-input-map": "/components/gsd-ui/g-input-map/index"
+  },
+  "navigationBarTitleText": "健康自查上报"
+}

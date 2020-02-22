@@ -1,0 +1,12 @@
+<g-form model="{{formData}}" rules="{{rules}}" validateType="{{validateType}}" primary-text="提交" bind:submit="handleSubmit">
+  <view slot="content">
+    <g-wrapper title="交通卡口登记信息">
+      <g-form-cell id="carNumber" label='车牌号' placeholder="请输入车牌号" value="{{formData.carNumber}}" bind:tap="handleOpenVehicleKeyboard" />
+      <g-input id="carBatchNo" label="班次行程号" type="number" maxlength="10" placeholder="请输入班次行程号" value="{{formData.carBatchNo}}" bind:change="handleFormChange"></g-input>
+      <g-form-cell id="leaveProvinceName" data-id="leaveProvinceName"  value="{{formData.leaveProvinceName}}{{formData.leaveCityName}}" label="出发城市" action-text="选择" bind:tap="handleCity" />
+      <g-form-cell id="arriveProvinceName" data-id="arriveProvinceName"  value="{{formData.arriveProvinceName}}{{formData.arriveCityName}}" label="到达城市" action-text="选择" bind:tap="handleCity" />
+      <g-region-picker visible="{{visible}}" type="{{regionType}}" includes="{{includes}}" x excludes="{{excludes}}" bind:change="handleChange" bind:close="handleClose" />
+    </g-wrapper>
+    <g-plate-number-keyboard visible="{{showVehicleKeyboard}}" bind:change="handlePlateChange" value="{{formData.clueVehicle}}" />
+  </view>
+</g-form>

@@ -1,0 +1,22 @@
+<view>
+	<view class='calendar'>
+		<g-calendar start="{{start}}" mode="single" bind:change="handleChange" value="{{value}}"></g-calendar>
+	</view>
+
+	<view>
+		<view class="tx-title">今日记录3次</view>
+		<g-wrapper>
+			<g-cell>
+				<view class="log-time">
+					<text>2020-02-02 10:10:10</text>
+					<text class="log-tv">体温：正常</text>
+				</view>
+				<view class="log-gps">
+					<g-icon type="circle" color="#333 " size="34" />
+					<text class="gps-addr"> 富力千禧花园（外出）</text>
+				</view>
+			</g-cell>
+		</g-wrapper>
+	</view>
+
+</view>

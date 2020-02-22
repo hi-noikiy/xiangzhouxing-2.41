@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-table-header": "./table-header/index",
+    "g-table-body": "./table-body/index",
+    "g-table-scroll": "./table-scroll/index"
+  }
+}

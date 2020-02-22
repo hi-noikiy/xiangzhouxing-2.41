@@ -1,0 +1,192 @@
+/* packages/health-code/pages/verification/index.wxss */
+page {
+  background: #f0f0f0;
+  padding-bottom: 0;
+}
+
+.fff {
+  background-color: #fff;
+}
+
+.user-avatar {
+  height: 100rpx;
+  width: 100rpx;
+  z-index: 999;
+  overflow: hidden;
+}
+.background{
+background-color: #EEE;
+}
+ 
+.circular {
+  border-radius: 50%;
+}
+
+.horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200rpx;
+  padding: 0 42rpx;
+}
+
+.horizontal-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.padding-40 {
+  padding: 0 40rpx;
+}
+
+.nickname {
+  line-height: 34rpx;
+  margin-left: 15rpx;
+  color: #111;
+}
+
+.second-title {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+.status {
+  height: 230rpx;
+  text-align: center;
+  margin-bottom: 15rpx;
+}
+
+.tabs {
+  padding-bottom: 15rpx;
+}
+
+
+.select-btn-temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80rpx;
+  color: #000;
+
+  
+}
+
+.select-btn-temperature>text {
+  font-size: 40rpx;
+  margin-left: 10rpx;
+}
+
+.select-btn-temperature>input {
+  height: 80rpx;
+}
+
+.temperature {
+  width: 80rpx;
+  margin-left: 10rpx;
+  border: 2px solid #E0E0E0;
+  text-align: center;
+  background: #FAFAFA;
+}
+
+.trip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.check {
+  width: 212rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 7.5rpx;
+  border: 2px solid #EBEBEB;
+}
+
+.active {
+  border: 2px solid #4293F4;
+}
+
+.active::after {}
+
+.address {
+  font-size: 30rpx;
+}
+
+.tip-msg {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #111111;
+  letter-spacing: 0;
+}
+
+.list-item {
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #999999;
+  letter-spacing: 0;
+  line-height: 44rpx;
+  margin: 20px 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.list-item>view {
+  margin: 20rpx 0;
+}
+
+.status-1 {
+  color: #09bb07;
+}
+
+.status-2 {
+  color: #ffa53c;
+}
+
+.status-3 {
+  color: #ff6d3b;
+}
+
+.status-4 {
+  color: #f0422c;
+}
+.remark{
+  padding: 0 32rpx;
+  color: #000;
+}
+
+.address{
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+
+.content-title {
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 40rpx;
+}
+
+.content-title__main {
+  font-weight: bold;
+  font-size: 48rpx;
+  color: #000000;
+  line-height: 66rpx;
+  margin-bottom: 6rpx;
+}
+.content-title__desc {
+  font-size: 32rpx;
+  color: #999999;
+  line-height: 44rpx;
+}

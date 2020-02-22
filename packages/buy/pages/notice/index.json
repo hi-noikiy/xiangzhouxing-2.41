@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "口罩预约购买",
+  "usingComponents": {
+    "notice-bar": "../../components/notice-bar/index"
+  }
+}

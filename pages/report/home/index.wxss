@@ -1,0 +1,9 @@
+/* pages/report/index.wxss */
+.top-image {
+  width:100%;
+}
+.img image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}

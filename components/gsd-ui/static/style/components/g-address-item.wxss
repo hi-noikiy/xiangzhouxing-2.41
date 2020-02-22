@@ -1,0 +1,152 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.container {
+  box-sizing: border-box;
+  padding-top: 40rpx;
+  padding-bottom: 100rpx;
+  height: 322rpx;
+  position: relative;
+}
+
+.title {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  line-height: 40rpx;
+  padding-right: 144rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.distance {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #909399;
+}
+
+.address {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #909399;
+  padding-right: 32rpx;
+}
+
+.tag {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #4293f4;
+}
+
+.desc {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #909399;
+  position: absolute;
+  bottom: 40rpx;
+}
+
+.desc--success {
+  color: #4293f4;
+}

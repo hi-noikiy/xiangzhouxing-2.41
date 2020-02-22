@@ -1,0 +1,16 @@
+<!-- pages/g-modal/index.wxml -->
+<view class="modal" wx:if="{{_visible}}">
+  <view class="modal__title">{{title}}</view>
+  <view class="modal__content">
+    <slot />
+  </view>
+  <view class="modal__footer">
+    <view catch:tap="handleCancel" wx:if="{{showCancel}}" class="modal__cancel__button" style="color: {{cancelColor}}">
+      {{cancelText}}
+    </view>
+    <view catch:tap="handleConfirm" class="modal__confirm__button {{confirmInfo? 'confirm-button-info' : ''}}" style="color: {{confirmColor}}">
+      {{confirmText}}
+    </view>
+  </view>
+</view>
+<view wx:if="{{_visible}}" class="modal__mask"></view>

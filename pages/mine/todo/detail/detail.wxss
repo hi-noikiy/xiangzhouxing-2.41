@@ -1,0 +1,153 @@
+.status__cell{
+    margin-top: -16rpx;
+}
+.btn-wrap{
+    margin: auto 40rpx;
+}
+.cell_header {
+    display: flex;
+    font-size: 36rpx;
+    line-height: 48rpx;
+}
+.cell_header_tips {
+    padding-top: 6rpx;
+    color: #999999;
+    font-size: 30rpx;
+    line-height: 40rpx;
+    margin-left: 50rpx;
+}
+.cell_icon{
+    width: 40rpx;
+    margin-top: 5rpx;
+    margin-right: 10rpx;
+}
+.cell_content_icon{
+    display: block;
+}
+.timeline_title{
+    font-size: 36rpx;
+    line-height: 48rpx;
+    font-weight: bold;
+    color: #999;
+}
+
+.timeline_title_active{
+    color:#000;
+}
+
+.timeline_content{
+    font-size: 30rpx;
+    line-height: 40rpx;
+    margin: 6rpx 0 30rpx;
+    color: #999;
+}
+
+.timeline_lastcontent{
+    font-size: 36rpx;
+    line-height: 48rpx;
+    margin: -30rpx 0 30rpx;
+    color: #999;
+}
+
+.timeline-button{
+    width: 240rpx;
+}
+
+.timeline-button button{
+    height: 90rpx;
+    line-height: 90rpx;
+}
+.timeline_time {
+    display: inline-block;
+    color: #999999;
+    font-weight: normal;
+    font-size: 32rpx;
+    margin-left: 10rpx;
+}
+
+.cell__content__label{
+    font-size: 48rpx;
+    line-height: 68rpx;
+}
+
+.g-icon{
+    margin-top: -65rpx;
+}
+
+.status_title{
+    padding-top: 30rpx;
+    color: #000000;
+    font-size: 36rpx;
+    line-height: 48rpx;
+}
+
+.status_content{
+    padding-top: 6rpx;
+    color: #666666;
+    font-size: 32rpx;
+    line-height: 44rpx;
+}
+
+.ess__cell{
+    margin-top: -26rpx;
+}
+.ess__allcon{
+    display: flex;
+    padding-top: 30rpx;
+    color: #666666;
+    font-size: 32rpx;
+    line-height: 44rpx;
+}
+
+.allcon2{
+    width: 624rpx;
+    display: flex;
+    padding-top: 22rpx;
+    color: #999999;
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+
+.ess__appendMes{
+    flex-flow: row;
+    margin-left: auto;
+    color: #666666;
+}
+
+.cell_top{
+    padding-top: 20rpx;
+}
+
+.section{
+    position: relative;
+    font-size: 36rpx;
+    line-height: 40rpx;
+    color: #000000;
+}
+
+.section_r{
+    display: inline-block;
+    box-sizing: border-box;
+    height: 18rpx;
+    width: 18rpx;
+    border-width: 4rpx 4rpx 0 0;
+    border-color: #C7C7CC;
+    border-style: solid;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    right: 0;
+    right: 6rpx;
+}
+
+.bun-wrapper{
+    padding: 90rpx 0;
+}
+
+.btn-todo{
+    width: 584rpx;
+    margin: 0 auto;
+    background: #FAFAFA;
+    color: #666666;
+    font-size: 34rpx;
+}

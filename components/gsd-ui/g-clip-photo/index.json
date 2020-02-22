@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-image": "../g-image/index",
+    "g-switch": "../g-switch/index"
+  }
+}

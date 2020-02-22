@@ -1,0 +1,50 @@
+<view class="table--scroll">
+  <!-- 浮动框 -->
+  <view class="fixed__block">
+    <view class="table table--fixed">
+      <!-- colgroup -->
+      <view class="colgroup">
+        <view class="col" style="width: 100px;" />
+        <view class="col" wx:for="{{data}}" wx:key="{{index}}" style="width: 100px;" />
+      </view>
+      <!-- tbody -->
+      <view class="tbody g-table__tbody">
+        <view class="tr g-table__tr" wx:for="{{columns}}" wx:key="{{index}}" wx:for-item="rowItem">
+          <view class="th g-table__th">
+            <view class="g-table__cell">{{rowItem.title}}</view>
+          </view>
+          <view class="td g-table__td" wx:for="{{data}}" wx:key="{{colItem.key}}" wx:for-item="colItem">
+            <view class="g-table__cell">{{colItem[rowItem.key]}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-x>
+    <view class="table table__main">
+      <!-- colgroup -->
+      <view class="colgroup">
+        <view class="col" style="width: 100px;" />
+        <view class="col" wx:for="{{data}}" wx:key="{{index}}" style="width: 100px;" />
+      </view>
+      <!-- tbody -->
+      <view class="tbody g-table__tbody">
+        <view class="tr g-table__tr" wx:for="{{columns}}" wx:key="{{index}}" wx:for-item="rowItem">
+          <view class="th g-table__th">
+            <view class="g-table__cell">{{rowItem.title}}</view>
+          </view>
+          <block wx:if="{{data.length > 0}}">
+            <view class="td g-table__td" wx:for="{{data}}" wx:key="{{colItem.key}}" wx:for-item="colItem">
+              <view class="g-table__cell">{{colItem[rowItem.key]}}</view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="td g-table__td">
+              <view class="g-table__cell">暂无数据</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/donate/msg/index.wxml-->
+<g-msg title="{{msgTitle}}" status="{{msgStatus}}"
+  desc="{{msgDesc}}"
+  primary-text="返回首页"
+  second-text="继续登记"
+  bind:primaryTap="handlePrimaryTap"
+  bind:secondTap="handleSecondTap"
+  footerFixed
+>
+</g-msg>
+<view class="link">
+  <view bindtap="handleNav" data-index="1">捐赠要求</view>
+  <view class="divide-line"></view>
+  <view bindtap="handleNav" data-index="2">捐赠渠道</view>
+</view>

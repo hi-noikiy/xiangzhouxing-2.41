@@ -1,0 +1,59 @@
+/* pages/buy/components/notice-bar/index.wxss */
+
+.notice-bar {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 27rpx 46rpx 31rpx;
+  font-size: 30rpx;
+  color: #FF9F00;
+  line-height: 42rpx;
+  background-color: #FFC459;
+  border-bottom: 4rpx solid #FFC459;
+}
+
+.notice-bar--withicon {
+  position: relative;
+  padding-right: 80rpx;
+}
+
+.notice-bar__left-icon {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  margin-right: 8rpx;
+  vertical-align: middle;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.notice-bar__left-icon, .notice-bar__right-icon {
+  font-size: 32rpx;
+  min-width: 40rpx;
+}
+
+.notice-bar__right-icon {
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+}
+
+.notice-bar__wrap {
+  position: relative;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: hidden;
+  height: 42rpx;
+  padding-left: 8rpx;
+}
+
+.notice-bar__content {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.notice-bar__content.ellipsis {
+  max-width: 100%;
+}

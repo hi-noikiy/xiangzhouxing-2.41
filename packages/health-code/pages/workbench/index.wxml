@@ -1,0 +1,24 @@
+<!--packages/health-code/pages/workbench/index.wxml-->
+
+<view class="row  colorWhite greenBox">
+  <view hover-class="hoverGreen" hover-stay-time="150" class="heightFill center flex1 column alignCenter" bindtap='goKSYZ'>
+    <image class="image" src="/images/workbench/ksyz.png"> </image>
+    <text class="marginTop16">快速验证</text>
+  </view>
+  <view hover-class="hoverGreen" hover-stay-time="150" class="heightFill center flex1 column alignCenter" bindtap='goPCDJ'>
+    <image class="image" src="/images/workbench/pcdj.png"> </image>
+    <text class="marginTop16">普查登记</text>
+  </view>
+</view>
+
+<view class=" whiteBox">
+  <view class="myServer">我的服务</view>
+
+  <view class='grid'>
+    <view wx:for="{{gridMenu}}" wx:key="id" hover-class="hoverWhite" hover-stay-time="150" class="item" data-url="{{item.url}}" bindtap="onJunp">
+      <image class="image" src="/images/home/me-selected.png"> </image>
+      <text class="marginTop16"> {{item.title}}</text>
+    </view>
+  </view>
+
+</view>

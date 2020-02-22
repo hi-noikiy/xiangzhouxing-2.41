@@ -1,0 +1,10 @@
+<view class="table">
+  <!-- thead -->
+  <view class="thead g-table__thead">
+    <view class="tr">
+      <view class="th g-table__th" wx:for="{{columns}}" wx:key="{{item.key}}">
+        <view class="g-table__thead--title">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+</view>

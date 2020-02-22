@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "g-tips": "../g-tips/index",
+    "g-button-group": "../g-button-group/index"
+  }
+}

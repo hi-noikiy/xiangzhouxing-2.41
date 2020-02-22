@@ -1,0 +1,13 @@
+<view class="table">
+  <!-- tbody -->
+  <view class="tbody g-table__tbody" wx:if="{{data.length > 0}}">
+    <view class="tr g-table__tr" wx:for="{{data}}" wx:key="{{index}}" wx:for-item="rowItem">
+      <view class="td g-table__td" wx:for="{{columns}}" wx:key="{{colItem.key}}" wx:for-item="colItem">
+        <view class="g-table__cell">{{rowItem[colItem.key]}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="g-table__empty">
+    暂无数据
+  </view>
+</view>

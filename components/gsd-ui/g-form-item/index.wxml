@@ -1,0 +1,13 @@
+<!--pages/g-form-item/index.wxml-->
+<view class="form-item {{_status ? 'form-item--' + status : ''}} component-class static-item-class no-border-class">
+  <view class="form-item__wrap {{disabled ? 'form-item__wrap--disabled' : ''}}">
+    <view class="form-item__label" wx:if="{{label}}" aria-label="{{label}}">
+      <text class="form-item__label--required" wx:if="{{required}}">*</text> 
+      {{label}}
+    </view>
+    <slot />
+  </view>
+</view>
+<view wx:if="{{_status}}" class="form-item__status-message {{_status ? 'form-item__status-message--' + status : ''}}">
+  {{_statusMessage}}
+</view>

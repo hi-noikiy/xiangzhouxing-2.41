@@ -1,0 +1,8 @@
+<!--pages/g-banner/index.wxml-->
+<swiper class="banner" interval="10000" indicator-color="#DDDDDD" indicator-active-color="#666666" indicator-dots="{{_showDots}}" autoplay="{{_autoplay}}">
+  <block wx:for="{{src}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="banner__image" mode="widthFix"/>
+    </swiper-item>
+  </block>
+</swiper>

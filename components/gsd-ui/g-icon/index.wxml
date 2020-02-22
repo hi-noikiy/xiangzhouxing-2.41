@@ -1,0 +1,2 @@
+<!--pages/g-icon/index.wxml-->
+<view class="g-icon g-icon-{{type}}" style="font-size: {{size}}rpx; {{_color ? 'color: ' + _color : ''}}" />

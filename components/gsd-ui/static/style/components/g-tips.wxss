@@ -1,0 +1,173 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.tips {
+  z-index: 900;
+  box-sizing: border-box;
+  top: 0rpx;
+  width: 100%;
+  padding: 30rpx 40rpx;
+  color: #fff;
+}
+
+.tips__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  position: relative;
+}
+
+.tips__close {
+  padding: 0 20rpx;
+  margin-right: -20rpx;
+  margin-top: 2rpx;
+}
+
+.tips--fixed {
+  position: fixed;
+}
+
+.tips--default {
+  background: #AEBAC9;
+}
+
+.tips--warn {
+  background: #F0422C;
+}
+
+.tips__content {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  margin-right: 20rpx;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.tips--default--hover {
+  background: #a5b2c3;
+}
+
+.tips--warn--hover {
+  background: #ef351e;
+}
+
+.tips--loop .tips__content {
+  height: 40rpx;
+}
+
+.tips--loop .tips__content-text {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  animation: loop 20s linear infinite;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(750rpx);
+  }
+  100% {
+    transform: translateX(-105%);
+  }
+}

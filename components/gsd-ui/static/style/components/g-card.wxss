@@ -1,0 +1,165 @@
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.colgroup {
+  display: table-column-group;
+}
+
+.col {
+  display: table-column;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.th {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.td {
+  display: table-cell;
+  text-align: center;
+  word-break: break-all;
+}
+
+.border--top {
+  position: relative;
+}
+
+.border--top::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  top: 0;
+}
+
+.border--bottom {
+  position: relative;
+}
+
+.border--bottom::after {
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  left: 0;
+  right: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  bottom: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  left: 0;
+}
+
+.border--left {
+  position: relative;
+}
+
+.border--left::after {
+  width: 100%;
+  width: 1px;
+  transform: scaleX(0.5);
+  top: 0;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  background-color: #ebebeb;
+  right: 0;
+}
+
+.g-card__none {
+  border: 2rpx solid #EBEBEB;
+  border-radius: 8rpx;
+  margin: 40rpx;
+  padding: 10rpx;
+}
+
+.g-card__checkBox {
+  flex: 1;
+  text-align: center;
+}
+
+.g-card__item {
+  flex: 5;
+  margin: 0 30rpx;
+}
+
+.g-card__contain {
+  border: 2rpx solid #EBEBEB;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40rpx;
+}
+
+.radio__icon--checked {
+  color: #4293f4;
+}
+
+.radio__icon--unchecked {
+  border: 1px solid #ebebeb;
+  border-radius: 8rpx;
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border-color: #bbbec4;
+  background: #fafafa;
+  margin: auto;
+}
+
+.checkbox__icon--checked {
+  color: #4293f4;
+}
+
+.checkbox__icon--unchecked {
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border: 1px solid #ebebeb;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  border-color: #bbbec4;
+  border-radius: 3rpx;
+  background: #fafafa;
+  margin: auto;
+}
+
+.disabled-class {
+  opacity: 0.46;
+}

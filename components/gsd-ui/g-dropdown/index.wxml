@@ -1,0 +1,5 @@
+<!--pages/g-dropdown/index.wxml-->
+<view class="dropdown">
+  <view><slot /></view>
+  <view class="dropdown__icon" style="border-top-color: {{color}}"></view>
+</view>

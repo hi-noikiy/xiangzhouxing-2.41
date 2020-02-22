@@ -1,0 +1,9 @@
+<!--pages/car-code/bus-code/passenger/commit/index.wxml-->
+<g-msg title="提交" status="success"
+  desc="交通卡口登记信息已提交成功。"
+  primary-text="查看我的通行码"
+  second-text="返回登记记录"
+  bind:primaryTap="handlePrimaryTap"
+  bind:secondTap="handleSecondTap" 
+>
+</g-msg>

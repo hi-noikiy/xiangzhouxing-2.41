@@ -1,0 +1,30 @@
+<!-- pages/g-checkbox-group/index.wxml -->
+<checkbox-group bindchange="handleChange">
+  <view class="check__container" wx:for="{{_items}}" wx:key="index" 
+  aria-role="button"
+  aria-label="{{item.name + (items[index].desc ? items[index].desc : '') + (item.checked ? ' 选中' : ' 未选中') + (item.disabled ? ' 已禁用' : '')}}"
+  >
+    <label class="check__container__label">
+      <g-form-item disabled="{{item.disabled}}" component-class="form-item">
+        <view class="checkbox__item">
+          <checkbox class="checkbox" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />
+          <view class="checkbox__icon">
+            <view hidden="{{!item.checked}}">
+              <g-icon class="checkbox__icon--checked" size="48" type="check" />
+            </view>
+            <view hidden="{{item.checked}}" class="checkbox__icon--unchecked" />
+          </view>
+          <view class="checkbox__label">
+            <view class="checkbox__label__text">{{item.name}}</view>
+            <view class="checkbox__label__desc" >
+              <view wx:for="{{item.desc}}" wx:key="{{subItem}}" wx:for-item="subItem" aria-label="{{subItem}}">{{subItem}}</view>
+            </view>
+          </view>
+        </view>
+      </g-form-item>
+    </label>
+    <view class="check__container__icon check__type" data-item="{{item}}" catch:tap="handleIconTap">
+      <g-icon wx:if="{{item.icon === 'info'}}" class="check__type--info" type="info-o" size="48" />
+    </view>
+  </view>
+</checkbox-group>
