@@ -10,6 +10,10 @@ function request(options, retryTime = 2) {
   return new Promise((resolve, reject) => {
     getSessionId()
       .then(sessionid => {
+        console.log('发起请求:')
+        console.log(fixedDomain(options.url))
+        console.log('发起请求的配置参数:')
+        console.log({...options})
         return wxp.request({
           ...options,
           url: fixedDomain(options.url),
