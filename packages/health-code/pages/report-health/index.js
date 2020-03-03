@@ -143,19 +143,19 @@ Anim.Page({
             lastReportTime: item.lastReportTime
           }
           let foreground = '#000000';//二维码前景色，默认值黑色
-          if(item.symptom.indexOf(11) !== -1 || item.symptom.indexOf(12) !== -1){
-              //发烧改红色
-              foreground = '#FF0000';
-          }else if(item.symptom.indexOf(13) !== -1){
-              //咳嗽改橙色
-              foreground = '#FFA500';
-          }else if(item.symptom.indexOf(14) !== -1 ){
-              //乏力改橙色
-              foreground = '#FFA500';
-          }else{
-              //无症状改绿色
-              foreground = '#008000';
-          }
+          // if(item.symptom.indexOf(11) !== -1 || item.symptom.indexOf(12) !== -1){
+          //     //发烧改红色
+          //     foreground = '#FF0000';
+          // }else if(item.symptom.indexOf(13) !== -1){
+          //     //咳嗽改橙色
+          //     foreground = '#FFA500';
+          // }else if(item.symptom.indexOf(14) !== -1 ){
+          //     //乏力改橙色
+          //     foreground = '#FFA500';
+          // }else{
+          //     //无症状改绿色
+          //     foreground = '#008000';
+          // }
 
           //  症状(11、12发烧 13咳嗽 14乏力 15其他症状 1无症状)
           drawQrcode({
