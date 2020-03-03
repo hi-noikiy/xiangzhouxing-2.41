@@ -142,11 +142,27 @@ Anim.Page({
             codeId: item.codeId,
             lastReportTime: item.lastReportTime
           }
+          let foreground = '#000000';//二维码前景色，默认值黑色
+          if(item.symptom.indexOf(11) !== -1 || item.symptom.indexOf(12) !== -1){
+              //发烧改红色
+              foreground = '#FF0000';
+          }else if(item.symptom.indexOf(13) !== -1){
+              //咳嗽改橙色
+              foreground = '#FFA500';
+          }else if(item.symptom.indexOf(14) !== -1 ){
+              //乏力改橙色
+              foreground = '#FFA500';
+          }else{
+              //无症状改绿色
+              foreground = '#008000';
+          }
 
+          //  症状(11、12发烧 13咳嗽 14乏力 15其他症状 1无症状)
           drawQrcode({
             width: 160,
             height: 160,
             canvasId: 'myQrcode' + index,
+            foreground: foreground,
             text: JSON.stringify(url)
           })
 
@@ -228,7 +244,7 @@ Anim.Page({
       inx = e.detail.current;
     }
     // let inx = e.detail.current || this.data.current;
-   //  症状
+   //  症状(11、12发烧 13咳嗽 14乏力 15其他症状 1无症状)
     let symList = this.data.symptomList.map(it => {
       it.checked = false;
       if(this.data.relationUserList[inx].symptom){

@@ -98,8 +98,8 @@
         </view>
           <!-- <view class="title-day">
              <view class="title-day-text">近10条通行记录</view>
-          </view> -->
-          <!-- <view>
+          </view>
+          <view>
             <view class="cx-log" wx:if='{{logList.length == 0}}'>
                <image src="https://imgcache.gzonline.gov.cn/cos/no-log.png" mode='widthFix' class="cx-log-img"></image>
                <view class="cx-log-text">暂无出行记录</view>
@@ -108,9 +108,9 @@
                <g-cell wx:for='{{logList}}'>
                   <view class="log-time">
                     <view class="log-dt">
-                       <text>{{item.createTime}}</text> -->
-                       <!-- <text class="log-dt-time">{{item.time}}</text> -->
-                    <!-- </view>
+                       <text>{{item.createTime}}</text>
+                       <text class="log-dt-time">{{item.time}}</text>
+                    </view>
                     <view class="log-tv">
                      <text>体温：</text>
                      <text wx:if='{{item.temperature > 37.3}}' class='ycsty'>{{item.temperature}}℃</text>
