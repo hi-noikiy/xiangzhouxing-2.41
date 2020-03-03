@@ -76,13 +76,13 @@
                 <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/qyfg/icon-space.svg"></image>
             </view>
         </g-cell> -->
-    <g-cell wx:if="{{!userInfo.isLeader}}" label="我的疫情线索上报"
+    <!-- <g-cell wx:if="{{!userInfo.isLeader}}" label="我的疫情线索上报"
             to="/pages/mine/todo/list/list?todoType=report"
             access="true">
         <view slot="prepend">
             <image class="mine__cell-image" src="https://imgcache.gzonline.gov.cn/cos/iconspace_bs_f57a8fca.svg"></image>
         </view>
-    </g-cell>
+    </g-cell> -->
     <!-- <g-cell wx:if="{{false}}" label="我的捐赠"
             to="/pages/mine/donation/index"
             access="true">

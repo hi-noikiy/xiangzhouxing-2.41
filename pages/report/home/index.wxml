@@ -8,11 +8,11 @@
 				<image src="https://imgcache.gzonline.gov.cn/cos/images/zc%402x.png"></image>
 			</view>
 		</g-cell>
-		<g-cell label='为他人上报健康状况'  bind:tap="onTapAccess" desc="为他人上报健康状态信息" data-url="/pages/report/index/index?type=2">
+		<!-- <g-cell label='为他人上报健康状况'  bind:tap="onTapAccess" desc="为他人上报健康状态信息" data-url="/pages/report/index/index?type=2">
 				<view slot="prepend" class="img">
 					<image src="https://imgcache.gzonline.gov.cn/cos/images/tr%402x.png"></image>
 				</view>
-		</g-cell>
+		</g-cell> -->
 	</g-wrapper>
 
 	<g-footer fixed/>
